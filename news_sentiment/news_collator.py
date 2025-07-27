@@ -15,7 +15,7 @@ from langchain_openai import ChatOpenAI
 from langchain.schema import SystemMessage, HumanMessage
 
 from utils.config import env
-from duckduckgo_search import ddg
+from tavily import TavilyClient
 # Load environment variables
 load_dotenv()
 
@@ -63,7 +63,7 @@ class SentimentCollator:
         # Initialize API clients
         self.exa_client = Exa(api_key=self.exa_api_key)
         self.openai_client = OpenAI(api_key=self.openai_api_key)
-        
+        self.tavily_client = TavilyClient(api_key=os.getenv('TAVILY_API_KEY'))
         # Storage for collected data
         self.articles: List[NewsArticle] = []
         
@@ -73,7 +73,10 @@ class SentimentCollator:
         """
         Search for context about the company using DuckDuckGo.
         """
-        results = ddg(query, max_results=max_results)
+        results = self.tavily_client.search(query = query)
+        results = results['results']
+        results = [result['content'] for result in results]
+        results = "\n".join(results)
         return results
         
     def generate_queries(self, company_name: str) -> List[str]:
@@ -85,7 +88,7 @@ class SentimentCollator:
 
         prompt = """
         You are a financial news analyst. 
-        You are given a stock symbol and you need to generate a list of queries to search for news about the stock.
+        You are given a company and you need to generate a list of queries to search for news about the company stock.
         You should generate queries regarding the company and the sector that the company is in.
         The queries should be looking for news from reliable sources.
         The queries should be in the format of a list of strings.
@@ -176,12 +179,6 @@ class SentimentCollator:
             logger.error(f"Error searching for news: {e}")
             raise
     
-    def collate_summaries(self, articles: List[NewsArticle]) -> str:
-        """
-        Collate the summaries of the articles into a single string.
-        """
-        summaries = [article.summary for article in articles if article.summary]
-        return "\n".join(summaries)
     
     def summarize_article(self, article: NewsArticle) -> str:
         """
@@ -217,8 +214,16 @@ class SentimentCollator:
         except Exception as e:
             logger.error(f"Error summarizing article: {e}")
             return f"Error generating summary: {str(e)}"
+        
+    def summarize_all_articles(self, articles: List[NewsArticle]) -> List[str]:
+        """
+        Summarize all the articles.
+        """
+        summaries = [self.summarize_article(article) for article in articles]
+        summaries = "\n\n".join(summaries)
+        return summaries
     
-    def analyze_sentiment(self, summaries: List[str], mode: str = "company", target_name: str = "Company") -> tuple[int, str]:
+    def analyze_sentiment(self, summaries: str, mode: str = "company", target_name: str = "Company") -> tuple[int, str]:
         """
         Analyze sentiment using ChatOpenAI (LangChain), based on company or sector mode.
 
@@ -262,17 +267,16 @@ class SentimentCollator:
             logger.error(f"Error analyzing sentiment: {e}")
             return "Error analyzing sentiment", mode
         
-    def get_stock_sentiment(self, articles: List[NewsArticle]) -> str:
+    def get_stock_sentiment(self, company_name: str) -> str:
         """
-        Get the sentiment of the stock from the articles.
+        Given the name of the company, get the articles, perform the summaries then get the 2 sentiment scores, one for the company and one for the sector.
         """
 
-        raise NotImplementedError("Not implemented")
         # search for stock articles 
-
-        # perform summaries 
-
+        articles = self.search_news(company_name)
+        summaries = self.summarize_all_articles(articles)
         # perform sentiment analysis 
+        company_sentiment, mode = self.analyze_sentiment(summaries, mode="company", target_name=company_name)
+        sector_sentiment, mode = self.analyze_sentiment(summaries, mode="sector", target_name=company_name)
+        return company_sentiment, sector_sentiment
 
-        # return the sentiment 
-    

@@ -1,7 +1,4 @@
 import os
-from typing import Optional
-
-from pydantic import PostgresDsn
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -16,6 +13,8 @@ class EnvSettings(BaseSettings):
     LLM_NAME: str = "gpt-4o"
 
     EXA_API_KEY: str
+    TAVILY_API_KEY: str
+    FINANCIAL_API_KEY: str
 
 class LocalDevSettings(EnvSettings):
 

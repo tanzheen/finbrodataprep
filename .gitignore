@@ -1,0 +1,5 @@
+config
+.env
+
+findata/
+notebook.ipynb
