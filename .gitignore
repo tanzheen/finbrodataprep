@@ -4,3 +4,6 @@ config
 findata/
 notebook.ipynb
 *.pyc
+/analysis_results
+logs/app.log
+logs/app.log

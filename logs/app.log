@@ -15229,3 +15229,879 @@ Overall, the sentiment for Apple Inc. is mixed, with a slight negative tilt due 
 2025-07-28 14:03:20,127 - ratings.rater - INFO - Rating summary created. Length: 1431 characters
 2025-07-28 14:03:20,127 - pipelines.pipelines - INFO - Creating complete analysis summary for AAPL
 2025-07-28 14:03:20,127 - pipelines.pipelines - INFO - Analysis summary created for AAPL. Length: 6745 characters
+2025-07-28 15:48:24,676 - utils.config - INFO - Logging configured with level: INFO
+2025-07-28 15:48:25,106 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-07-28 15:48:25,106 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-07-28 15:48:25,106 - __main__ - INFO - Starting batch analysis for 1 stocks: ['AAPL']
+2025-07-28 15:48:25,106 - __main__ - INFO - Initializing Stock Analysis Pipeline for batch processing
+2025-07-28 15:48:25,106 - pipelines.pipelines - INFO - Initializing Stock Analysis Pipeline...
+2025-07-28 15:48:25,107 - pipelines.pipelines - INFO - Initializing FinancialDataGatherer
+2025-07-28 15:48:25,107 - fundamentals.finances - INFO - FinancialDataGatherer initialized
+2025-07-28 15:48:25,107 - pipelines.pipelines - INFO - Initializing SentimentCollator
+2025-07-28 15:48:25,146 - news_sentiment.news_collator - INFO - NewsCollator initialized successfully
+2025-07-28 15:48:25,147 - pipelines.pipelines - INFO - Initializing StockRater
+2025-07-28 15:48:25,147 - ratings.rater - INFO - Initializing StockRater
+2025-07-28 15:48:25,147 - ratings.rater - INFO - Initializing ChatOpenAI for stock rating
+2025-07-28 15:48:25,272 - ratings.rater - INFO - StockRater initialized successfully
+2025-07-28 15:48:25,272 - pipelines.pipelines - INFO - Stock Analysis Pipeline initialized successfully
+2025-07-28 15:48:25,272 - __main__ - INFO - Starting batch analysis pipeline for 1 stocks
+2025-07-28 15:48:25,272 - pipelines.pipelines - INFO - Starting batch analysis of 1 stocks: ['AAPL']
+2025-07-28 15:48:25,272 - pipelines.pipelines - INFO - Analyzing stock 1/1: AAPL
+2025-07-28 15:48:25,272 - pipelines.pipelines - INFO - Starting analysis for stock: AAPL
+2025-07-28 15:48:25,272 - pipelines.pipelines - INFO - Step 1/3: Gathering financial data for AAPL
+2025-07-28 15:48:25,272 - pipelines.pipelines - INFO - Retrieving financial data for AAPL
+2025-07-28 15:48:25,272 - fundamentals.finances - INFO - Starting complete financial data pipeline for AAPL
+2025-07-28 15:48:25,272 - fundamentals.finances - INFO - Step 1: Retrieving raw financial data for AAPL
+2025-07-28 15:48:25,272 - fundamentals.finances - INFO - Retrieving financial data for stock: AAPL
+2025-07-28 15:48:25,272 - fundamentals.finances - INFO - Initializing Toolkit for AAPL
+2025-07-28 15:49:21,128 - utils.config - INFO - Logging configured with level: INFO
+2025-07-28 15:49:21,623 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-07-28 15:49:21,623 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-07-28 15:49:21,623 - __main__ - INFO - Starting batch analysis for 1 stocks: ['PYPL']
+2025-07-28 15:49:21,623 - __main__ - INFO - Initializing Stock Analysis Pipeline for batch processing
+2025-07-28 15:49:21,623 - pipelines.pipelines - INFO - Initializing Stock Analysis Pipeline...
+2025-07-28 15:49:21,624 - pipelines.pipelines - INFO - Initializing FinancialDataGatherer
+2025-07-28 15:49:21,624 - fundamentals.finances - INFO - FinancialDataGatherer initialized
+2025-07-28 15:49:21,624 - pipelines.pipelines - INFO - Initializing SentimentCollator
+2025-07-28 15:49:21,665 - news_sentiment.news_collator - INFO - NewsCollator initialized successfully
+2025-07-28 15:49:21,665 - pipelines.pipelines - INFO - Initializing StockRater
+2025-07-28 15:49:21,665 - ratings.rater - INFO - Initializing StockRater
+2025-07-28 15:49:21,665 - ratings.rater - INFO - Initializing ChatOpenAI for stock rating
+2025-07-28 15:49:21,794 - ratings.rater - INFO - StockRater initialized successfully
+2025-07-28 15:49:21,794 - pipelines.pipelines - INFO - Stock Analysis Pipeline initialized successfully
+2025-07-28 15:49:21,795 - __main__ - INFO - Starting batch analysis pipeline for 1 stocks
+2025-07-28 15:49:21,795 - pipelines.pipelines - INFO - Starting batch analysis of 1 stocks: ['PYPL']
+2025-07-28 15:49:21,795 - pipelines.pipelines - INFO - Analyzing stock 1/1: PYPL
+2025-07-28 15:49:21,795 - pipelines.pipelines - INFO - Starting analysis for stock: PYPL
+2025-07-28 15:49:21,795 - pipelines.pipelines - INFO - Step 1/3: Gathering financial data for PYPL
+2025-07-28 15:49:21,795 - pipelines.pipelines - INFO - Retrieving financial data for PYPL
+2025-07-28 15:49:21,795 - fundamentals.finances - INFO - Starting complete financial data pipeline for PYPL
+2025-07-28 15:49:21,795 - fundamentals.finances - INFO - Step 1: Retrieving raw financial data for PYPL
+2025-07-28 15:49:21,795 - fundamentals.finances - INFO - Retrieving financial data for stock: PYPL
+2025-07-28 15:49:21,795 - fundamentals.finances - INFO - Initializing Toolkit for PYPL
+2025-07-28 15:49:22,921 - fundamentals.finances - INFO - Retrieving Earnings Per Share for PYPL
+2025-07-28 15:49:30,071 - yfinance - ERROR - Failed to get ticker '^TNX' reason: Expecting value: line 1 column 1 (char 0)
+2025-07-28 15:49:30,073 - yfinance - ERROR - ^TNX: No timezone found, symbol may be delisted
+2025-07-28 15:49:32,537 - fundamentals.finances - INFO - Retrieving Income Statement for PYPL
+2025-07-28 15:49:32,538 - fundamentals.finances - INFO - Retrieving Cash Flow Statement for PYPL
+2025-07-28 15:49:32,538 - fundamentals.finances - INFO - Retrieving Balance Sheet for PYPL
+2025-07-28 15:49:32,538 - fundamentals.finances - INFO - Retrieving financial ratios for PYPL
+2025-07-28 15:49:32,590 - fundamentals.finances - INFO - Combining all financial data for PYPL
+2025-07-28 15:49:32,590 - fundamentals.finances - INFO - Successfully retrieved financial data for PYPL. Shape: (14, 4)
+2025-07-28 15:49:32,590 - fundamentals.finances - INFO - Step 2: Standardizing units for PYPL
+2025-07-28 15:49:32,590 - fundamentals.finances - INFO - Standardizing units and calculating percentage changes
+2025-07-28 15:49:32,591 - fundamentals.finances - INFO - Calculating percentage changes for EPS and Net Income
+2025-07-28 15:49:32,594 - fundamentals.finances - INFO - Applying unit scaling
+2025-07-28 15:49:32,597 - fundamentals.finances - INFO - Inserting percentage change rows
+2025-07-28 15:49:32,598 - fundamentals.finances - INFO - Converting to numeric and rounding values
+2025-07-28 15:49:32,599 - fundamentals.finances - INFO - Unit standardization completed. Final shape: (16, 5)
+2025-07-28 15:49:32,599 - fundamentals.finances - INFO - Step 3: Converting to HTML for PYPL
+2025-07-28 15:49:32,599 - fundamentals.finances - INFO - Converting DataFrame to HTML format
+2025-07-28 15:49:32,601 - fundamentals.finances - INFO - Successfully converted DataFrame to HTML. Length: 2241 characters
+2025-07-28 15:49:32,601 - fundamentals.finances - INFO - Successfully completed financial data pipeline for PYPL
+2025-07-28 15:49:32,601 - pipelines.pipelines - INFO - Financial data retrieved successfully for PYPL
+2025-07-28 15:49:32,601 - pipelines.pipelines - INFO - Financial data retrieved for PYPL. Length: 2241 characters
+2025-07-28 15:49:32,601 - pipelines.pipelines - INFO - Step 2/3: Analyzing news sentiment for PYPL
+2025-07-28 15:49:32,601 - pipelines.pipelines - INFO - Retrieving sentiment analysis for PYPL
+2025-07-28 15:49:32,601 - news_sentiment.news_collator - INFO - Searching for news with query: PYPL
+2025-07-28 15:49:36,534 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:49:36,548 - news_sentiment.news_collator - INFO - Generated queries: ['PayPal stock nasdaq news', 'PayPal stock cnbc news', 'financial technology sector news'], type: <class 'list'>
+2025-07-28 15:49:39,066 - news_sentiment.news_collator - INFO - Found 10 results for query: PayPal stock nasdaq news
+2025-07-28 15:49:42,051 - news_sentiment.news_collator - INFO - Found 10 results for query: PayPal stock cnbc news
+2025-07-28 15:49:46,363 - news_sentiment.news_collator - INFO - Found 10 results for query: financial technology sector news
+2025-07-28 15:49:46,364 - news_sentiment.news_collator - INFO - Total search results found: 30
+2025-07-28 15:49:46,364 - news_sentiment.news_collator - INFO - result length 2583 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,364 - news_sentiment.news_collator - INFO - result length 1074 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,364 - news_sentiment.news_collator - INFO - result length 14873 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,364 - news_sentiment.news_collator - INFO - result length 404 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,364 - news_sentiment.news_collator - INFO - result length 10190 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,364 - news_sentiment.news_collator - INFO - result length 886 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,364 - news_sentiment.news_collator - INFO - result length 2311 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,364 - news_sentiment.news_collator - INFO - result length 6280 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,364 - news_sentiment.news_collator - INFO - result length 1945 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,364 - news_sentiment.news_collator - INFO - result length 2129 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,364 - news_sentiment.news_collator - INFO - result length 1074 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,364 - news_sentiment.news_collator - INFO - result length 36958 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,365 - news_sentiment.news_collator - INFO - result length 7249 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,365 - news_sentiment.news_collator - INFO - result length 2014 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,365 - news_sentiment.news_collator - INFO - result length 4856 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,365 - news_sentiment.news_collator - INFO - result length 4090 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,365 - news_sentiment.news_collator - INFO - result length 2820 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,365 - news_sentiment.news_collator - INFO - result length 19330 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,365 - news_sentiment.news_collator - INFO - result length 1945 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,365 - news_sentiment.news_collator - INFO - result length 4823 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,366 - news_sentiment.news_collator - INFO - result length 3173 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,366 - news_sentiment.news_collator - INFO - result length 41325 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,366 - news_sentiment.news_collator - INFO - result length 274 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,366 - news_sentiment.news_collator - INFO - result length 326 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,366 - news_sentiment.news_collator - INFO - result length 7828 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,366 - news_sentiment.news_collator - INFO - result length 6924 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,366 - news_sentiment.news_collator - INFO - result length 8663 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,366 - news_sentiment.news_collator - INFO - result length 2139 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,366 - news_sentiment.news_collator - INFO - result length 7138 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,366 - news_sentiment.news_collator - INFO - result length 1344 type <class 'exa_py.api.Result'>
+2025-07-28 15:49:46,366 - news_sentiment.news_collator - INFO - Found 30 articles for query: financial technology sector news
+2025-07-28 15:49:49,845 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:49:49,849 - news_sentiment.news_collator - INFO - Generated summary for article: PayPal Holdings, Inc. Common Stock (PYPL) News - N...
+2025-07-28 15:49:55,471 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:49:55,475 - news_sentiment.news_collator - INFO - Generated summary for article: PYPL: PayPal Holdings Inc - Stock Price, Quote and...
+2025-07-28 15:49:58,980 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:49:58,984 - news_sentiment.news_collator - INFO - Generated summary for article: PayPal Holdings Inc. Stock Quote (U.S. - PYPL - Ma...
+2025-07-28 15:50:02,941 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:50:02,945 - news_sentiment.news_collator - INFO - Generated summary for article: PayPal shares clocked seven-session winning streak...
+2025-07-28 15:50:05,664 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:50:05,667 - news_sentiment.news_collator - INFO - Generated summary for article: Introducing PayPal World: a global platform connec...
+2025-07-28 15:50:07,906 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:50:07,909 - news_sentiment.news_collator - INFO - Generated summary for article: PayPal to Create Global Digital Wallet Platform Wi...
+2025-07-28 15:50:11,050 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:50:11,052 - news_sentiment.news_collator - INFO - Generated summary for article: PayPal to launch cross-border platform with link t...
+2025-07-28 15:50:14,369 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:50:14,373 - news_sentiment.news_collator - INFO - Generated summary for article: 1 Beaten-Down Growth Stock Down 76% to Buy Right N...
+2025-07-28 15:50:17,390 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:50:17,399 - news_sentiment.news_collator - INFO - Generated summary for article: Paypal (PYPL) is a Top-Ranked Growth Stock: Should...
+2025-07-28 15:50:22,599 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:50:22,602 - news_sentiment.news_collator - INFO - Generated summary for article: Seaport Upgrades PayPal (PYPL) From Sell to Neutra...
+2025-07-28 15:50:28,539 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:50:28,543 - news_sentiment.news_collator - INFO - Generated summary for article: PYPL: PayPal Holdings Inc - Stock Price, Quote and...
+2025-07-28 15:50:44,171 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:50:44,175 - news_sentiment.news_collator - INFO - Generated summary for article: PYPL News Today | Why did PayPal stock go up today...
+2025-07-28 15:50:46,882 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:50:46,885 - news_sentiment.news_collator - INFO - Generated summary for article: PYPL | PayPal Holdings, Inc. Common Stock Data, Pr...
+2025-07-28 15:50:50,764 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:50:50,768 - news_sentiment.news_collator - INFO - Generated summary for article: RBC Capital Maintains Outperform Rating on PayPal ...
+2025-07-28 15:50:54,244 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:50:54,247 - news_sentiment.news_collator - INFO - Generated summary for article: PayPal's Earnings Momentum and Undervalued Valuati...
+2025-07-28 15:50:57,415 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:50:57,420 - news_sentiment.news_collator - INFO - Generated summary for article: Stocks making the biggest moves midday - CNBC...
+2025-07-28 15:51:00,959 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:51:00,961 - news_sentiment.news_collator - INFO - Generated summary for article: Block leads fintech rebound, analysts downplay JPM...
+2025-07-28 15:51:06,126 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:51:06,129 - news_sentiment.news_collator - INFO - Generated summary for article: Stock market news for July 14, 2025 - CNBC...
+2025-07-28 15:51:09,395 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:51:09,399 - news_sentiment.news_collator - INFO - Generated summary for article: Paypal (PYPL) is a Top-Ranked Growth Stock: Should...
+2025-07-28 15:51:13,339 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:51:13,341 - news_sentiment.news_collator - INFO - Generated summary for article: PayPal Holdings (PYPL) Stock Price & Overview...
+2025-07-28 15:51:17,628 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:51:17,630 - news_sentiment.news_collator - INFO - Generated summary for article: Latest Fintech News Covering Finance, Payments, Ev...
+2025-07-28 15:51:22,709 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:51:22,711 - news_sentiment.news_collator - INFO - Generated summary for article: FinTech Futures | Trusted source of fintech news &...
+2025-07-28 15:51:26,089 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:51:26,092 - news_sentiment.news_collator - INFO - Generated summary for article: Fintech - Financial Times...
+2025-07-28 15:51:28,777 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:51:28,781 - news_sentiment.news_collator - INFO - Generated summary for article: Financial Technology News and Press Releases from ...
+2025-07-28 15:51:33,488 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:51:33,490 - news_sentiment.news_collator - INFO - Generated summary for article: B2B Fintech Sees Strong Investor Interest: Top B2B...
+2025-07-28 15:51:38,192 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:51:38,195 - news_sentiment.news_collator - INFO - Generated summary for article: CNBC Releases 2025 Ranking of the World's Top Fint...
+2025-07-28 15:51:43,324 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:51:43,332 - news_sentiment.news_collator - INFO - Generated summary for article: Finextra Research: Home...
+2025-07-28 15:51:47,402 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:51:47,414 - news_sentiment.news_collator - INFO - Generated summary for article: JPMorgan Chase overhauls quantum computing leaders...
+2025-07-28 15:51:50,923 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:51:50,925 - news_sentiment.news_collator - INFO - Generated summary for article: Fintech engineering is a fast-growing career that ...
+2025-07-28 15:51:54,186 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:51:54,188 - news_sentiment.news_collator - INFO - Generated summary for article: Crypto lenders dial up risk with ‘microfinance on ...
+2025-07-28 15:52:12,947 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:52:12,952 - news_sentiment.news_collator - INFO - Raw sentiment response: The sentiment analysis for PayPal Holdings, Inc. (PYPL) based on the provided summaries is as follows:
+
+1. **Data Feed Disruption**: The temporary disruption in the Nasdaq data feed for PayPal could negatively impact investors' ability to make informed decisions. However, this is a technical issue rather than a fundamental problem with PayPal itself. **Sentiment Score: 0** (Neutral, as it doesn't directly affect PayPal's financial outlook).
+
+2. **Stock Performance and Market Metrics**: PayPal's stock has declined year-to-date, but its financial metrics suggest potential undervaluation. The upcoming earnings report is crucial. **Sentiment Score: +1** (Mildly positive due to potential undervaluation and strong profitability metrics).
+
+3. **Downgrade and Workforce Reduction**: Raymond James downgraded PayPal due to market share loss concerns, and the company announced a 7% workforce reduction. These are negative developments. **Sentiment Score: -3** (Negative, due to market share concerns and layoffs).
+
+4. **Recent Stock Gains**: PayPal's recent stock gains and a potential recovery phase suggest renewed investor confidence. **Sentiment Score: +2** (Mildly positive, indicating potential recovery and investor confidence).
+
+5. **Launch of PayPal World**: The launch of PayPal World, a global platform for digital payments, positions PayPal as a leader in the sector and could enhance its competitive edge. **Sentiment Score: +4** (Positive, due to strategic expansion and potential market leadership).
+
+6. **Strategic Partnerships and Expansion**: PayPal's partnerships with major digital wallet providers for PayPal World could capture a larger share of the international payments market. **Sentiment Score: +4** (Positive, due to strategic market expansion).
+
+7. **Stock Decline and Strategic Initiatives**: Despite a significant stock decline, PayPal's strategic initiatives under new leadership aim to reignite growth. **Sentiment Score: +2** (Mildly positive, due to strategic focus and potential for growth).
+
+8. **Zacks Investment Research Ranking**: PayPal is identified as a top-ranked growth stock with positive earnings growth expectations. **Sentiment Score: +3** (Positive, due to strong growth indicators and analyst optimism).
+
+9. **Seaport Research Upgrade**: Seaport Research upgraded PayPal from "Sell" to "Neutral," reflecting improved operational resilience. **Sentiment Score: +1** (Mildly positive, due to improved outlook).
+
+10. **Institutional Investor Interest**: Increased holdings by institutional investors and strategic expansion in emerging markets suggest confidence in PayPal's future. **Sentiment Score: +2** (Mildly positive, due to investor confidence and strategic moves).
+
+11. **RBC Capital's "Outperform" Rating**: RBC Capital's positive outlook and growth drivers for PayPal suggest a strong market position. **Sentiment Score: +3** (Positive, due to growth potential and strategic initiatives).
+
+12. **Earnings Forecast and Valuation**: Analysts forecast EPS growth, and PayPal's valuation metrics suggest it is undervalued. **Sentiment Score: +3** (Positive, due to strong earnings potential and undervaluation).
+
+Overall, the sentiment for PayPal Holdings, Inc. is generally positive, with strategic initiatives and growth prospects outweighing some negative developments such as market share concerns and workforce reductions.
+2025-07-28 15:52:13,831 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:52:13,833 - news_sentiment.news_collator - INFO - Raw sentiment response: +1
+2025-07-28 15:52:13,833 - pipelines.pipelines - INFO - Sentiment analysis retrieved successfully for PYPL
+2025-07-28 15:52:13,834 - pipelines.pipelines - INFO - Sentiment analysis completed for PYPL. Company sentiment length: 3383, Sector sentiment length: 2
+2025-07-28 15:52:13,834 - pipelines.pipelines - INFO - Step 3/3: Generating rating for PYPL
+2025-07-28 15:52:13,834 - pipelines.pipelines - INFO - Generating rating for PYPL
+2025-07-28 15:52:13,834 - ratings.rater - INFO - Starting stock rating analysis for PYPL
+2025-07-28 15:52:13,834 - ratings.rater - INFO - Creating rating prompt for PYPL
+2025-07-28 15:52:13,834 - ratings.rater - INFO - Creating rating prompt for PYPL
+2025-07-28 15:52:13,834 - ratings.rater - INFO - Loading stock rating prompt template
+2025-07-28 15:52:13,836 - ratings.rater - INFO - Formatting prompt with data for PYPL
+2025-07-28 15:52:13,836 - ratings.rater - INFO - Rating prompt created for PYPL. Length: 8071 characters
+2025-07-28 15:52:13,836 - ratings.rater - INFO - Sending rating request to ChatOpenAI for PYPL
+2025-07-28 15:52:20,317 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 15:52:20,321 - ratings.rater - INFO - Received rating response for PYPL. Length: 1279 characters
+2025-07-28 15:52:20,321 - ratings.rater - INFO - Parsing JSON response for PYPL
+2025-07-28 15:52:20,321 - ratings.rater - INFO - Extracted JSON from markdown code block for PYPL
+2025-07-28 15:52:20,322 - ratings.rater - INFO - Successfully parsed JSON response for PYPL
+2025-07-28 15:52:20,322 - ratings.rater - INFO - Creating RatingResult object for PYPL
+2025-07-28 15:52:20,322 - ratings.rater - INFO - Successfully rated PYPL as Buy with confidence 85.0%
+2025-07-28 15:52:20,322 - pipelines.pipelines - INFO - Rating generated successfully for PYPL
+2025-07-28 15:52:20,322 - pipelines.pipelines - INFO - Rating generated for PYPL: Buy (Confidence: 85.0%)
+2025-07-28 15:52:20,322 - pipelines.pipelines - INFO - Analysis completed for PYPL. Processing time: 178.53 seconds
+2025-07-28 15:52:20,322 - pipelines.pipelines - INFO - Successfully completed analysis for PYPL
+2025-07-28 15:52:20,322 - pipelines.pipelines - INFO - Progress: 1/1 completed, 1 successful
+2025-07-28 15:52:20,322 - pipelines.pipelines - INFO - Batch analysis completed. 1/1 successful
+2025-07-28 15:52:20,322 - __main__ - INFO - Batch analysis completed. Successful: 1, Failed: 0
+2025-07-28 15:52:20,322 - __main__ - INFO - Stock PYPL: Buy (Confidence: 85.0%)
+2025-07-28 15:52:20,322 - __main__ - INFO - Exporting analysis files to directory: analysis_results in txt format
+2025-07-28 15:52:20,323 - pipelines.pipelines - INFO - Created/verified output directory: analysis_results
+2025-07-28 15:52:20,323 - pipelines.pipelines - INFO - Exporting analysis for PYPL to analysis_results/PYPL_20250728_155220.txt in txt format
+2025-07-28 15:52:20,323 - pipelines.pipelines - INFO - Exporting PYPL analysis to text file: analysis_results/PYPL_20250728_155220.txt
+2025-07-28 15:52:20,323 - pipelines.pipelines - INFO - Creating analysis summary for PYPL
+2025-07-28 15:52:20,323 - pipelines.pipelines - INFO - Getting rating summary for PYPL
+2025-07-28 15:52:20,323 - ratings.rater - INFO - Creating rating summary
+2025-07-28 15:52:20,323 - ratings.rater - INFO - Rating summary created. Length: 1198 characters
+2025-07-28 15:52:20,323 - pipelines.pipelines - INFO - Creating complete analysis summary for PYPL
+2025-07-28 15:52:20,324 - pipelines.pipelines - INFO - Analysis summary created for PYPL. Length: 7079 characters
+2025-07-28 15:52:20,325 - pipelines.pipelines - INFO - Analysis exported to analysis_results/PYPL_20250728_155220.txt
+2025-07-28 15:52:20,325 - pipelines.pipelines - INFO - Exported PYPL (1/1)
+2025-07-28 15:52:20,325 - pipelines.pipelines - INFO - Batch export completed. Successful: 1, Failed: 0
+2025-07-28 15:52:20,325 - pipelines.pipelines - INFO - Creating analysis summary for PYPL
+2025-07-28 15:52:20,325 - pipelines.pipelines - INFO - Getting rating summary for PYPL
+2025-07-28 15:52:20,325 - ratings.rater - INFO - Creating rating summary
+2025-07-28 15:52:20,325 - ratings.rater - INFO - Rating summary created. Length: 1198 characters
+2025-07-28 15:52:20,325 - pipelines.pipelines - INFO - Creating complete analysis summary for PYPL
+2025-07-28 15:52:20,325 - pipelines.pipelines - INFO - Analysis summary created for PYPL. Length: 7079 characters
+2025-07-28 16:01:52,860 - utils.config - INFO - Logging configured with level: INFO
+2025-07-28 16:01:53,298 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-07-28 16:01:53,298 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-07-28 16:01:53,298 - __main__ - INFO - Starting batch analysis for 1 stocks: ['CRWD']
+2025-07-28 16:01:53,298 - __main__ - INFO - Initializing Stock Analysis Pipeline for batch processing
+2025-07-28 16:01:53,298 - pipelines.pipelines - INFO - Initializing Stock Analysis Pipeline...
+2025-07-28 16:01:53,298 - pipelines.pipelines - INFO - Initializing FinancialDataGatherer
+2025-07-28 16:01:53,298 - fundamentals.finances - INFO - FinancialDataGatherer initialized
+2025-07-28 16:01:53,298 - pipelines.pipelines - INFO - Initializing SentimentCollator
+2025-07-28 16:01:53,339 - news_sentiment.news_collator - INFO - NewsCollator initialized successfully
+2025-07-28 16:01:53,339 - pipelines.pipelines - INFO - Initializing StockRater
+2025-07-28 16:01:53,339 - ratings.rater - INFO - Initializing StockRater
+2025-07-28 16:01:53,339 - ratings.rater - INFO - Initializing ChatOpenAI for stock rating
+2025-07-28 16:01:53,465 - ratings.rater - INFO - StockRater initialized successfully
+2025-07-28 16:01:53,465 - pipelines.pipelines - INFO - Stock Analysis Pipeline initialized successfully
+2025-07-28 16:01:53,465 - __main__ - INFO - Starting batch analysis pipeline for 1 stocks
+2025-07-28 16:01:53,465 - pipelines.pipelines - INFO - Starting batch analysis of 1 stocks: ['CRWD']
+2025-07-28 16:01:53,465 - pipelines.pipelines - INFO - Analyzing stock 1/1: CRWD
+2025-07-28 16:01:53,465 - pipelines.pipelines - INFO - Starting analysis for stock: CRWD
+2025-07-28 16:01:53,465 - pipelines.pipelines - INFO - Step 1/3: Gathering financial data for CRWD
+2025-07-28 16:01:53,465 - pipelines.pipelines - INFO - Retrieving financial data for CRWD
+2025-07-28 16:01:53,465 - fundamentals.finances - INFO - Starting complete financial data pipeline for CRWD
+2025-07-28 16:01:53,465 - fundamentals.finances - INFO - Step 1: Retrieving raw financial data for CRWD
+2025-07-28 16:01:53,465 - fundamentals.finances - INFO - Retrieving financial data for stock: CRWD
+2025-07-28 16:01:53,465 - fundamentals.finances - INFO - Initializing Toolkit for CRWD
+2025-07-28 16:01:54,956 - fundamentals.finances - INFO - Retrieving Earnings Per Share for CRWD
+2025-07-28 16:01:57,309 - financetoolkit - ERROR - The following tickers are using a premium query parameter from Financial Modeling Prep: CRWD.
+This is not available in your current plan. Consider upgrading your plan to a higher plan. You can get 15% off by using the following affiliate link which also supports the project: https://www.jeroenbouma.com/fmp
+2025-07-28 16:01:57,310 - financetoolkit - ERROR - The rate limit from Yahoo Finance has been reached or no data could be found from this source for the following ticker: CRWD.
+This occurred after a previous attempt to use FinancialModelingPrep was unsuccessful and is likely due to no data being available for the ticker.
+2025-07-28 16:01:57,310 - financetoolkit - INFO - No balance data found for the following tickers: CRWD
+2025-07-28 16:01:59,216 - financetoolkit - ERROR - The following tickers are using a premium query parameter from Financial Modeling Prep: CRWD.
+This is not available in your current plan. Consider upgrading your plan to a higher plan. You can get 15% off by using the following affiliate link which also supports the project: https://www.jeroenbouma.com/fmp
+2025-07-28 16:01:59,216 - financetoolkit - ERROR - The rate limit from Yahoo Finance has been reached or no data could be found from this source for the following ticker: CRWD.
+This occurred after a previous attempt to use FinancialModelingPrep was unsuccessful and is likely due to no data being available for the ticker.
+2025-07-28 16:01:59,216 - financetoolkit - INFO - No income data found for the following tickers: CRWD
+2025-07-28 16:02:01,138 - financetoolkit - ERROR - The following tickers are using a premium query parameter from Financial Modeling Prep: CRWD.
+This is not available in your current plan. Consider upgrading your plan to a higher plan. You can get 15% off by using the following affiliate link which also supports the project: https://www.jeroenbouma.com/fmp
+2025-07-28 16:02:01,139 - financetoolkit - ERROR - The rate limit from Yahoo Finance has been reached or no data could be found from this source for the following ticker: CRWD.
+This occurred after a previous attempt to use FinancialModelingPrep was unsuccessful and is likely due to no data being available for the ticker.
+2025-07-28 16:02:01,139 - financetoolkit - INFO - No cashflow data found for the following tickers: CRWD
+2025-07-28 16:02:01,143 - fundamentals.finances - ERROR - Error retrieving financial data for CRWD: The datasets could not be populated and therefore the Ratios class cannot be initialized. This is usually because no tickers are equities, you have reached the API limit or entered an invalid API key.
+Traceback (most recent call last):
+  File "/Users/tannicholas/finbrodataprep/fundamentals/finances.py", line 63, in get_values
+    eps = toolkit.ratios.get_earnings_per_share()
+          ^^^^^^^^^^^^^^
+  File "/Users/tannicholas/finbrodataprep/.venv/lib/python3.13/site-packages/financetoolkit/toolkit_controller.py", line 659, in ratios
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The datasets could not be populated and therefore the Ratios class cannot be initialized. This is usually because no tickers are equities, you have reached the API limit or entered an invalid API key.
+2025-07-28 16:02:01,148 - fundamentals.finances - ERROR - Error in financial data pipeline for CRWD: The datasets could not be populated and therefore the Ratios class cannot be initialized. This is usually because no tickers are equities, you have reached the API limit or entered an invalid API key.
+Traceback (most recent call last):
+  File "/Users/tannicholas/finbrodataprep/fundamentals/finances.py", line 210, in from_stock_to_dataframe
+    df = self.get_values(stock)
+  File "/Users/tannicholas/finbrodataprep/fundamentals/finances.py", line 63, in get_values
+    eps = toolkit.ratios.get_earnings_per_share()
+          ^^^^^^^^^^^^^^
+  File "/Users/tannicholas/finbrodataprep/.venv/lib/python3.13/site-packages/financetoolkit/toolkit_controller.py", line 659, in ratios
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The datasets could not be populated and therefore the Ratios class cannot be initialized. This is usually because no tickers are equities, you have reached the API limit or entered an invalid API key.
+2025-07-28 16:02:01,149 - pipelines.pipelines - ERROR - Error getting financial data for CRWD: The datasets could not be populated and therefore the Ratios class cannot be initialized. This is usually because no tickers are equities, you have reached the API limit or entered an invalid API key.
+Traceback (most recent call last):
+  File "/Users/tannicholas/finbrodataprep/pipelines/pipelines.py", line 144, in _get_financial_data
+    financial_data = self.financial_gatherer.from_stock_to_dataframe(stock_symbol)
+  File "/Users/tannicholas/finbrodataprep/fundamentals/finances.py", line 210, in from_stock_to_dataframe
+    df = self.get_values(stock)
+  File "/Users/tannicholas/finbrodataprep/fundamentals/finances.py", line 63, in get_values
+    eps = toolkit.ratios.get_earnings_per_share()
+          ^^^^^^^^^^^^^^
+  File "/Users/tannicholas/finbrodataprep/.venv/lib/python3.13/site-packages/financetoolkit/toolkit_controller.py", line 659, in ratios
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The datasets could not be populated and therefore the Ratios class cannot be initialized. This is usually because no tickers are equities, you have reached the API limit or entered an invalid API key.
+2025-07-28 16:02:01,151 - pipelines.pipelines - ERROR - Error analyzing stock CRWD: The datasets could not be populated and therefore the Ratios class cannot be initialized. This is usually because no tickers are equities, you have reached the API limit or entered an invalid API key.
+Traceback (most recent call last):
+  File "/Users/tannicholas/finbrodataprep/pipelines/pipelines.py", line 87, in analyze_stock
+    financial_data_html = self._get_financial_data(stock_symbol)
+  File "/Users/tannicholas/finbrodataprep/pipelines/pipelines.py", line 144, in _get_financial_data
+    financial_data = self.financial_gatherer.from_stock_to_dataframe(stock_symbol)
+  File "/Users/tannicholas/finbrodataprep/fundamentals/finances.py", line 210, in from_stock_to_dataframe
+    df = self.get_values(stock)
+  File "/Users/tannicholas/finbrodataprep/fundamentals/finances.py", line 63, in get_values
+    eps = toolkit.ratios.get_earnings_per_share()
+          ^^^^^^^^^^^^^^
+  File "/Users/tannicholas/finbrodataprep/.venv/lib/python3.13/site-packages/financetoolkit/toolkit_controller.py", line 659, in ratios
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The datasets could not be populated and therefore the Ratios class cannot be initialized. This is usually because no tickers are equities, you have reached the API limit or entered an invalid API key.
+2025-07-28 16:02:01,152 - pipelines.pipelines - WARNING - Creating error rating result due to analysis failure
+2025-07-28 16:02:01,152 - pipelines.pipelines - INFO - Progress: 1/1 completed, 0 successful
+2025-07-28 16:02:01,152 - pipelines.pipelines - INFO - Batch analysis completed. 0/1 successful
+2025-07-28 16:02:01,152 - __main__ - INFO - Batch analysis completed. Successful: 0, Failed: 1
+2025-07-28 16:02:01,152 - __main__ - ERROR - Failed analysis for CRWD: The datasets could not be populated and therefore the Ratios class cannot be initialized. This is usually because no tickers are equities, you have reached the API limit or entered an invalid API key.
+2025-07-28 16:02:01,153 - __main__ - INFO - Exporting analysis files to directory: analysis_results in txt format
+2025-07-28 16:02:01,153 - pipelines.pipelines - INFO - Created/verified output directory: analysis_results
+2025-07-28 16:02:01,153 - pipelines.pipelines - INFO - Exporting analysis for CRWD to analysis_results/CRWD_20250728_160201.txt in txt format
+2025-07-28 16:02:01,153 - pipelines.pipelines - INFO - Exporting CRWD analysis to text file: analysis_results/CRWD_20250728_160201.txt
+2025-07-28 16:02:01,153 - pipelines.pipelines - INFO - Creating analysis summary for CRWD
+2025-07-28 16:02:01,153 - pipelines.pipelines - WARNING - Creating error summary for failed analysis of CRWD
+2025-07-28 16:02:01,153 - pipelines.pipelines - INFO - Analysis exported to analysis_results/CRWD_20250728_160201.txt
+2025-07-28 16:02:01,153 - pipelines.pipelines - INFO - Exported CRWD (1/1)
+2025-07-28 16:02:01,153 - pipelines.pipelines - INFO - Batch export completed. Successful: 1, Failed: 0
+2025-07-28 16:02:40,334 - utils.config - INFO - Logging configured with level: INFO
+2025-07-28 16:02:40,767 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-07-28 16:02:40,768 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-07-28 16:02:40,768 - __main__ - INFO - Starting batch analysis for 1 stocks: ['AMZN']
+2025-07-28 16:02:40,768 - __main__ - INFO - Initializing Stock Analysis Pipeline for batch processing
+2025-07-28 16:02:40,768 - pipelines.pipelines - INFO - Initializing Stock Analysis Pipeline...
+2025-07-28 16:02:40,768 - pipelines.pipelines - INFO - Initializing FinancialDataGatherer
+2025-07-28 16:02:40,768 - fundamentals.finances - INFO - FinancialDataGatherer initialized
+2025-07-28 16:02:40,768 - pipelines.pipelines - INFO - Initializing SentimentCollator
+2025-07-28 16:02:40,808 - news_sentiment.news_collator - INFO - NewsCollator initialized successfully
+2025-07-28 16:02:40,808 - pipelines.pipelines - INFO - Initializing StockRater
+2025-07-28 16:02:40,808 - ratings.rater - INFO - Initializing StockRater
+2025-07-28 16:02:40,808 - ratings.rater - INFO - Initializing ChatOpenAI for stock rating
+2025-07-28 16:02:40,933 - ratings.rater - INFO - StockRater initialized successfully
+2025-07-28 16:02:40,933 - pipelines.pipelines - INFO - Stock Analysis Pipeline initialized successfully
+2025-07-28 16:02:40,933 - __main__ - INFO - Starting batch analysis pipeline for 1 stocks
+2025-07-28 16:02:40,933 - pipelines.pipelines - INFO - Starting batch analysis of 1 stocks: ['AMZN']
+2025-07-28 16:02:40,933 - pipelines.pipelines - INFO - Analyzing stock 1/1: AMZN
+2025-07-28 16:02:40,934 - pipelines.pipelines - INFO - Starting analysis for stock: AMZN
+2025-07-28 16:02:40,934 - pipelines.pipelines - INFO - Step 1/3: Gathering financial data for AMZN
+2025-07-28 16:02:40,934 - pipelines.pipelines - INFO - Retrieving financial data for AMZN
+2025-07-28 16:02:40,934 - fundamentals.finances - INFO - Starting complete financial data pipeline for AMZN
+2025-07-28 16:02:40,934 - fundamentals.finances - INFO - Step 1: Retrieving raw financial data for AMZN
+2025-07-28 16:02:40,934 - fundamentals.finances - INFO - Retrieving financial data for stock: AMZN
+2025-07-28 16:02:40,934 - fundamentals.finances - INFO - Initializing Toolkit for AMZN
+2025-07-28 16:02:42,258 - fundamentals.finances - INFO - Retrieving Earnings Per Share for AMZN
+2025-07-28 16:02:48,030 - yfinance - ERROR - Failed to get ticker '^TNX' reason: Expecting value: line 1 column 1 (char 0)
+2025-07-28 16:02:48,031 - yfinance - ERROR - ^TNX: No timezone found, symbol may be delisted
+2025-07-28 16:02:50,380 - fundamentals.finances - INFO - Retrieving Income Statement for AMZN
+2025-07-28 16:02:50,380 - fundamentals.finances - INFO - Retrieving Cash Flow Statement for AMZN
+2025-07-28 16:02:50,380 - fundamentals.finances - INFO - Retrieving Balance Sheet for AMZN
+2025-07-28 16:02:50,381 - fundamentals.finances - INFO - Retrieving financial ratios for AMZN
+2025-07-28 16:02:50,435 - fundamentals.finances - INFO - Combining all financial data for AMZN
+2025-07-28 16:02:50,435 - fundamentals.finances - INFO - Successfully retrieved financial data for AMZN. Shape: (14, 4)
+2025-07-28 16:02:50,435 - fundamentals.finances - INFO - Step 2: Standardizing units for AMZN
+2025-07-28 16:02:50,435 - fundamentals.finances - INFO - Standardizing units and calculating percentage changes
+2025-07-28 16:02:50,436 - fundamentals.finances - INFO - Calculating percentage changes for EPS and Net Income
+2025-07-28 16:02:50,437 - fundamentals.finances - INFO - Applying unit scaling
+2025-07-28 16:02:50,440 - fundamentals.finances - INFO - Inserting percentage change rows
+2025-07-28 16:02:50,441 - fundamentals.finances - INFO - Converting to numeric and rounding values
+2025-07-28 16:02:50,442 - fundamentals.finances - INFO - Unit standardization completed. Final shape: (16, 5)
+2025-07-28 16:02:50,442 - fundamentals.finances - INFO - Step 3: Converting to HTML for AMZN
+2025-07-28 16:02:50,442 - fundamentals.finances - INFO - Converting DataFrame to HTML format
+2025-07-28 16:02:50,444 - fundamentals.finances - INFO - Successfully converted DataFrame to HTML. Length: 2266 characters
+2025-07-28 16:02:50,444 - fundamentals.finances - INFO - Successfully completed financial data pipeline for AMZN
+2025-07-28 16:02:50,444 - pipelines.pipelines - INFO - Financial data retrieved successfully for AMZN
+2025-07-28 16:02:50,444 - pipelines.pipelines - INFO - Financial data retrieved for AMZN. Length: 2266 characters
+2025-07-28 16:02:50,444 - pipelines.pipelines - INFO - Step 2/3: Analyzing news sentiment for AMZN
+2025-07-28 16:02:50,444 - pipelines.pipelines - INFO - Retrieving sentiment analysis for AMZN
+2025-07-28 16:02:50,444 - news_sentiment.news_collator - INFO - Searching for news with query: AMZN
+2025-07-28 16:02:55,232 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:02:55,245 - news_sentiment.news_collator - INFO - Generated queries: ['AMZN stock nasdaq news', 'AMZN stock cnbc news', 'tech sector news', 'e-commerce sector news', 'cloud computing sector news'], type: <class 'list'>
+2025-07-28 16:02:58,189 - news_sentiment.news_collator - INFO - Found 10 results for query: AMZN stock nasdaq news
+2025-07-28 16:03:01,071 - news_sentiment.news_collator - INFO - Found 10 results for query: AMZN stock cnbc news
+2025-07-28 16:03:03,645 - news_sentiment.news_collator - INFO - Found 10 results for query: tech sector news
+2025-07-28 16:03:06,670 - news_sentiment.news_collator - INFO - Found 10 results for query: e-commerce sector news
+2025-07-28 16:03:10,153 - news_sentiment.news_collator - INFO - Found 10 results for query: cloud computing sector news
+2025-07-28 16:03:10,153 - news_sentiment.news_collator - INFO - Total search results found: 50
+2025-07-28 16:03:10,153 - news_sentiment.news_collator - INFO - result length 1776 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,153 - news_sentiment.news_collator - INFO - result length 3338 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,153 - news_sentiment.news_collator - INFO - result length 10396 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,153 - news_sentiment.news_collator - INFO - result length 1832 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,153 - news_sentiment.news_collator - INFO - result length 1938 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,154 - news_sentiment.news_collator - INFO - result length 3583 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,154 - news_sentiment.news_collator - INFO - result length 2171 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,154 - news_sentiment.news_collator - INFO - result length 1857 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,154 - news_sentiment.news_collator - INFO - result length 394 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,154 - news_sentiment.news_collator - INFO - result length 4964 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,154 - news_sentiment.news_collator - INFO - result length 75 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,154 - news_sentiment.news_collator - INFO - result length 4186 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,154 - news_sentiment.news_collator - INFO - result length 2438 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,154 - news_sentiment.news_collator - INFO - result length 2202 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,154 - news_sentiment.news_collator - INFO - result length 2719 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,154 - news_sentiment.news_collator - INFO - result length 4964 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,154 - news_sentiment.news_collator - INFO - result length 1651 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 3821 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 273 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 3821 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 3271 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 667 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 4090 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 12068 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 925 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 6677 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 4406 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 6104 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 2529 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 15724 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 2188 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 2561 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 1108 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 6893 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 1203 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 5107 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 3066 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 4101 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 2413 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 10825 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 67 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 97 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 721 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 40499 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 19108 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 7054 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 1426 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,155 - news_sentiment.news_collator - INFO - result length 11236 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,156 - news_sentiment.news_collator - INFO - result length 5322 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,156 - news_sentiment.news_collator - INFO - result length 46725 type <class 'exa_py.api.Result'>
+2025-07-28 16:03:10,156 - news_sentiment.news_collator - INFO - Found 50 articles for query: cloud computing sector news
+2025-07-28 16:03:14,538 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:03:14,541 - news_sentiment.news_collator - INFO - Generated summary for article: Amazon.com Inc. Stock Quote (U.S.: Nasdaq) - AMZN ...
+2025-07-28 16:03:19,791 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:03:19,793 - news_sentiment.news_collator - INFO - Generated summary for article: Amazon.com, Inc. Common Stock (AMZN) - Nasdaq...
+2025-07-28 16:03:22,618 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:03:22,621 - news_sentiment.news_collator - INFO - Generated summary for article: Amazon.com, Inc. Common Stock (AMZN) News Headline...
+2025-07-28 16:03:27,067 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:03:27,070 - news_sentiment.news_collator - INFO - Generated summary for article: Amazon (AMZN) Stock Target Raised to $265 as AWS a...
+2025-07-28 16:03:30,838 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:03:30,842 - news_sentiment.news_collator - INFO - Generated summary for article: Bernstein Stays Bullish on Amazon (AMZN) With ‘Out...
+2025-07-28 16:03:34,828 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:03:34,832 - news_sentiment.news_collator - INFO - Generated summary for article: Jeff Bezos Sells $5.7 Billion in Amazon Shares via...
+2025-07-28 16:03:38,437 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:03:38,440 - news_sentiment.news_collator - INFO - Generated summary for article: Amazon (AMZN)’s AI Push Could Fuel AWS Growth—And ...
+2025-07-28 16:03:42,304 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:03:42,308 - news_sentiment.news_collator - INFO - Generated summary for article: Truist Financial Increases PT on Amazon.com Stock ...
+2025-07-28 16:03:45,834 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:03:45,837 - news_sentiment.news_collator - INFO - Generated summary for article: Earnings week ahead: AAPL, MSFT, AMZN, META, BA, X...
+2025-07-28 16:03:49,422 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:03:49,426 - news_sentiment.news_collator - INFO - Generated summary for article: Factors Potentially Connected to Amazon's Stock Pr...
+2025-07-28 16:03:52,755 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:03:52,758 - news_sentiment.news_collator - INFO - Generated summary for article: Alphabet, Amazon are buys ahead of earnings result...
+2025-07-28 16:03:56,339 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:03:56,345 - news_sentiment.news_collator - INFO - Generated summary for article: 5 things to know before the Friday open: Fed visit...
+2025-07-28 16:03:59,711 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:03:59,712 - news_sentiment.news_collator - INFO - Generated summary for article: Donald Trump, Amazon's Jeff Bezos Reportedly Met A...
+2025-07-28 16:04:02,971 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:04:02,974 - news_sentiment.news_collator - INFO - Generated summary for article: Jeff Bezos sells $666 million in Amazon stock as p...
+2025-07-28 16:04:05,991 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:04:05,994 - news_sentiment.news_collator - INFO - Generated summary for article: Jeff Bezos sells $737 million worth of Amazon shar...
+2025-07-28 16:04:09,092 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:04:09,096 - news_sentiment.news_collator - INFO - Generated summary for article: Factors Potentially Connected to Amazon's Stock Pr...
+2025-07-28 16:04:13,040 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:04:13,042 - news_sentiment.news_collator - INFO - Generated summary for article: Final Trades: Amazon, American Express, Citigroup ...
+2025-07-28 16:04:16,900 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:04:16,903 - news_sentiment.news_collator - INFO - Generated summary for article: Cramer explains which stock is poised to benefit f...
+2025-07-28 16:04:20,136 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:04:20,140 - news_sentiment.news_collator - INFO - Generated summary for article: AI will change the workforce, says Amazon CEO Andy...
+2025-07-28 16:04:24,186 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:04:24,189 - news_sentiment.news_collator - INFO - Generated summary for article: What Amazon's new hardware to cool Nvidia chips me...
+2025-07-28 16:04:27,481 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:04:27,482 - news_sentiment.news_collator - INFO - Generated summary for article: Tech News | Today's Latest Technology News - Reute...
+2025-07-28 16:04:32,015 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:04:32,020 - news_sentiment.news_collator - INFO - Generated summary for article: Technology sector - Financial Times...
+2025-07-28 16:04:34,863 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:04:34,868 - news_sentiment.news_collator - INFO - Generated summary for article: Tech - CNBC...
+2025-07-28 16:04:43,851 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:04:43,853 - news_sentiment.news_collator - INFO - Generated summary for article: Technology - Bloomberg...
+2025-07-28 16:04:48,930 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:04:48,932 - news_sentiment.news_collator - INFO - Generated summary for article: TechCrunch | Startup and Technology News...
+2025-07-28 16:04:54,430 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:04:54,431 - news_sentiment.news_collator - INFO - Generated summary for article: Tech layoffs 2025: How Microsoft, Google, and Meta...
+2025-07-28 16:04:57,214 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:04:57,217 - news_sentiment.news_collator - INFO - Generated summary for article: 2025 tech layoffs: Amazon, Microsoft, Google fuel ...
+2025-07-28 16:05:00,746 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:05:00,746 - news_sentiment.news_collator - INFO - Generated summary for article: Here Are Three Questions Investors Want Answered I...
+2025-07-28 16:05:04,334 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:05:04,337 - news_sentiment.news_collator - INFO - Generated summary for article: TCS layoffs: IT major to cut over 12,000 jobs, mid...
+2025-07-28 16:05:07,092 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:05:07,095 - news_sentiment.news_collator - INFO - Generated summary for article: 'They fire, we hire' - Germany seizes on Silicon V...
+2025-07-28 16:05:11,291 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:05:11,294 - news_sentiment.news_collator - INFO - Generated summary for article: Only 20-25% of India's 850 mn internet users shop ...
+2025-07-28 16:05:17,132 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:05:17,135 - news_sentiment.news_collator - INFO - Generated summary for article: Ecommerce News - DigitalCommerce360...
+2025-07-28 16:05:21,282 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:05:21,286 - news_sentiment.news_collator - INFO - Generated summary for article: E-Commerce News | Retail Dive...
+2025-07-28 16:05:24,011 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:05:24,014 - news_sentiment.news_collator - INFO - Generated summary for article: Chinese e-commerce leaders brush off regulatory ri...
+2025-07-28 16:05:26,739 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:05:26,743 - news_sentiment.news_collator - INFO - Generated summary for article: Latest News In E-Commerce - Subscription Market Po...
+2025-07-28 16:05:29,751 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:05:29,755 - news_sentiment.news_collator - INFO - Generated summary for article: India expands its e-commerce crackdown with a new ...
+2025-07-28 16:05:34,130 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:05:34,134 - news_sentiment.news_collator - INFO - Generated summary for article: From Amazon to Walmart, global e-commerce firms fa...
+2025-07-28 16:05:37,916 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:05:37,918 - news_sentiment.news_collator - INFO - Generated summary for article: ED files case against Myntra over Rs 1,654-crore F...
+2025-07-28 16:05:42,450 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:05:42,453 - news_sentiment.news_collator - INFO - Generated summary for article: Amazon faces UK lawsuits worth up to $5.4 billion ...
+2025-07-28 16:05:47,337 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:05:47,342 - news_sentiment.news_collator - INFO - Generated summary for article: Ecommerce - Financial Times...
+2025-07-28 16:05:50,580 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:05:50,582 - news_sentiment.news_collator - INFO - Generated summary for article: Cloud Tech News | Cloud Computing News, Analysis &...
+2025-07-28 16:05:53,994 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:05:53,998 - news_sentiment.news_collator - INFO - Generated summary for article: Cloud Computing recent news | InformationWeek...
+2025-07-28 16:05:56,808 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:05:56,812 - news_sentiment.news_collator - INFO - Generated summary for article: Latest Cloud Computing News - CIO Dive...
+2025-07-28 16:06:05,055 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:06:05,058 - news_sentiment.news_collator - INFO - Generated summary for article: Cloud Computing News & Updates | Channel Futures...
+2025-07-28 16:06:10,637 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:06:10,640 - news_sentiment.news_collator - INFO - Generated summary for article: Latest Cloud Tech News...
+2025-07-28 16:06:15,834 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:06:15,837 - news_sentiment.news_collator - INFO - Generated summary for article: Cloud Computing Technologies Global Outlook Report...
+2025-07-28 16:06:22,211 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:06:22,214 - news_sentiment.news_collator - INFO - Generated summary for article: Cloud Computing Market Size Worth USD 5,150.92 Bil...
+2025-07-28 16:06:26,973 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:06:26,977 - news_sentiment.news_collator - INFO - Generated summary for article: Cloud computing - Financial Times...
+2025-07-28 16:06:31,960 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:06:31,963 - news_sentiment.news_collator - INFO - Generated summary for article: Google just spent $14 billion on servers in 91 day...
+2025-07-28 16:06:39,133 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:06:39,140 - news_sentiment.news_collator - INFO - Generated summary for article: Cloud Computing recent news | AI Business...
+2025-07-28 16:06:39,455 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-28 16:06:56,466 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:06:56,470 - news_sentiment.news_collator - INFO - Raw sentiment response: The sentiment analysis for Amazon (AMZN) based on the provided financial news summaries is as follows:
+
+1. **Stock Performance and Market Trends**: The stock has experienced a decline of 1.28% over the past five days and 5.27% over the past month, contributing to a year-to-date decrease of 2.08% and a 17.51% drop over the past year. This indicates a negative sentiment as the stock performance has been declining over various time frames. However, the market capitalization remains significant at $2.29 trillion, and the P/E ratio reflects investor expectations of future growth. Overall, this suggests a mildly negative sentiment due to the stock's recent performance. **Sentiment Score: -2**
+
+2. **Analyst Ratings and Price Targets**: Bank of America and Bernstein have raised their price targets for Amazon, maintaining a "Buy" rating, with expectations of strong performance in e-commerce and AWS. This reflects positive sentiment from analysts, indicating confidence in Amazon's growth potential, particularly in cloud computing and AI-related services. **Sentiment Score: +3**
+
+3. **Jeff Bezos' Stock Sales**: Jeff Bezos' significant stock sales are part of a pre-arranged plan and do not indicate immediate operational changes. The market reaction was muted, suggesting that investors did not view it as a bearish signal. This is a neutral sentiment as it reflects personal wealth management rather than company performance issues. **Sentiment Score: 0**
+
+4. **Macroeconomic and Competitive Pressures**: Amazon faces challenges from tariff agendas, inflation, and competitive pressures, which could impact profitability and logistics operations. Despite these challenges, there are potential offsets from increased AI adoption in digital advertising and AWS. This presents a mixed sentiment with negative macroeconomic factors but potential positive offsets. **Sentiment Score: -1**
+
+5. **Strategic Developments and AI Focus**: Amazon's advancements in AI and strategic positioning in cloud computing are highlighted as significant growth drivers. Analysts have increased price targets based on these developments, indicating a positive outlook for Amazon's market standing and competitive dynamics. **Sentiment Score: +4**
+
+6. **Regulatory and Legal Challenges**: Amazon faces regulatory scrutiny in India and the UK, with significant lawsuits and investigations that could impact operations and strategies. These legal challenges present a negative sentiment due to potential financial and operational implications. **Sentiment Score: -3**
+
+7. **Cloud Computing and AI Investments**: Amazon's focus on AI and cloud computing, including new hardware developments for Nvidia chips, underscores its strategic positioning in these sectors. This reflects a positive sentiment as it enhances Amazon's competitive edge in the rapidly growing AI sector. **Sentiment Score: +3**
+
+Overall, the sentiment for Amazon is mixed, with positive developments in AI and cloud computing being offset by stock performance declines, macroeconomic pressures, and regulatory challenges. The combined sentiment score, considering all factors, would be slightly positive due to the strong emphasis on strategic growth areas like AI and cloud computing. **Overall Sentiment Score: +1**
+2025-07-28 16:06:56,977 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-28 16:07:00,207 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:07:00,209 - news_sentiment.news_collator - INFO - Raw sentiment response: +1
+2025-07-28 16:07:00,210 - pipelines.pipelines - INFO - Sentiment analysis retrieved successfully for AMZN
+2025-07-28 16:07:00,210 - pipelines.pipelines - INFO - Sentiment analysis completed for AMZN. Company sentiment length: 3270, Sector sentiment length: 2
+2025-07-28 16:07:00,210 - pipelines.pipelines - INFO - Step 3/3: Generating rating for AMZN
+2025-07-28 16:07:00,210 - pipelines.pipelines - INFO - Generating rating for AMZN
+2025-07-28 16:07:00,210 - ratings.rater - INFO - Starting stock rating analysis for AMZN
+2025-07-28 16:07:00,210 - ratings.rater - INFO - Creating rating prompt for AMZN
+2025-07-28 16:07:00,210 - ratings.rater - INFO - Creating rating prompt for AMZN
+2025-07-28 16:07:00,210 - ratings.rater - INFO - Loading stock rating prompt template
+2025-07-28 16:07:00,212 - ratings.rater - INFO - Formatting prompt with data for AMZN
+2025-07-28 16:07:00,212 - ratings.rater - INFO - Rating prompt created for AMZN. Length: 7983 characters
+2025-07-28 16:07:00,212 - ratings.rater - INFO - Sending rating request to ChatOpenAI for AMZN
+2025-07-28 16:07:07,984 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:07:07,987 - ratings.rater - INFO - Received rating response for AMZN. Length: 1391 characters
+2025-07-28 16:07:07,987 - ratings.rater - INFO - Parsing JSON response for AMZN
+2025-07-28 16:07:07,988 - ratings.rater - INFO - Extracted JSON from markdown code block for AMZN
+2025-07-28 16:07:07,988 - ratings.rater - INFO - Successfully parsed JSON response for AMZN
+2025-07-28 16:07:07,988 - ratings.rater - INFO - Creating RatingResult object for AMZN
+2025-07-28 16:07:07,988 - ratings.rater - INFO - Successfully rated AMZN as Buy with confidence 80.0%
+2025-07-28 16:07:07,988 - pipelines.pipelines - INFO - Rating generated successfully for AMZN
+2025-07-28 16:07:07,988 - pipelines.pipelines - INFO - Rating generated for AMZN: Buy (Confidence: 80.0%)
+2025-07-28 16:07:07,988 - pipelines.pipelines - INFO - Analysis completed for AMZN. Processing time: 267.05 seconds
+2025-07-28 16:07:07,988 - pipelines.pipelines - INFO - Successfully completed analysis for AMZN
+2025-07-28 16:07:07,988 - pipelines.pipelines - INFO - Progress: 1/1 completed, 1 successful
+2025-07-28 16:07:07,989 - pipelines.pipelines - INFO - Batch analysis completed. 1/1 successful
+2025-07-28 16:07:07,989 - __main__ - INFO - Batch analysis completed. Successful: 1, Failed: 0
+2025-07-28 16:07:07,989 - __main__ - INFO - Stock AMZN: Buy (Confidence: 80.0%)
+2025-07-28 16:07:07,989 - __main__ - INFO - Exporting analysis files to directory: analysis_results in txt format
+2025-07-28 16:07:07,989 - pipelines.pipelines - INFO - Created/verified output directory: analysis_results
+2025-07-28 16:07:07,989 - pipelines.pipelines - INFO - Exporting analysis for AMZN to analysis_results/AMZN_20250728_160707.txt in txt format
+2025-07-28 16:07:07,989 - pipelines.pipelines - INFO - Exporting AMZN analysis to text file: analysis_results/AMZN_20250728_160707.txt
+2025-07-28 16:07:07,989 - pipelines.pipelines - INFO - Creating analysis summary for AMZN
+2025-07-28 16:07:07,989 - pipelines.pipelines - INFO - Getting rating summary for AMZN
+2025-07-28 16:07:07,989 - ratings.rater - INFO - Creating rating summary
+2025-07-28 16:07:07,989 - ratings.rater - INFO - Rating summary created. Length: 1311 characters
+2025-07-28 16:07:07,989 - pipelines.pipelines - INFO - Creating complete analysis summary for AMZN
+2025-07-28 16:07:07,990 - pipelines.pipelines - INFO - Analysis summary created for AMZN. Length: 7104 characters
+2025-07-28 16:07:07,991 - pipelines.pipelines - INFO - Analysis exported to analysis_results/AMZN_20250728_160707.txt
+2025-07-28 16:07:07,991 - pipelines.pipelines - INFO - Exported AMZN (1/1)
+2025-07-28 16:07:07,991 - pipelines.pipelines - INFO - Batch export completed. Successful: 1, Failed: 0
+2025-07-28 16:07:07,991 - pipelines.pipelines - INFO - Creating analysis summary for AMZN
+2025-07-28 16:07:07,991 - pipelines.pipelines - INFO - Getting rating summary for AMZN
+2025-07-28 16:07:07,991 - ratings.rater - INFO - Creating rating summary
+2025-07-28 16:07:07,991 - ratings.rater - INFO - Rating summary created. Length: 1311 characters
+2025-07-28 16:07:07,991 - pipelines.pipelines - INFO - Creating complete analysis summary for AMZN
+2025-07-28 16:07:07,992 - pipelines.pipelines - INFO - Analysis summary created for AMZN. Length: 7104 characters
+2025-07-28 16:08:25,933 - utils.config - INFO - Logging configured with level: INFO
+2025-07-28 16:08:26,362 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-07-28 16:08:26,363 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-07-28 16:08:26,363 - __main__ - INFO - Starting batch analysis for 1 stocks: ['PLTR']
+2025-07-28 16:08:26,363 - __main__ - INFO - Initializing Stock Analysis Pipeline for batch processing
+2025-07-28 16:08:26,363 - pipelines.pipelines - INFO - Initializing Stock Analysis Pipeline...
+2025-07-28 16:08:26,363 - pipelines.pipelines - INFO - Initializing FinancialDataGatherer
+2025-07-28 16:08:26,363 - fundamentals.finances - INFO - FinancialDataGatherer initialized
+2025-07-28 16:08:26,363 - pipelines.pipelines - INFO - Initializing SentimentCollator
+2025-07-28 16:08:26,403 - news_sentiment.news_collator - INFO - NewsCollator initialized successfully
+2025-07-28 16:08:26,403 - pipelines.pipelines - INFO - Initializing StockRater
+2025-07-28 16:08:26,403 - ratings.rater - INFO - Initializing StockRater
+2025-07-28 16:08:26,403 - ratings.rater - INFO - Initializing ChatOpenAI for stock rating
+2025-07-28 16:08:26,529 - ratings.rater - INFO - StockRater initialized successfully
+2025-07-28 16:08:26,530 - pipelines.pipelines - INFO - Stock Analysis Pipeline initialized successfully
+2025-07-28 16:08:26,530 - __main__ - INFO - Starting batch analysis pipeline for 1 stocks
+2025-07-28 16:08:26,530 - pipelines.pipelines - INFO - Starting batch analysis of 1 stocks: ['PLTR']
+2025-07-28 16:08:26,530 - pipelines.pipelines - INFO - Analyzing stock 1/1: PLTR
+2025-07-28 16:08:26,530 - pipelines.pipelines - INFO - Starting analysis for stock: PLTR
+2025-07-28 16:08:26,530 - pipelines.pipelines - INFO - Step 1/3: Gathering financial data for PLTR
+2025-07-28 16:08:26,530 - pipelines.pipelines - INFO - Retrieving financial data for PLTR
+2025-07-28 16:08:26,530 - fundamentals.finances - INFO - Starting complete financial data pipeline for PLTR
+2025-07-28 16:08:26,530 - fundamentals.finances - INFO - Step 1: Retrieving raw financial data for PLTR
+2025-07-28 16:08:26,530 - fundamentals.finances - INFO - Retrieving financial data for stock: PLTR
+2025-07-28 16:08:26,530 - fundamentals.finances - INFO - Initializing Toolkit for PLTR
+2025-07-28 16:08:27,789 - fundamentals.finances - INFO - Retrieving Earnings Per Share for PLTR
+2025-07-28 16:08:33,896 - yfinance - ERROR - Failed to get ticker '^TNX' reason: Expecting value: line 1 column 1 (char 0)
+2025-07-28 16:08:33,897 - yfinance - ERROR - ^TNX: No timezone found, symbol may be delisted
+2025-07-28 16:08:36,331 - fundamentals.finances - INFO - Retrieving Income Statement for PLTR
+2025-07-28 16:08:36,331 - fundamentals.finances - INFO - Retrieving Cash Flow Statement for PLTR
+2025-07-28 16:08:36,332 - fundamentals.finances - INFO - Retrieving Balance Sheet for PLTR
+2025-07-28 16:08:36,332 - fundamentals.finances - INFO - Retrieving financial ratios for PLTR
+2025-07-28 16:08:36,386 - fundamentals.finances - INFO - Combining all financial data for PLTR
+2025-07-28 16:08:36,386 - fundamentals.finances - INFO - Successfully retrieved financial data for PLTR. Shape: (14, 4)
+2025-07-28 16:08:36,387 - fundamentals.finances - INFO - Step 2: Standardizing units for PLTR
+2025-07-28 16:08:36,387 - fundamentals.finances - INFO - Standardizing units and calculating percentage changes
+2025-07-28 16:08:36,387 - fundamentals.finances - INFO - Calculating percentage changes for EPS and Net Income
+2025-07-28 16:08:36,389 - fundamentals.finances - INFO - Applying unit scaling
+2025-07-28 16:08:36,392 - fundamentals.finances - INFO - Inserting percentage change rows
+2025-07-28 16:08:36,393 - fundamentals.finances - INFO - Converting to numeric and rounding values
+2025-07-28 16:08:36,394 - fundamentals.finances - INFO - Unit standardization completed. Final shape: (16, 5)
+2025-07-28 16:08:36,394 - fundamentals.finances - INFO - Step 3: Converting to HTML for PLTR
+2025-07-28 16:08:36,394 - fundamentals.finances - INFO - Converting DataFrame to HTML format
+2025-07-28 16:08:36,395 - fundamentals.finances - INFO - Successfully converted DataFrame to HTML. Length: 2235 characters
+2025-07-28 16:08:36,395 - fundamentals.finances - INFO - Successfully completed financial data pipeline for PLTR
+2025-07-28 16:08:36,395 - pipelines.pipelines - INFO - Financial data retrieved successfully for PLTR
+2025-07-28 16:08:36,395 - pipelines.pipelines - INFO - Financial data retrieved for PLTR. Length: 2235 characters
+2025-07-28 16:08:36,395 - pipelines.pipelines - INFO - Step 2/3: Analyzing news sentiment for PLTR
+2025-07-28 16:08:36,395 - pipelines.pipelines - INFO - Retrieving sentiment analysis for PLTR
+2025-07-28 16:08:36,395 - news_sentiment.news_collator - INFO - Searching for news with query: PLTR
+2025-07-28 16:08:41,168 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:08:41,181 - news_sentiment.news_collator - INFO - Generated queries: ['PLTR stock nasdaq news', 'Palantir Technologies stock cnbc news', 'software infrastructure sector news', 'technology sector news'], type: <class 'list'>
+2025-07-28 16:08:44,547 - news_sentiment.news_collator - INFO - Found 10 results for query: PLTR stock nasdaq news
+2025-07-28 16:08:47,726 - news_sentiment.news_collator - INFO - Found 10 results for query: Palantir Technologies stock cnbc news
+2025-07-28 16:08:50,662 - news_sentiment.news_collator - INFO - Found 10 results for query: software infrastructure sector news
+2025-07-28 16:08:53,816 - news_sentiment.news_collator - INFO - Found 10 results for query: technology sector news
+2025-07-28 16:08:53,816 - news_sentiment.news_collator - INFO - Total search results found: 40
+2025-07-28 16:08:53,817 - news_sentiment.news_collator - INFO - result length 7151 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,817 - news_sentiment.news_collator - INFO - result length 625 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,817 - news_sentiment.news_collator - INFO - result length 8097 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,817 - news_sentiment.news_collator - INFO - result length 14625 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,817 - news_sentiment.news_collator - INFO - result length 7096 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,817 - news_sentiment.news_collator - INFO - result length 408 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,817 - news_sentiment.news_collator - INFO - result length 2758 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,817 - news_sentiment.news_collator - INFO - result length 1940 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,818 - news_sentiment.news_collator - INFO - result length 6077 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,818 - news_sentiment.news_collator - INFO - result length 3024 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,818 - news_sentiment.news_collator - INFO - result length 2585 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,818 - news_sentiment.news_collator - INFO - result length 14625 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,818 - news_sentiment.news_collator - INFO - result length 58 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,818 - news_sentiment.news_collator - INFO - result length 2735 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,818 - news_sentiment.news_collator - INFO - result length 2637 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,818 - news_sentiment.news_collator - INFO - result length 5353 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,818 - news_sentiment.news_collator - INFO - result length 8736 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,818 - news_sentiment.news_collator - INFO - result length 5429 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,818 - news_sentiment.news_collator - INFO - result length 3821 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,818 - news_sentiment.news_collator - INFO - result length 7471 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,819 - news_sentiment.news_collator - INFO - result length 6466 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,819 - news_sentiment.news_collator - INFO - result length 18834 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,819 - news_sentiment.news_collator - INFO - result length 17590 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,819 - news_sentiment.news_collator - INFO - result length 4429 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,819 - news_sentiment.news_collator - INFO - result length 4790 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,819 - news_sentiment.news_collator - INFO - result length 7216 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,819 - news_sentiment.news_collator - INFO - result length 7717 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,819 - news_sentiment.news_collator - INFO - result length 67 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,819 - news_sentiment.news_collator - INFO - result length 8481 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,819 - news_sentiment.news_collator - INFO - result length 14840 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,819 - news_sentiment.news_collator - INFO - result length 3271 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,819 - news_sentiment.news_collator - INFO - result length 667 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,819 - news_sentiment.news_collator - INFO - result length 4090 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,819 - news_sentiment.news_collator - INFO - result length 2895 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,819 - news_sentiment.news_collator - INFO - result length 925 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,819 - news_sentiment.news_collator - INFO - result length 12068 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,819 - news_sentiment.news_collator - INFO - result length 13142 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,819 - news_sentiment.news_collator - INFO - result length 6104 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,819 - news_sentiment.news_collator - INFO - result length 2139 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,819 - news_sentiment.news_collator - INFO - result length 3741 type <class 'exa_py.api.Result'>
+2025-07-28 16:08:53,819 - news_sentiment.news_collator - INFO - Found 40 articles for query: technology sector news
+2025-07-28 16:08:57,595 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:08:57,599 - news_sentiment.news_collator - INFO - Generated summary for article: Palantir Technologies Inc. Class A Common Stock (P...
+2025-07-28 16:09:00,891 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:09:00,894 - news_sentiment.news_collator - INFO - Generated summary for article: Palantir Technologies Inc. Stock Quote (U.S. - PLT...
+2025-07-28 16:09:05,126 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:09:05,129 - news_sentiment.news_collator - INFO - Generated summary for article: Palantir Technologies Stock (PLTR) Opinions on Rec...
+2025-07-28 16:09:09,737 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:09:09,741 - news_sentiment.news_collator - INFO - Generated summary for article: PLTR: Palantir Technologies Inc - Stock Price, Quo...
+2025-07-28 16:09:17,515 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:09:17,518 - news_sentiment.news_collator - INFO - Generated summary for article: Palantir Technologies Inc. (PLTR) - Yahoo Finance...
+2025-07-28 16:09:23,230 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:09:23,233 - news_sentiment.news_collator - INFO - Generated summary for article: Palantir Stock Offers ‘One of a Kind Growth.’ Shou...
+2025-07-28 16:09:28,848 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:09:28,851 - news_sentiment.news_collator - INFO - Generated summary for article: After Soaring Nearly 100% So Far This Year, Where ...
+2025-07-28 16:09:34,618 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:09:34,621 - news_sentiment.news_collator - INFO - Generated summary for article: Why Palantir (PLTR) Stock Is Trading Up Today...
+2025-07-28 16:09:38,465 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:09:38,468 - news_sentiment.news_collator - INFO - Generated summary for article: 1 Jaw-Dropping Stat Palantir Investors Must Know...
+2025-07-28 16:09:41,901 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:09:41,904 - news_sentiment.news_collator - INFO - Generated summary for article: Palantir Just Launched Warp Speed for Warships. Do...
+2025-07-28 16:09:46,221 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:09:46,224 - news_sentiment.news_collator - INFO - Generated summary for article: Palantir jumps to all-time high, becomes 20th most...
+2025-07-28 16:09:50,594 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:09:50,597 - news_sentiment.news_collator - INFO - Generated summary for article: PLTR: Palantir Technologies Inc - Stock Price, Quo...
+2025-07-28 16:09:53,839 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:09:53,841 - news_sentiment.news_collator - INFO - Generated summary for article: Piper Sandler initiates Palantir at overweight, ca...
+2025-07-28 16:10:01,457 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:10:01,461 - news_sentiment.news_collator - INFO - Generated summary for article: Ahead of Q2 Earnings, This Analyst Is Betting Big ...
+2025-07-28 16:10:08,743 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:10:08,746 - news_sentiment.news_collator - INFO - Generated summary for article: PLTR Stock Warning: This Analyst Says Palantir Is ...
+2025-07-28 16:10:11,747 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:10:11,752 - news_sentiment.news_collator - INFO - Generated summary for article: Palantir Stock Soared 100% in 2025 to Hit a Record...
+2025-07-28 16:10:17,218 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:10:17,221 - news_sentiment.news_collator - INFO - Generated summary for article: After Soaring Nearly 100% So Far This Year, Where ...
+2025-07-28 16:10:20,949 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:10:20,953 - news_sentiment.news_collator - INFO - Generated summary for article: Watch These Palantir Levels as Stock Continues to ...
+2025-07-28 16:10:23,628 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:10:23,630 - news_sentiment.news_collator - INFO - Generated summary for article: Wedbush's Dan Ives raises Palantir target, sees it...
+2025-07-28 16:10:29,300 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:10:29,303 - news_sentiment.news_collator - INFO - Generated summary for article: Palantir becomes the 20th most valuable US company...
+2025-07-28 16:10:35,857 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:10:35,860 - news_sentiment.news_collator - INFO - Generated summary for article: Software - Infrastructure - Yahoo Finance...
+2025-07-28 16:10:38,908 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:10:38,911 - news_sentiment.news_collator - INFO - Generated summary for article: Latest News | The Software Report...
+2025-07-28 16:10:42,046 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:10:42,049 - news_sentiment.news_collator - INFO - Generated summary for article: Software News - CNBC...
+2025-07-28 16:10:47,659 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:10:47,661 - news_sentiment.news_collator - INFO - Generated summary for article: Heavybit: Reinventing Enterprise Infrastructure | ...
+2025-07-28 16:10:52,929 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:10:52,935 - news_sentiment.news_collator - INFO - Generated summary for article: Agent Infrastructure and Control Planes...
+2025-07-28 16:10:56,339 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:10:56,342 - news_sentiment.news_collator - INFO - Generated summary for article: Data center infrastructure automation startup Spac...
+2025-07-28 16:11:00,634 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:11:00,638 - news_sentiment.news_collator - INFO - Generated summary for article: NetBox Labs, the central nervous system for AI dat...
+2025-07-28 16:11:03,255 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:11:03,258 - news_sentiment.news_collator - INFO - Generated summary for article: Cloud Tech News | Cloud Computing News, Analysis &...
+2025-07-28 16:11:07,656 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:11:07,661 - news_sentiment.news_collator - INFO - Generated summary for article: The need for robust AI infrastructure...
+2025-07-28 16:11:11,549 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:11:11,552 - news_sentiment.news_collator - INFO - Generated summary for article: SD Times - Software Development News...
+2025-07-28 16:11:15,380 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:11:15,381 - news_sentiment.news_collator - INFO - Generated summary for article: Tech News | Today's Latest Technology News - Reute...
+2025-07-28 16:11:19,681 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:11:19,682 - news_sentiment.news_collator - INFO - Generated summary for article: Technology sector - Financial Times...
+2025-07-28 16:11:22,591 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:11:22,594 - news_sentiment.news_collator - INFO - Generated summary for article: Tech - CNBC...
+2025-07-28 16:11:26,235 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:11:26,239 - news_sentiment.news_collator - INFO - Generated summary for article: Microsoft CEO makes bold statement on company's fu...
+2025-07-28 16:11:32,073 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:11:32,077 - news_sentiment.news_collator - INFO - Generated summary for article: TechCrunch | Startup and Technology News...
+2025-07-28 16:11:36,989 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:11:36,992 - news_sentiment.news_collator - INFO - Generated summary for article: Technology - Bloomberg...
+2025-07-28 16:11:40,675 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:11:40,679 - news_sentiment.news_collator - INFO - Generated summary for article: McKinsey technology trends outlook 2025...
+2025-07-28 16:11:44,666 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:11:44,669 - news_sentiment.news_collator - INFO - Generated summary for article: Here Are Three Questions Investors Want Answered I...
+2025-07-28 16:11:50,703 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:11:50,707 - news_sentiment.news_collator - INFO - Generated summary for article: JPMorgan Chase overhauls quantum computing leaders...
+2025-07-28 16:11:54,194 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:11:54,197 - news_sentiment.news_collator - INFO - Generated summary for article: TCS to lay off over 12,000 employees in major work...
+2025-07-28 16:12:06,383 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:12:06,386 - news_sentiment.news_collator - INFO - Raw sentiment response: The summary provides a comprehensive overview of Palantir Technologies Inc. (PLTR) and its recent developments, highlighting both positive and negative aspects that could impact the company's financial outlook and stock performance.
+
+1. **Positive Developments**: 
+   - Palantir has experienced a significant stock price surge, surpassing $150, driven by strong earnings, new partnerships, and government contracts. The company has secured $568.9 million in government contracts over the past year, highlighting its strong position in the sector.
+   - The company's stock has surged in 2025, largely due to the success of its Artificial Intelligence Platform (AIP), which caters to both government and commercial clients. Palantir reported a 39.4% year-over-year revenue increase in the first quarter, attracting significant interest from institutional investors.
+   - Palantir's strategic positioning in the AI sector, with potential implications for its competitive standing against peers like Datadog and Zscaler, is noted by Bank of America as building momentum for the stock.
+   - The company has launched "Warp Speed for Warships," a new initiative in collaboration with the U.S. Navy and BlueForge Alliance, aimed at digitally transforming the maritime supply chain and shipbuilding ecosystem, marking a significant expansion of Palantir's defense business.
+
+2. **Negative Developments**:
+   - Despite robust financial performance, Palantir's valuation at 123 times sales makes it the most expensive stock in the S&P 500, raising concerns about potential overvaluation. Historical data suggests that software companies with similar high valuations have experienced significant declines.
+   - Insider trading reveals 234 sales and only one purchase, indicating potential profit-taking by insiders, which could signal a lack of confidence in the stock's future performance.
+   - The stock is trading at historically high valuations, raising concerns about a potential sell-off. Notable investors have shown mixed reactions, with some reducing their positions while others have increased their stakes, indicating uncertainty about the stock's long-term trajectory.
+
+3. **Mixed Sentiment**:
+   - Analyst ratings are divided, with a median price target of $110, reflecting uncertainty about the stock's future trajectory. The consensus among Wall Street analysts is cautious, with a "Hold" rating and a mean target price indicating a potential downside of up to 30%.
+   - Despite the stock's volatility, with 47 moves greater than 5% over the past year, today's increase to $148.09 per share marks a new 52-week high. Palantir's shares have risen 97% since the beginning of the year, highlighting its key role in the expanding AI industry.
+
+Overall, while Palantir Technologies Inc. has demonstrated strong growth and strategic positioning in the AI sector, concerns about its high valuation and potential overvaluation pose risks to its stock performance. The mixed sentiment among analysts and investors reflects the uncertainty surrounding the company's future trajectory.
+
+**Sentiment Score**: +3 (Positive developments outweigh the negative concerns, but the high valuation and potential overvaluation risks temper the sentiment.)
+2025-07-28 16:12:07,499 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:12:07,500 - news_sentiment.news_collator - INFO - Raw sentiment response: +3
+2025-07-28 16:12:07,500 - pipelines.pipelines - INFO - Sentiment analysis retrieved successfully for PLTR
+2025-07-28 16:12:07,500 - pipelines.pipelines - INFO - Sentiment analysis completed for PLTR. Company sentiment length: 3237, Sector sentiment length: 2
+2025-07-28 16:12:07,500 - pipelines.pipelines - INFO - Step 3/3: Generating rating for PLTR
+2025-07-28 16:12:07,500 - pipelines.pipelines - INFO - Generating rating for PLTR
+2025-07-28 16:12:07,500 - ratings.rater - INFO - Starting stock rating analysis for PLTR
+2025-07-28 16:12:07,500 - ratings.rater - INFO - Creating rating prompt for PLTR
+2025-07-28 16:12:07,500 - ratings.rater - INFO - Creating rating prompt for PLTR
+2025-07-28 16:12:07,500 - ratings.rater - INFO - Loading stock rating prompt template
+2025-07-28 16:12:07,500 - ratings.rater - INFO - Formatting prompt with data for PLTR
+2025-07-28 16:12:07,500 - ratings.rater - INFO - Rating prompt created for PLTR. Length: 7919 characters
+2025-07-28 16:12:07,500 - ratings.rater - INFO - Sending rating request to ChatOpenAI for PLTR
+2025-07-28 16:12:12,733 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 16:12:12,736 - ratings.rater - INFO - Received rating response for PLTR. Length: 1489 characters
+2025-07-28 16:12:12,736 - ratings.rater - INFO - Parsing JSON response for PLTR
+2025-07-28 16:12:12,737 - ratings.rater - INFO - Extracted JSON from markdown code block for PLTR
+2025-07-28 16:12:12,737 - ratings.rater - INFO - Successfully parsed JSON response for PLTR
+2025-07-28 16:12:12,737 - ratings.rater - INFO - Creating RatingResult object for PLTR
+2025-07-28 16:12:12,737 - ratings.rater - INFO - Successfully rated PLTR as Hold with confidence 75.0%
+2025-07-28 16:12:12,737 - pipelines.pipelines - INFO - Rating generated successfully for PLTR
+2025-07-28 16:12:12,737 - pipelines.pipelines - INFO - Rating generated for PLTR: Hold (Confidence: 75.0%)
+2025-07-28 16:12:12,737 - pipelines.pipelines - INFO - Analysis completed for PLTR. Processing time: 226.21 seconds
+2025-07-28 16:12:12,738 - pipelines.pipelines - INFO - Successfully completed analysis for PLTR
+2025-07-28 16:12:12,738 - pipelines.pipelines - INFO - Progress: 1/1 completed, 1 successful
+2025-07-28 16:12:12,738 - pipelines.pipelines - INFO - Batch analysis completed. 1/1 successful
+2025-07-28 16:12:12,738 - __main__ - INFO - Batch analysis completed. Successful: 1, Failed: 0
+2025-07-28 16:12:12,738 - __main__ - INFO - Stock PLTR: Hold (Confidence: 75.0%)
+2025-07-28 16:12:12,738 - __main__ - INFO - Exporting analysis files to directory: analysis_results in txt format
+2025-07-28 16:12:12,738 - pipelines.pipelines - INFO - Created/verified output directory: analysis_results
+2025-07-28 16:12:12,738 - pipelines.pipelines - INFO - Exporting analysis for PLTR to analysis_results/PLTR_20250728_161212.txt in txt format
+2025-07-28 16:12:12,738 - pipelines.pipelines - INFO - Exporting PLTR analysis to text file: analysis_results/PLTR_20250728_161212.txt
+2025-07-28 16:12:12,738 - pipelines.pipelines - INFO - Creating analysis summary for PLTR
+2025-07-28 16:12:12,738 - pipelines.pipelines - INFO - Getting rating summary for PLTR
+2025-07-28 16:12:12,739 - ratings.rater - INFO - Creating rating summary
+2025-07-28 16:12:12,739 - ratings.rater - INFO - Rating summary created. Length: 1408 characters
+2025-07-28 16:12:12,739 - pipelines.pipelines - INFO - Creating complete analysis summary for PLTR
+2025-07-28 16:12:12,739 - pipelines.pipelines - INFO - Analysis summary created for PLTR. Length: 7137 characters
+2025-07-28 16:12:12,740 - pipelines.pipelines - INFO - Analysis exported to analysis_results/PLTR_20250728_161212.txt
+2025-07-28 16:12:12,740 - pipelines.pipelines - INFO - Exported PLTR (1/1)
+2025-07-28 16:12:12,740 - pipelines.pipelines - INFO - Batch export completed. Successful: 1, Failed: 0
+2025-07-28 16:12:12,740 - pipelines.pipelines - INFO - Creating analysis summary for PLTR
+2025-07-28 16:12:12,740 - pipelines.pipelines - INFO - Getting rating summary for PLTR
+2025-07-28 16:12:12,740 - ratings.rater - INFO - Creating rating summary
+2025-07-28 16:12:12,740 - ratings.rater - INFO - Rating summary created. Length: 1408 characters
+2025-07-28 16:12:12,740 - pipelines.pipelines - INFO - Creating complete analysis summary for PLTR
+2025-07-28 16:12:12,740 - pipelines.pipelines - INFO - Analysis summary created for PLTR. Length: 7137 characters
