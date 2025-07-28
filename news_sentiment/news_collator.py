@@ -42,7 +42,7 @@ class SentimentCollator:
     perform summaries using OpenAI, and conduct sentiment analysis.
     """
     
-    def __init__(self, exa_api_key: Optional[str] = None, openai_api_key: Optional[str] = None):
+    def __init__(self):
         """
         Initialize the NewsCollator with API keys.
         
@@ -50,20 +50,11 @@ class SentimentCollator:
             exa_api_key: Exa AI API key (defaults to EXA_API_KEY env var)
             openai_api_key: OpenAI API key (defaults to OPENAI_API_KEY env var)
         """
-        # Initialize API keys
-        self.exa_api_key = exa_api_key or os.getenv('EXA_API_KEY')
-        self.openai_api_key = openai_api_key or os.getenv('OPENAI_API_KEY')
-        
-        if not self.exa_api_key:
-            raise ValueError("Exa API key is required. Set EXA_API_KEY environment variable or pass exa_api_key parameter.")
-        
-        if not self.openai_api_key:
-            raise ValueError("OpenAI API key is required. Set OPENAI_API_KEY environment variable or pass openai_api_key parameter.")
-        
+
         # Initialize API clients
-        self.exa_client = Exa(api_key=self.exa_api_key)
-        self.openai_client = OpenAI(api_key=self.openai_api_key)
-        self.tavily_client = TavilyClient(api_key=os.getenv('TAVILY_API_KEY'))
+        self.exa_client = Exa(api_key=env.EXA_API_KEY)
+        self.openai_client = OpenAI(api_key=env.LLM_API_KEY)
+        self.tavily_client = TavilyClient(api_key=env.TAVILY_API_KEY)
         # Storage for collected data
         self.articles: List[NewsArticle] = []
         
@@ -106,11 +97,12 @@ class SentimentCollator:
         {context}
         
         """
-        chat = ChatOpenAI(model_name=env.LLM_NAME, temperature=0)
+        chat = ChatOpenAI(model_name=env.LLM_NAME, temperature=0, api_key=env.LLM_API_KEY)
         response = chat([
             HumanMessage(content=prompt.format(context=context))
         ])
-        return response.content.strip()
+
+        return json.loads(response.content)
     
     def search_news(self, 
                    query: str) -> List[NewsArticle]:
@@ -131,29 +123,41 @@ class SentimentCollator:
 
             logger.info(f"Searching for news with query: {query}")
             search_queries = self.generate_queries(query)
+            logger.info(f"Generated queries: {search_queries}, type: {type(search_queries)}")
             combined_search_response = []
             articles = []
+            # Get current UTC time
+            end_time = datetime.now()
+
+            # Calculate start time (30 days before end time)
+            start_time = end_time - timedelta(days=30)
+
+            # Format in ISO 8601 with milliseconds and 'Z' for UTC
+            end_published_date = end_time.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+            start_published_date = start_time.strftime("%Y-%m-%dT%H:%M:%S.000Z")
             for query in search_queries:    
                 # Perform search
-                search_response = self.exa_client.search( query, 
-                                                        text = True, 
-                                                        start_published_date=datetime.now() - timedelta(days=7),
-                                                        end_published_date=datetime.now(),
+                search_response = self.exa_client.search_and_contents( query, 
+                                                            text = True, 
+                                                            start_published_date=start_published_date,
+                                                        end_published_date=end_published_date,
                                                         context= True) 
                 combined_search_response.extend(search_response.results)
+                logger.info(f"Found {len(search_response.results)} results for query: {query}")
+            logger.info(f"Total search results found: {len(combined_search_response)}")
             
             articles = []
             for result in combined_search_response:
                 try:
                     # Get full content for each article
-                    content_response = self.exa_client.get_contents([result.url])
-                    content = content_response.contents[0] if content_response.contents else ""
+                    logger.info(f"result length {len(result.text)} type {type(result)}")
+              
                     
                     article = NewsArticle(
                         title=result.title,
                         url=result.url,
                         published_date=result.published_date,
-                        content=content.text if content else "",
+                        content=result.text if result.text else "",
                         search_query=query,
                         collected_at=datetime.now().isoformat()
                     )
@@ -201,7 +205,7 @@ class SentimentCollator:
             prompt = open("prompts/news_summary.md", "r").read()
 
             # Use ChatOpenAI `from Langchain
-            chat = ChatOpenAI(model_name=env.LLM_NAME, temperature=0)
+            chat = ChatOpenAI(model_name=env.LLM_NAME, temperature=0, api_key=env.LLM_API_KEY)
 
             response = chat([
                 HumanMessage(content=prompt.format(title=article.title, article_content=content_to_summarize))
@@ -249,7 +253,7 @@ class SentimentCollator:
                 raise ValueError(f"Invalid mode '{mode}'. Use 'company' or 'sector'.")
 
             # Create ChatOpenAI instance (if not passed externally)
-            chat = ChatOpenAI(model_name="gpt-4o", temperature=0.1)
+            chat = ChatOpenAI(model_name="gpt-4o", temperature=0.1, api_key=env.LLM_API_KEY)
 
             # Call the model
             response = chat([

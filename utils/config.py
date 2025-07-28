@@ -1,4 +1,5 @@
 import os
+import logging
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -33,9 +34,40 @@ def find_config() -> EnvSettings:
         return LocalDevSettings()
 
 
+def setup_logging(log_level: str = "INFO") -> None:
+    """
+    Setup centralized logging configuration for the application.
+    
+    Args:
+        log_level: Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+    """
+    # Create logs directory if it doesn't exist
+    os.makedirs("logs", exist_ok=True)
+    
+    # Configure logging
+    logging.basicConfig(
+        level=getattr(logging, log_level.upper()),
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler('logs/app.log'),
+            logging.StreamHandler()  # Console output
+        ]
+    )
+    
+    # Set specific logger levels
+    logging.getLogger('urllib3').setLevel(logging.WARNING)
+    logging.getLogger('requests').setLevel(logging.WARNING)
+    logging.getLogger('openai').setLevel(logging.WARNING)
+    
+    # Create main logger
+    logger = logging.getLogger(__name__)
+    logger.info(f"Logging configured with level: {log_level}")
+
+
 env = find_config()
 
-
+# Setup logging when config is imported
+setup_logging()
 
 if __name__ == "__main__":
     print(env)

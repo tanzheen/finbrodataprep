@@ -48,14 +48,14 @@ Analyze the following factors to determine the rating:
 ## OUTPUT FORMAT
 Respond in the following JSON format:
 ```json
-{
+{{
     "rating": "Strong Buy|Buy|Hold|Sell|Strong Sell",
     "confidence": 0.85,
     "reasoning": "Detailed explanation of the rating decision...",
     "key_factors": ["Factor 1", "Factor 2", "Factor 3"],
     "risk_factors": ["Risk 1", "Risk 2", "Risk 3"],
     "recommendation_summary": "Concise summary of the recommendation..."
-}
+}}
 ```
 
 Ensure your analysis is balanced, considers both quantitative and qualitative factors, and provides actionable insights for investors. 

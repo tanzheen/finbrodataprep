@@ -6,10 +6,10 @@ and sentiment analysis using OpenAI's ChatOpenAI.
 """
 
 import pandas as pd
+import logging
 from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass
 from enum import Enum
-import logging
 
 from langchain_openai import ChatOpenAI
 from langchain.schema import SystemMessage, HumanMessage
@@ -17,7 +17,6 @@ from langchain.schema import SystemMessage, HumanMessage
 from utils.config import env
 
 # Configure logging
-logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
@@ -53,24 +52,22 @@ class StockRater:
     To provide comprehensive stock ratings using OpenAI's ChatOpenAI.
     """
     
-    def __init__(self, openai_api_key: Optional[str] = None):
+    def __init__(self):
         """
         Initialize the StockRater.
         
         Args:
             openai_api_key: OpenAI API key (defaults to LLM_API_KEY env var)
         """
-        self.openai_api_key = openai_api_key or env.LLM_API_KEY
-        self.llm_name = env.LLM_NAME
-        
-        if not self.openai_api_key:
-            raise ValueError("OpenAI API key is required. Set LLM_API_KEY environment variable or pass openai_api_key parameter.")
-        
+        logger.info("Initializing StockRater")
+ 
+       
         # Initialize ChatOpenAI
+        logger.info("Initializing ChatOpenAI for stock rating")
         self.chat_model = ChatOpenAI(
-            model_name=self.llm_name,
+            model_name=env.LLM_NAME,
             temperature=0.1,
-            api_key=self.openai_api_key
+            api_key=env.LLM_API_KEY
         )
         
         logger.info("StockRater initialized successfully")
@@ -92,10 +89,14 @@ class StockRater:
         Returns:
             Formatted prompt string
         """
+        logger.info(f"Creating rating prompt for {company_name}")
+        
         # Read the prompt template from the external file
+        logger.info("Loading stock rating prompt template")
         prompt_template = open("prompts/stock_rating.md", "r").read()
         
         # Format the prompt with the provided data
+        logger.info(f"Formatting prompt with data for {company_name}")
         prompt = prompt_template.format(
             company_name=company_name,
             financial_data_html=financial_data_html,
@@ -103,6 +104,7 @@ class StockRater:
             sector_sentiment=sector_sentiment
         )
         
+        logger.info(f"Rating prompt created for {company_name}. Length: {len(prompt)} characters")
         return prompt
     
     def rate_stock(self, 
@@ -126,6 +128,7 @@ class StockRater:
             logger.info(f"Starting stock rating analysis for {company_name}")
             
             # Create the analysis prompt
+            logger.info(f"Creating rating prompt for {company_name}")
             prompt = self._create_rating_prompt(
                 financial_data_html=financial_data_html,
                 company_sentiment=company_sentiment,
@@ -134,24 +137,28 @@ class StockRater:
             )
             
             # Get response from ChatOpenAI
+            logger.info(f"Sending rating request to ChatOpenAI for {company_name}")
             response = self.chat_model([
                 HumanMessage(content=prompt)
             ])
             
             # Parse the response
             response_text = response.content.strip()
-            logger.info(f"Received rating response for {company_name}")
+            logger.info(f"Received rating response for {company_name}. Length: {len(response_text)} characters")
             
             # Parse JSON response
             import json
             try:
+                logger.info(f"Parsing JSON response for {company_name}")
                 rating_data = json.loads(response_text)
+                logger.info(f"Successfully parsed JSON response for {company_name}")
             except json.JSONDecodeError:
                 logger.error(f"Failed to parse JSON response for {company_name}")
                 # Fallback to manual parsing or return error
                 return self._create_fallback_rating(company_name, response_text)
             
             # Create RatingResult object
+            logger.info(f"Creating RatingResult object for {company_name}")
             rating_result = RatingResult(
                 rating=Rating(rating_data["rating"]),
                 confidence=float(rating_data["confidence"]),
@@ -161,15 +168,16 @@ class StockRater:
                 recommendation_summary=rating_data["recommendation_summary"]
             )
             
-            logger.info(f"Successfully rated {company_name} as {rating_result.rating.value}")
+            logger.info(f"Successfully rated {company_name} as {rating_result.rating.value} with confidence {rating_result.confidence:.1%}")
             return rating_result
             
         except Exception as e:
-            logger.error(f"Error rating stock {company_name}: {e}")
+            logger.error(f"Error rating stock {company_name}: {e}", exc_info=True)
             return self._create_error_rating(company_name, str(e))
     
     def _create_fallback_rating(self, company_name: str, response_text: str) -> RatingResult:
         """Create a fallback rating when JSON parsing fails."""
+        logger.warning(f"Creating fallback rating for {company_name} due to JSON parsing failure")
         return RatingResult(
             rating=Rating.HOLD,
             confidence=0.5,
@@ -181,6 +189,7 @@ class StockRater:
     
     def _create_error_rating(self, company_name: str, error_message: str) -> RatingResult:
         """Create an error rating when analysis fails."""
+        logger.error(f"Creating error rating for {company_name}: {error_message}")
         return RatingResult(
             rating=Rating.HOLD,
             confidence=0.0,
@@ -200,6 +209,7 @@ class StockRater:
         Returns:
             Formatted summary string
         """
+        logger.info("Creating rating summary")
         summary = f"""
 STOCK RATING SUMMARY
 ===================
@@ -219,6 +229,7 @@ RISK FACTORS:
 RECOMMENDATION:
 {rating_result.recommendation_summary}
 """
+        logger.info(f"Rating summary created. Length: {len(summary)} characters")
         return summary
     
     def batch_rate_stocks(self, 
@@ -236,8 +247,11 @@ RECOMMENDATION:
         Returns:
             List of RatingResult objects
         """
+        logger.info(f"Starting batch rating for {len(stock_data)} stocks")
         results = []
-        for stock in stock_data:
+        
+        for i, stock in enumerate(stock_data, 1):
+            logger.info(f"Rating stock {i}/{len(stock_data)}: {stock['company_name']}")
             result = self.rate_stock(
                 financial_data_html=stock["financial_data_html"],
                 company_sentiment=stock["company_sentiment"],
@@ -246,11 +260,14 @@ RECOMMENDATION:
             )
             results.append(result)
         
+        logger.info(f"Completed batch rating for {len(stock_data)} stocks")
         return results
 
 
 # Example usage and testing
 if __name__ == "__main__":
+    logger.info("Running StockRater example")
+    
     # Example usage
     rater = StockRater()
     
@@ -267,6 +284,7 @@ if __name__ == "__main__":
     sample_sector_sentiment = "Sector showing strong growth with favorable regulatory environment."
     
     # Rate a stock
+    logger.info("Running example stock rating")
     result = rater.rate_stock(
         financial_data_html=sample_financial_data,
         company_sentiment=sample_company_sentiment,
@@ -275,4 +293,5 @@ if __name__ == "__main__":
     )
     
     # Print summary
+    logger.info("Printing rating summary")
     print(rater.get_rating_summary(result))

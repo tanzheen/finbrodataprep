@@ -82,7 +82,12 @@ finbrodataprep/
    uv sync
    ```
 
-3. **Configure environment**:
+3. **Install test dependencies** (optional):
+   ```bash
+   uv sync --extra test
+   ```
+
+4. **Configure environment**:
    Create a `config` file with your API keys:
    ```bash
    # Financial data API
@@ -105,13 +110,25 @@ The easiest way to use the system is through the comprehensive pipeline:
 
 ```bash
 # Analyze a single stock
-python main.py AAPL
+python main.py analyze AAPL
 
 # Analyze and export to file
-python main.py AAPL --export
+python main.py analyze AAPL --export
+
+# Analyze with custom output file
+python main.py analyze AAPL -o my_analysis.txt
 
 # Analyze multiple stocks
-python main.py AAPL MSFT GOOGL
+python main.py batch AAPL MSFT GOOGL
+
+# Analyze multiple stocks with export directory
+python main.py batch AAPL MSFT --export-dir ./analyses
+
+# Get quick financial info
+python main.py info AAPL
+
+# Show example commands
+python main.py list-examples
 ```
 
 ### Programmatic Usage
@@ -133,8 +150,29 @@ if result.success:
     summary = pipeline.get_analysis_summary(result)
     print(summary)
     
-    # Export to file
-    pipeline.export_analysis_to_file(result, "analysis.txt")
+         # Export to file
+     pipeline.export_analysis_to_file(result, "analysis.txt")
+ ```
+
+### Testing
+
+Run the test suite to ensure everything is working correctly:
+
+```bash
+# Run all tests
+python run_tests.py
+
+# Run tests with coverage
+python run_tests.py --verbose
+
+# Run specific test
+python run_tests.py --test TestAnalyzeCommand::test_analyze_success
+
+# List all tests
+python run_tests.py --list
+
+# Run tests without coverage
+python run_tests.py --no-coverage
 ```
 
 ### Individual Components
