@@ -148,12 +148,28 @@ class StockRater:
             
             # Parse JSON response
             import json
+            import re
             try:
                 logger.info(f"Parsing JSON response for {company_name}")
-                rating_data = json.loads(response_text)
+                
+                # Extract JSON from markdown code blocks if present
+                json_match = re.search(r'```(?:json)?\s*(\{.*?\})\s*```', response_text, re.DOTALL)
+                if json_match:
+                    json_str = json_match.group(1)
+                    logger.info(f"Extracted JSON from markdown code block for {company_name}")
+                else:
+                    # Try to find JSON object directly
+                    json_match = re.search(r'\{.*\}', response_text, re.DOTALL)
+                    if json_match:
+                        json_str = json_match.group(0)
+                        logger.info(f"Extracted JSON object directly for {company_name}")
+                    else:
+                        raise json.JSONDecodeError("No JSON object found in response", response_text, 0)
+                
+                rating_data = json.loads(json_str)
                 logger.info(f"Successfully parsed JSON response for {company_name}")
-            except json.JSONDecodeError:
-                logger.error(f"Failed to parse JSON response for {company_name}")
+            except json.JSONDecodeError as e:
+                logger.error(f"Failed to parse JSON response for {company_name}: {e}")
                 # Fallback to manual parsing or return error
                 return self._create_fallback_rating(company_name, response_text)
             

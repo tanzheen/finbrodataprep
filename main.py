@@ -32,9 +32,10 @@ def cli():
 
 @cli.command()
 @click.argument('stock_symbol', type=str)
-@click.option('--export', is_flag=True, help='Export detailed analysis to file')
+@click.option('--no-export', is_flag=True, help='Skip exporting analysis to file')
 @click.option('--output', '-o', type=click.Path(), help='Output file path for export')
-def analyze(stock_symbol: str, export: bool, output: str):
+@click.option('--format', type=click.Choice(['txt', 'json', 'csv']), default='txt', help='Export format (txt, json, csv)')
+def analyze(stock_symbol: str, no_export: bool, output: str, format: str):
     """
     Analyze a single stock and display results.
     
@@ -64,16 +65,19 @@ def analyze(stock_symbol: str, export: bool, output: str):
             click.echo("\n" + "=" * 50)
             click.echo(pipeline.get_analysis_summary(result))
             
-            # Export to file if requested
-            if export or output:
+            # Export to file (default behavior unless --no-export is specified)
+            if not no_export:
                 if output:
                     filename = output
                 else:
-                    filename = f"analysis_{result.stock_symbol}_{result.analysis_date[:10]}.txt"
+                    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                    filename = f"analysis_{result.stock_symbol}_{timestamp}.{format}"
                 
-                logger.info(f"Exporting analysis to file: {filename}")
-                pipeline.export_analysis_to_file(result, filename)
+                logger.info(f"Exporting analysis to file: {filename} in {format} format")
+                pipeline.export_analysis_to_file(result, filename, format)
                 click.echo(f"\n📄 Analysis exported to: {filename}")
+            else:
+                logger.info("Skipping export as requested with --no-export flag")
         else:
             logger.error(f"Analysis failed for {stock_symbol}: {result.error_message}")
             click.echo("❌ Analysis failed!")
@@ -88,9 +92,12 @@ def analyze(stock_symbol: str, export: bool, output: str):
 
 @cli.command()
 @click.argument('stock_symbols', nargs=-1, required=True)
-@click.option('--export-dir', type=click.Path(), help='Directory to export analysis files')
+@click.option('--export-dir', type=click.Path(), default='analysis_results', help='Directory to export analysis files')
+@click.option('--no-export', is_flag=True, help='Skip exporting analysis files')
 @click.option('--summary-only', is_flag=True, help='Show only summary, not detailed results')
-def batch(stock_symbols: tuple, export_dir: str, summary_only: bool):
+@click.option('--format', type=click.Choice(['txt', 'json', 'csv']), default='txt', help='Export format (txt, json, csv)')
+@click.option('--report', is_flag=True, help='Generate comprehensive analysis report')
+def batch(stock_symbols: tuple, export_dir: str, no_export: bool, summary_only: bool, format: str, report: bool):
     """
     Analyze multiple stocks and display summary results.
     
@@ -136,16 +143,21 @@ def batch(stock_symbols: tuple, export_dir: str, summary_only: bool):
                 logger.error(f"Failed analysis for {result.stock_symbol}: {result.error_message}")
                 click.echo(f"{result.stock_symbol}: {result.error_message}")
         
-        # Export files if requested
-        if export_dir:
-            import os
-            logger.info(f"Exporting analysis files to directory: {export_dir}")
-            os.makedirs(export_dir, exist_ok=True)
-            for result in successful_analyses:
-                filename = os.path.join(export_dir, f"analysis_{result.stock_symbol}_{result.analysis_date[:10]}.txt")
-                pipeline.export_analysis_to_file(result, filename)
-                logger.info(f"Exported analysis to: {filename}")
-                click.echo(f"📄 Exported: {filename}")
+        # Export files (default behavior unless --no-export is specified)
+        if not no_export:
+            logger.info(f"Exporting analysis files to directory: {export_dir} in {format} format")
+            pipeline.export_batch_results(results, export_dir, format)
+            click.echo(f"\n📄 Analysis files exported to: {export_dir}")
+        else:
+            logger.info("Skipping export as requested with --no-export flag")
+        
+        # Generate comprehensive report if requested
+        if report:
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            report_filename = f"analysis_report_{timestamp}.txt"
+            logger.info(f"Generating comprehensive analysis report: {report_filename}")
+            report_content = pipeline.create_analysis_report(results, report_filename)
+            click.echo(f"\n📋 Comprehensive report generated: {report_filename}")
         
         # Display detailed results if not summary-only
         if not summary_only:
@@ -203,13 +215,19 @@ def list_examples():
     click.echo("=" * 50)
     click.echo("\n🔍 Single Stock Analysis:")
     click.echo("  python main.py analyze AAPL")
-    click.echo("  python main.py analyze AAPL --export")
+    click.echo("  python main.py analyze AAPL --no-export")
     click.echo("  python main.py analyze AAPL -o my_analysis.txt")
+    click.echo("  python main.py analyze AAPL --format json")
+    click.echo("  python main.py analyze AAPL --format csv")
     
     click.echo("\n📊 Batch Analysis:")
     click.echo("  python main.py batch AAPL MSFT GOOGL")
+    click.echo("  python main.py batch AAPL MSFT --no-export")
     click.echo("  python main.py batch AAPL MSFT --export-dir ./analyses")
     click.echo("  python main.py batch AAPL MSFT --summary-only")
+    click.echo("  python main.py batch AAPL MSFT --format json")
+    click.echo("  python main.py batch AAPL MSFT --format csv")
+    click.echo("  python main.py batch AAPL MSFT --report")
     
     click.echo("\nℹ️  Quick Info:")
     click.echo("  python main.py info AAPL")
@@ -218,6 +236,16 @@ def list_examples():
     click.echo("  python main.py --help")
     click.echo("  python main.py analyze --help")
     click.echo("  python main.py batch --help")
+    
+    click.echo("\n📁 Export Formats:")
+    click.echo("  txt  - Human-readable text format (default)")
+    click.echo("  json - Structured JSON data for programmatic use")
+    click.echo("  csv  - Summary data in CSV format for spreadsheets")
+    
+    click.echo("\n💡 Default Behavior:")
+    click.echo("  • Single analysis: Automatically exports to timestamped file")
+    click.echo("  • Batch analysis: Automatically exports to 'analysis_results' directory")
+    click.echo("  • Use --no-export to skip file export")
 
 
 if __name__ == "__main__":

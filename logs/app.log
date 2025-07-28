@@ -14837,3 +14837,395 @@ Overall, Alphabet Inc. (GOOGL) is experiencing a mix of positive financial perfo
 2025-07-28 13:24:44,336 - ratings.rater - INFO - Rating summary created. Length: 515 characters
 2025-07-28 13:24:44,336 - pipelines.pipelines - INFO - Creating complete analysis summary for GOOGL
 2025-07-28 13:24:44,337 - pipelines.pipelines - INFO - Analysis summary created for GOOGL. Length: 6314 characters
+2025-07-28 13:54:51,689 - utils.config - INFO - Logging configured with level: INFO
+2025-07-28 13:54:52,121 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-07-28 13:54:52,122 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-07-28 13:54:52,122 - __main__ - INFO - Starting batch analysis for 1 stocks: ['AAPL']
+2025-07-28 13:54:52,122 - __main__ - INFO - Initializing Stock Analysis Pipeline for batch processing
+2025-07-28 13:54:52,122 - pipelines.pipelines - INFO - Initializing Stock Analysis Pipeline...
+2025-07-28 13:54:52,122 - pipelines.pipelines - INFO - Initializing FinancialDataGatherer
+2025-07-28 13:54:52,122 - fundamentals.finances - INFO - FinancialDataGatherer initialized
+2025-07-28 13:54:52,122 - pipelines.pipelines - INFO - Initializing SentimentCollator
+2025-07-28 13:54:52,163 - news_sentiment.news_collator - INFO - NewsCollator initialized successfully
+2025-07-28 13:54:52,163 - pipelines.pipelines - INFO - Initializing StockRater
+2025-07-28 13:54:52,163 - ratings.rater - INFO - Initializing StockRater
+2025-07-28 13:54:52,163 - ratings.rater - INFO - Initializing ChatOpenAI for stock rating
+2025-07-28 13:54:52,285 - ratings.rater - INFO - StockRater initialized successfully
+2025-07-28 13:54:52,285 - pipelines.pipelines - INFO - Stock Analysis Pipeline initialized successfully
+2025-07-28 13:54:52,285 - __main__ - INFO - Starting batch analysis pipeline for 1 stocks
+2025-07-28 13:54:52,285 - pipelines.pipelines - INFO - Starting batch analysis of 1 stocks: ['AAPL']
+2025-07-28 13:54:52,285 - pipelines.pipelines - INFO - Analyzing stock 1/1: AAPL
+2025-07-28 13:54:52,285 - pipelines.pipelines - INFO - Starting analysis for stock: AAPL
+2025-07-28 13:54:52,285 - pipelines.pipelines - INFO - Step 1/3: Gathering financial data for AAPL
+2025-07-28 13:54:52,285 - pipelines.pipelines - INFO - Retrieving financial data for AAPL
+2025-07-28 13:54:52,285 - fundamentals.finances - INFO - Starting complete financial data pipeline for AAPL
+2025-07-28 13:54:52,285 - fundamentals.finances - INFO - Step 1: Retrieving raw financial data for AAPL
+2025-07-28 13:54:52,285 - fundamentals.finances - INFO - Retrieving financial data for stock: AAPL
+2025-07-28 13:54:52,285 - fundamentals.finances - INFO - Initializing Toolkit for AAPL
+2025-07-28 13:54:53,798 - fundamentals.finances - INFO - Retrieving Earnings Per Share for AAPL
+2025-07-28 13:55:00,226 - yfinance - ERROR - Failed to get ticker '^TNX' reason: Expecting value: line 1 column 1 (char 0)
+2025-07-28 13:55:00,228 - yfinance - ERROR - ^TNX: No timezone found, symbol may be delisted
+2025-07-28 13:55:02,692 - fundamentals.finances - INFO - Retrieving Income Statement for AAPL
+2025-07-28 13:55:02,693 - fundamentals.finances - INFO - Retrieving Cash Flow Statement for AAPL
+2025-07-28 13:55:02,693 - fundamentals.finances - INFO - Retrieving Balance Sheet for AAPL
+2025-07-28 13:55:02,693 - fundamentals.finances - INFO - Retrieving financial ratios for AAPL
+2025-07-28 13:55:02,747 - fundamentals.finances - INFO - Combining all financial data for AAPL
+2025-07-28 13:55:02,747 - fundamentals.finances - INFO - Successfully retrieved financial data for AAPL. Shape: (14, 4)
+2025-07-28 13:55:02,748 - fundamentals.finances - INFO - Step 2: Standardizing units for AAPL
+2025-07-28 13:55:02,748 - fundamentals.finances - INFO - Standardizing units and calculating percentage changes
+2025-07-28 13:55:02,748 - fundamentals.finances - INFO - Calculating percentage changes for EPS and Net Income
+2025-07-28 13:55:02,750 - fundamentals.finances - INFO - Applying unit scaling
+2025-07-28 13:55:02,753 - fundamentals.finances - INFO - Inserting percentage change rows
+2025-07-28 13:55:02,754 - fundamentals.finances - INFO - Converting to numeric and rounding values
+2025-07-28 13:55:02,754 - fundamentals.finances - INFO - Unit standardization completed. Final shape: (16, 5)
+2025-07-28 13:55:02,754 - fundamentals.finances - INFO - Step 3: Converting to HTML for AAPL
+2025-07-28 13:55:02,754 - fundamentals.finances - INFO - Converting DataFrame to HTML format
+2025-07-28 13:55:02,756 - fundamentals.finances - INFO - Successfully converted DataFrame to HTML. Length: 2267 characters
+2025-07-28 13:55:02,756 - fundamentals.finances - INFO - Successfully completed financial data pipeline for AAPL
+2025-07-28 13:55:02,756 - pipelines.pipelines - INFO - Financial data retrieved successfully for AAPL
+2025-07-28 13:55:02,756 - pipelines.pipelines - INFO - Financial data retrieved for AAPL. Length: 2267 characters
+2025-07-28 13:55:02,756 - pipelines.pipelines - INFO - Step 2/3: Analyzing news sentiment for AAPL
+2025-07-28 13:55:02,756 - pipelines.pipelines - INFO - Retrieving sentiment analysis for AAPL
+2025-07-28 13:55:02,756 - news_sentiment.news_collator - INFO - Searching for news with query: AAPL
+2025-07-28 13:55:07,296 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:55:07,310 - news_sentiment.news_collator - INFO - Generated queries: ['AAPL stock nasdaq news', 'AAPL stock cnbc news', 'tech sector news'], type: <class 'list'>
+2025-07-28 13:55:11,154 - news_sentiment.news_collator - INFO - Found 10 results for query: AAPL stock nasdaq news
+2025-07-28 13:55:14,537 - news_sentiment.news_collator - INFO - Found 10 results for query: AAPL stock cnbc news
+2025-07-28 13:55:18,526 - news_sentiment.news_collator - INFO - Found 10 results for query: tech sector news
+2025-07-28 13:55:18,526 - news_sentiment.news_collator - INFO - Total search results found: 30
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 905 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 8559 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 526 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 24581 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 1525 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 1651 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 5767 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 1369 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 1975 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 4946 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 1975 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 1476 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 39 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 3723 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 3821 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 4090 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 2822 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 4498 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 1818 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 188 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 3271 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,527 - news_sentiment.news_collator - INFO - result length 4090 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,528 - news_sentiment.news_collator - INFO - result length 667 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,528 - news_sentiment.news_collator - INFO - result length 12068 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,528 - news_sentiment.news_collator - INFO - result length 925 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,528 - news_sentiment.news_collator - INFO - result length 2895 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,528 - news_sentiment.news_collator - INFO - result length 6677 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,528 - news_sentiment.news_collator - INFO - result length 6104 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,528 - news_sentiment.news_collator - INFO - result length 2529 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,528 - news_sentiment.news_collator - INFO - result length 15724 type <class 'exa_py.api.Result'>
+2025-07-28 13:55:18,528 - news_sentiment.news_collator - INFO - Found 30 articles for query: tech sector news
+2025-07-28 13:55:20,882 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:55:20,885 - news_sentiment.news_collator - INFO - Generated summary for article: Apple Inc. Stock Quote (U.S.: Nasdaq) - AAPL - Mar...
+2025-07-28 13:55:24,813 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:55:24,816 - news_sentiment.news_collator - INFO - Generated summary for article: Apple (AAPL) Stock Gets $245 Price Target Ahead of...
+2025-07-28 13:55:28,411 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:55:28,416 - news_sentiment.news_collator - INFO - Generated summary for article: Apple (AAPL) News Headlines | Nasdaq...
+2025-07-28 13:55:32,656 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:55:32,660 - news_sentiment.news_collator - INFO - Generated summary for article: AAPL Stock Quote Price and Forecast - CNN...
+2025-07-28 13:55:36,398 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:55:36,401 - news_sentiment.news_collator - INFO - Generated summary for article: JPMorgan Bumps Apple (AAPL) PT to $250, Keeps ‘Ove...
+2025-07-28 13:55:38,913 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:55:38,916 - news_sentiment.news_collator - INFO - Generated summary for article: Apple (AAPL) Analysts Stay Positive Ahead of Earni...
+2025-07-28 13:55:41,620 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:55:41,623 - news_sentiment.news_collator - INFO - Generated summary for article: AAPL STOCK NEWS: Apple Inc. (NASDAQ:AAPL) is Facin...
+2025-07-28 13:55:44,732 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:55:44,736 - news_sentiment.news_collator - INFO - Generated summary for article: Should Investors Buy Apple Stock Before July 31?...
+2025-07-28 13:55:47,709 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:55:47,712 - news_sentiment.news_collator - INFO - Generated summary for article: AAPL: Apple Inc - Stock Price, Quote and News - CN...
+2025-07-28 13:55:52,371 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:55:52,374 - news_sentiment.news_collator - INFO - Generated summary for article: Should You Buy Apple Stock Before July 31? Wall St...
+2025-07-28 13:55:56,519 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:55:56,523 - news_sentiment.news_collator - INFO - Generated summary for article: AAPL: Apple Inc - Stock Price, Quote and News - CN...
+2025-07-28 13:55:59,588 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:55:59,591 - news_sentiment.news_collator - INFO - Generated summary for article: AAPL - Stock Price, Quote - CNBC...
+2025-07-28 13:56:02,950 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:56:02,952 - news_sentiment.news_collator - INFO - Generated summary for article: How to trade Apple using options into earnings nex...
+2025-07-28 13:56:05,533 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:56:05,536 - news_sentiment.news_collator - INFO - Generated summary for article: MP Materials stock rips 20% higher after $500 mill...
+2025-07-28 13:56:09,667 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:56:09,671 - news_sentiment.news_collator - INFO - Generated summary for article: Jim Cramer makes the case for why Apple and invest...
+2025-07-28 13:56:14,641 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:56:14,645 - news_sentiment.news_collator - INFO - Generated summary for article: Apple could come in and become number one in AI im...
+2025-07-28 13:56:18,145 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:56:18,147 - news_sentiment.news_collator - INFO - Generated summary for article: Apple Stock Forecast: As Critics Call for Cook to ...
+2025-07-28 13:56:22,218 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:56:22,222 - news_sentiment.news_collator - INFO - Generated summary for article: Apple Stock Had A Nightmare Year — But It May Be N...
+2025-07-28 13:56:27,227 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:56:27,231 - news_sentiment.news_collator - INFO - Generated summary for article: Why Apple (AAPL) Stock Is Up Today...
+2025-07-28 13:56:31,166 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:56:31,170 - news_sentiment.news_collator - INFO - Generated summary for article: Chart Master: Short-term opportunity in Apple - CN...
+2025-07-28 13:56:35,840 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:56:35,843 - news_sentiment.news_collator - INFO - Generated summary for article: Tech News | Today's Latest Technology News - Reute...
+2025-07-28 13:56:40,344 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:56:40,347 - news_sentiment.news_collator - INFO - Generated summary for article: Tech - CNBC...
+2025-07-28 13:56:43,931 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:56:43,933 - news_sentiment.news_collator - INFO - Generated summary for article: Technology sector - Financial Times...
+2025-07-28 13:56:48,739 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:56:48,742 - news_sentiment.news_collator - INFO - Generated summary for article: Technology - Bloomberg...
+2025-07-28 13:56:52,970 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:56:52,974 - news_sentiment.news_collator - INFO - Generated summary for article: TechCrunch | Startup and Technology News...
+2025-07-28 13:56:56,013 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:56:56,014 - news_sentiment.news_collator - INFO - Generated summary for article: Microsoft CEO makes bold statement on company's fu...
+2025-07-28 13:57:01,616 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:57:01,620 - news_sentiment.news_collator - INFO - Generated summary for article: Tech layoffs 2025: How Microsoft, Google, and Meta...
+2025-07-28 13:57:05,536 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:57:05,540 - news_sentiment.news_collator - INFO - Generated summary for article: Here Are Three Questions Investors Want Answered I...
+2025-07-28 13:57:08,439 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:57:08,443 - news_sentiment.news_collator - INFO - Generated summary for article: TCS layoffs: IT major to cut over 12,000 jobs, mid...
+2025-07-28 13:57:10,919 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:57:10,920 - news_sentiment.news_collator - INFO - Generated summary for article: 'They fire, we hire' - Germany seizes on Silicon V...
+2025-07-28 13:57:20,450 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:57:20,458 - news_sentiment.news_collator - INFO - Raw sentiment response: The sentiment analysis for Apple Inc. (AAPL) based on the provided financial news summaries is as follows:
+
+1. **Legal Challenges and AI Strategy Concerns**: Apple is facing a securities fraud lawsuit related to its AI capabilities, which has led to a stock decline. Concerns about Apple's AI strategy and competitive position in the AI sector are highlighted, with some analysts suggesting Apple is lagging behind competitors. This situation is compounded by potential revenue losses from an antitrust lawsuit involving Alphabet. These legal and strategic challenges present a negative outlook for Apple's financial position and market reputation. **Sentiment Score: -4**
+
+2. **Stock Performance and Analyst Ratings**: Despite a year-to-date stock decline of 15% and concerns over tariffs and AI strategy, analysts maintain a "buy" rating with a median target price suggesting a potential upside. However, the high PEG ratio raises concerns about sustaining growth without new product catalysts. This mixed sentiment reflects both challenges and potential opportunities for Apple's stock. **Sentiment Score: -1**
+
+3. **Strategic Developments and Partnerships**: Apple's $500 million deal with MP Materials to produce rare earth magnets and develop a recycling facility in the U.S. is a positive strategic move. This partnership supports U.S. supply chain efforts and aligns with Apple's investment in domestic manufacturing, potentially enhancing its market position. **Sentiment Score: +3**
+
+4. **Earnings and Market Position**: Analysts have a positive outlook on Apple's stock driven by strong smartphone upgrade environment and robust growth in its Services segment. However, skepticism about Apple's AI efforts and competitive risks remain. The reiteration of "Overweight" ratings by JPMorgan and Morgan Stanley, along with increased price targets, indicate confidence in Apple's financial performance. **Sentiment Score: +2**
+
+5. **Market Volatility and Trading Opportunities**: The focus on options trading ahead of Apple's earnings report highlights anticipated stock volatility, presenting opportunities for profit. This reflects investor interest in Apple's financial performance and its impact on the stock's trajectory. **Sentiment Score: +1**
+
+Overall, the sentiment for Apple Inc. is mixed, with significant challenges related to legal issues and AI strategy, but also positive developments in strategic partnerships and analyst confidence in its financial performance. The aggregate sentiment score, considering all factors, is **0**, indicating a neutral outlook with both positive and negative elements influencing Apple's financial sentiment.
+2025-07-28 13:57:21,266 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:57:21,268 - news_sentiment.news_collator - INFO - Raw sentiment response: 0
+2025-07-28 13:57:21,269 - pipelines.pipelines - INFO - Sentiment analysis retrieved successfully for AAPL
+2025-07-28 13:57:21,269 - pipelines.pipelines - INFO - Sentiment analysis completed for AAPL. Company sentiment length: 2661, Sector sentiment length: 1
+2025-07-28 13:57:21,269 - pipelines.pipelines - INFO - Step 3/3: Generating rating for AAPL
+2025-07-28 13:57:21,269 - pipelines.pipelines - INFO - Generating rating for AAPL
+2025-07-28 13:57:21,269 - ratings.rater - INFO - Starting stock rating analysis for AAPL
+2025-07-28 13:57:21,269 - ratings.rater - INFO - Creating rating prompt for AAPL
+2025-07-28 13:57:21,269 - ratings.rater - INFO - Creating rating prompt for AAPL
+2025-07-28 13:57:21,269 - ratings.rater - INFO - Loading stock rating prompt template
+2025-07-28 13:57:21,271 - ratings.rater - INFO - Formatting prompt with data for AAPL
+2025-07-28 13:57:21,271 - ratings.rater - INFO - Rating prompt created for AAPL. Length: 7374 characters
+2025-07-28 13:57:21,271 - ratings.rater - INFO - Sending rating request to ChatOpenAI for AAPL
+2025-07-28 13:57:26,936 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 13:57:26,938 - ratings.rater - INFO - Received rating response for AAPL. Length: 1545 characters
+2025-07-28 13:57:26,938 - ratings.rater - INFO - Parsing JSON response for AAPL
+2025-07-28 13:57:26,939 - ratings.rater - ERROR - Failed to parse JSON response for AAPL
+2025-07-28 13:57:26,939 - ratings.rater - WARNING - Creating fallback rating for AAPL due to JSON parsing failure
+2025-07-28 13:57:26,939 - pipelines.pipelines - INFO - Rating generated successfully for AAPL
+2025-07-28 13:57:26,939 - pipelines.pipelines - INFO - Rating generated for AAPL: Hold (Confidence: 50.0%)
+2025-07-28 13:57:26,939 - pipelines.pipelines - INFO - Analysis completed for AAPL. Processing time: 154.65 seconds
+2025-07-28 13:57:26,939 - pipelines.pipelines - INFO - Successfully completed analysis for AAPL
+2025-07-28 13:57:26,939 - pipelines.pipelines - INFO - Progress: 1/1 completed, 1 successful
+2025-07-28 13:57:26,939 - pipelines.pipelines - INFO - Batch analysis completed. 1/1 successful
+2025-07-28 13:57:26,940 - __main__ - INFO - Batch analysis completed. Successful: 1, Failed: 0
+2025-07-28 13:57:26,940 - __main__ - INFO - Stock AAPL: Hold (Confidence: 50.0%)
+2025-07-28 13:57:26,940 - pipelines.pipelines - INFO - Creating analysis summary for AAPL
+2025-07-28 13:57:26,940 - pipelines.pipelines - INFO - Getting rating summary for AAPL
+2025-07-28 13:57:26,940 - ratings.rater - INFO - Creating rating summary
+2025-07-28 13:57:26,940 - ratings.rater - INFO - Rating summary created. Length: 515 characters
+2025-07-28 13:57:26,940 - pipelines.pipelines - INFO - Creating complete analysis summary for AAPL
+2025-07-28 13:57:26,940 - pipelines.pipelines - INFO - Analysis summary created for AAPL. Length: 5699 characters
+2025-07-28 14:00:52,025 - utils.config - INFO - Logging configured with level: INFO
+2025-07-28 14:00:52,438 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-07-28 14:00:52,438 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-07-28 14:00:52,439 - __main__ - INFO - Starting batch analysis for 1 stocks: ['AAPL']
+2025-07-28 14:00:52,439 - __main__ - INFO - Initializing Stock Analysis Pipeline for batch processing
+2025-07-28 14:00:52,439 - pipelines.pipelines - INFO - Initializing Stock Analysis Pipeline...
+2025-07-28 14:00:52,439 - pipelines.pipelines - INFO - Initializing FinancialDataGatherer
+2025-07-28 14:00:52,439 - fundamentals.finances - INFO - FinancialDataGatherer initialized
+2025-07-28 14:00:52,439 - pipelines.pipelines - INFO - Initializing SentimentCollator
+2025-07-28 14:00:52,478 - news_sentiment.news_collator - INFO - NewsCollator initialized successfully
+2025-07-28 14:00:52,478 - pipelines.pipelines - INFO - Initializing StockRater
+2025-07-28 14:00:52,478 - ratings.rater - INFO - Initializing StockRater
+2025-07-28 14:00:52,479 - ratings.rater - INFO - Initializing ChatOpenAI for stock rating
+2025-07-28 14:00:52,596 - ratings.rater - INFO - StockRater initialized successfully
+2025-07-28 14:00:52,596 - pipelines.pipelines - INFO - Stock Analysis Pipeline initialized successfully
+2025-07-28 14:00:52,596 - __main__ - INFO - Starting batch analysis pipeline for 1 stocks
+2025-07-28 14:00:52,596 - pipelines.pipelines - INFO - Starting batch analysis of 1 stocks: ['AAPL']
+2025-07-28 14:00:52,596 - pipelines.pipelines - INFO - Analyzing stock 1/1: AAPL
+2025-07-28 14:00:52,596 - pipelines.pipelines - INFO - Starting analysis for stock: AAPL
+2025-07-28 14:00:52,596 - pipelines.pipelines - INFO - Step 1/3: Gathering financial data for AAPL
+2025-07-28 14:00:52,596 - pipelines.pipelines - INFO - Retrieving financial data for AAPL
+2025-07-28 14:00:52,596 - fundamentals.finances - INFO - Starting complete financial data pipeline for AAPL
+2025-07-28 14:00:52,596 - fundamentals.finances - INFO - Step 1: Retrieving raw financial data for AAPL
+2025-07-28 14:00:52,596 - fundamentals.finances - INFO - Retrieving financial data for stock: AAPL
+2025-07-28 14:00:52,596 - fundamentals.finances - INFO - Initializing Toolkit for AAPL
+2025-07-28 14:00:54,226 - fundamentals.finances - INFO - Retrieving Earnings Per Share for AAPL
+2025-07-28 14:01:01,163 - yfinance - ERROR - Failed to get ticker '^TNX' reason: Expecting value: line 1 column 1 (char 0)
+2025-07-28 14:01:01,165 - yfinance - ERROR - ^TNX: No timezone found, symbol may be delisted
+2025-07-28 14:01:03,611 - fundamentals.finances - INFO - Retrieving Income Statement for AAPL
+2025-07-28 14:01:03,611 - fundamentals.finances - INFO - Retrieving Cash Flow Statement for AAPL
+2025-07-28 14:01:03,611 - fundamentals.finances - INFO - Retrieving Balance Sheet for AAPL
+2025-07-28 14:01:03,612 - fundamentals.finances - INFO - Retrieving financial ratios for AAPL
+2025-07-28 14:01:03,667 - fundamentals.finances - INFO - Combining all financial data for AAPL
+2025-07-28 14:01:03,667 - fundamentals.finances - INFO - Successfully retrieved financial data for AAPL. Shape: (14, 4)
+2025-07-28 14:01:03,667 - fundamentals.finances - INFO - Step 2: Standardizing units for AAPL
+2025-07-28 14:01:03,667 - fundamentals.finances - INFO - Standardizing units and calculating percentage changes
+2025-07-28 14:01:03,668 - fundamentals.finances - INFO - Calculating percentage changes for EPS and Net Income
+2025-07-28 14:01:03,669 - fundamentals.finances - INFO - Applying unit scaling
+2025-07-28 14:01:03,672 - fundamentals.finances - INFO - Inserting percentage change rows
+2025-07-28 14:01:03,673 - fundamentals.finances - INFO - Converting to numeric and rounding values
+2025-07-28 14:01:03,674 - fundamentals.finances - INFO - Unit standardization completed. Final shape: (16, 5)
+2025-07-28 14:01:03,674 - fundamentals.finances - INFO - Step 3: Converting to HTML for AAPL
+2025-07-28 14:01:03,674 - fundamentals.finances - INFO - Converting DataFrame to HTML format
+2025-07-28 14:01:03,675 - fundamentals.finances - INFO - Successfully converted DataFrame to HTML. Length: 2267 characters
+2025-07-28 14:01:03,675 - fundamentals.finances - INFO - Successfully completed financial data pipeline for AAPL
+2025-07-28 14:01:03,675 - pipelines.pipelines - INFO - Financial data retrieved successfully for AAPL
+2025-07-28 14:01:03,675 - pipelines.pipelines - INFO - Financial data retrieved for AAPL. Length: 2267 characters
+2025-07-28 14:01:03,675 - pipelines.pipelines - INFO - Step 2/3: Analyzing news sentiment for AAPL
+2025-07-28 14:01:03,675 - pipelines.pipelines - INFO - Retrieving sentiment analysis for AAPL
+2025-07-28 14:01:03,675 - news_sentiment.news_collator - INFO - Searching for news with query: AAPL
+2025-07-28 14:01:07,905 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:01:07,919 - news_sentiment.news_collator - INFO - Generated queries: ['AAPL stock nasdaq news', 'AAPL stock cnbc news', 'tech sector news'], type: <class 'list'>
+2025-07-28 14:01:10,790 - news_sentiment.news_collator - INFO - Found 10 results for query: AAPL stock nasdaq news
+2025-07-28 14:01:13,866 - news_sentiment.news_collator - INFO - Found 10 results for query: AAPL stock cnbc news
+2025-07-28 14:01:17,654 - news_sentiment.news_collator - INFO - Found 10 results for query: tech sector news
+2025-07-28 14:01:17,654 - news_sentiment.news_collator - INFO - Total search results found: 30
+2025-07-28 14:01:17,654 - news_sentiment.news_collator - INFO - result length 905 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,654 - news_sentiment.news_collator - INFO - result length 526 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,654 - news_sentiment.news_collator - INFO - result length 1975 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,654 - news_sentiment.news_collator - INFO - result length 849 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,654 - news_sentiment.news_collator - INFO - result length 1651 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,654 - news_sentiment.news_collator - INFO - result length 5503 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 1369 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 5767 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 1586 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 24581 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 1975 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 1476 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 39 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 3723 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 3821 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 3821 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 2822 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 20601 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 4498 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 188 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 3271 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 4090 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 667 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 12068 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 925 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 2895 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 4406 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 6104 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 2529 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - result length 15724 type <class 'exa_py.api.Result'>
+2025-07-28 14:01:17,655 - news_sentiment.news_collator - INFO - Found 30 articles for query: tech sector news
+2025-07-28 14:01:20,107 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:01:20,111 - news_sentiment.news_collator - INFO - Generated summary for article: Apple Inc. Stock Quote (U.S.: Nasdaq) - AAPL - Mar...
+2025-07-28 14:01:23,794 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:01:23,797 - news_sentiment.news_collator - INFO - Generated summary for article: Apple (AAPL) News Headlines | Nasdaq...
+2025-07-28 14:01:27,653 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:01:27,656 - news_sentiment.news_collator - INFO - Generated summary for article: AAPL: Apple Inc - Stock Price, Quote and News - CN...
+2025-07-28 14:01:30,654 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:01:30,657 - news_sentiment.news_collator - INFO - Generated summary for article: Apple Inc. (AAPL) Latest Stock News & Headlines - ...
+2025-07-28 14:01:34,033 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:01:34,036 - news_sentiment.news_collator - INFO - Generated summary for article: Apple (AAPL) Analysts Stay Positive Ahead of Earni...
+2025-07-28 14:01:39,132 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:01:39,134 - news_sentiment.news_collator - INFO - Generated summary for article: Should You Buy or Sell Apple Stock Before July 31?...
+2025-07-28 14:01:41,609 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:01:41,609 - news_sentiment.news_collator - INFO - Generated summary for article: Should Investors Buy Apple Stock Before July 31?...
+2025-07-28 14:01:44,440 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:01:44,448 - news_sentiment.news_collator - INFO - Generated summary for article: AAPL STOCK NEWS: Apple Inc. (NASDAQ:AAPL) is Facin...
+2025-07-28 14:01:47,654 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:01:47,657 - news_sentiment.news_collator - INFO - Generated summary for article: Apple (AAPL) $240 PT, Buy — Citi Sees Tariff Boost...
+2025-07-28 14:01:51,440 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:01:51,442 - news_sentiment.news_collator - INFO - Generated summary for article: AAPL Stock Quote Price and Forecast - CNN...
+2025-07-28 14:01:54,472 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:01:54,474 - news_sentiment.news_collator - INFO - Generated summary for article: AAPL: Apple Inc - Stock Price, Quote and News - CN...
+2025-07-28 14:01:58,381 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:01:58,392 - news_sentiment.news_collator - INFO - Generated summary for article: AAPL - Stock Price, Quote - CNBC...
+2025-07-28 14:02:01,357 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:02:01,359 - news_sentiment.news_collator - INFO - Generated summary for article: How to trade Apple using options into earnings nex...
+2025-07-28 14:02:05,036 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:02:05,038 - news_sentiment.news_collator - INFO - Generated summary for article: MP Materials stock rips 20% higher after $500 mill...
+2025-07-28 14:02:08,133 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:02:08,139 - news_sentiment.news_collator - INFO - Generated summary for article: Jim Cramer makes the case for why Apple and invest...
+2025-07-28 14:02:11,303 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:02:11,307 - news_sentiment.news_collator - INFO - Generated summary for article: Cramer praises Nvidia CEO's win with Trump, says A...
+2025-07-28 14:02:14,410 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:02:14,414 - news_sentiment.news_collator - INFO - Generated summary for article: Apple Stock Forecast: As Critics Call for Cook to ...
+2025-07-28 14:02:18,156 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:02:18,159 - news_sentiment.news_collator - INFO - Generated summary for article: S&P 500 posts first close above 6,300, Nasdaq hits...
+2025-07-28 14:02:21,237 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:02:21,242 - news_sentiment.news_collator - INFO - Generated summary for article: Apple Stock Had A Nightmare Year — But It May Be N...
+2025-07-28 14:02:24,925 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:02:24,929 - news_sentiment.news_collator - INFO - Generated summary for article: Chart Master: Short-term opportunity in Apple - CN...
+2025-07-28 14:02:28,054 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:02:28,058 - news_sentiment.news_collator - INFO - Generated summary for article: Tech News | Today's Latest Technology News - Reute...
+2025-07-28 14:02:30,762 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:02:30,765 - news_sentiment.news_collator - INFO - Generated summary for article: Tech - CNBC...
+2025-07-28 14:02:35,427 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:02:35,431 - news_sentiment.news_collator - INFO - Generated summary for article: Technology sector - Financial Times...
+2025-07-28 14:02:40,348 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:02:40,352 - news_sentiment.news_collator - INFO - Generated summary for article: Technology - Bloomberg...
+2025-07-28 14:02:44,586 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:02:44,589 - news_sentiment.news_collator - INFO - Generated summary for article: TechCrunch | Startup and Technology News...
+2025-07-28 14:02:47,866 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:02:47,873 - news_sentiment.news_collator - INFO - Generated summary for article: Microsoft CEO makes bold statement on company's fu...
+2025-07-28 14:02:50,934 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:02:50,937 - news_sentiment.news_collator - INFO - Generated summary for article: 2025 tech layoffs: Amazon, Microsoft, Google fuel ...
+2025-07-28 14:02:55,547 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:02:55,551 - news_sentiment.news_collator - INFO - Generated summary for article: Here Are Three Questions Investors Want Answered I...
+2025-07-28 14:02:58,772 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:02:58,776 - news_sentiment.news_collator - INFO - Generated summary for article: TCS layoffs: IT major to cut over 12,000 jobs, mid...
+2025-07-28 14:03:01,316 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:03:01,318 - news_sentiment.news_collator - INFO - Generated summary for article: 'They fire, we hire' - Germany seizes on Silicon V...
+2025-07-28 14:03:13,658 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:03:13,662 - news_sentiment.news_collator - INFO - Raw sentiment response: The sentiment analysis for Apple Inc. (AAPL) based on the provided financial news summaries is as follows:
+
+1. **General Market Position and Performance**: Apple has experienced a year-to-date decline of 18%, underperforming the broader market. This is attributed to trade tensions and a lack of a clear AI strategy. Despite these challenges, historical data suggests a potential rebound in July. The sentiment here is mildly negative due to the stock's underperformance and strategic concerns. **Sentiment Score: -2**
+
+2. **AI and Competitive Position**: Apple is perceived as lagging in AI development compared to competitors, impacting its competitive edge. This perception could affect investor confidence and market position. The sentiment is negative due to the strategic disadvantage in a critical technology area. **Sentiment Score: -3**
+
+3. **Legal Challenges**: Apple faces a securities fraud lawsuit related to misrepresentations about AI capabilities, which has led to stock declines. This legal issue poses a risk to investor confidence and market perception. The sentiment is negative due to the potential legal and reputational impact. **Sentiment Score: -3**
+
+4. **Strategic Developments**: Apple announced a $500 million deal with MP Materials to boost its domestic supply chain, which is a positive strategic move. However, the impact on Apple's stock was minimal. The sentiment is mildly positive due to the strategic alignment with U.S. manufacturing goals. **Sentiment Score: +1**
+
+5. **Analyst Ratings and Market Perception**: Morgan Stanley and Citi have reiterated positive ratings for Apple, citing strong sales and strategic factors. However, concerns remain about AI strategy and geopolitical risks. The sentiment is neutral to mildly positive due to mixed analyst views and strategic uncertainties. **Sentiment Score: +1**
+
+6. **Leadership and Market Confidence**: Jim Cramer's support for CEO Tim Cook highlights confidence in Apple's leadership amidst challenges. This endorsement may positively influence investor sentiment. The sentiment is mildly positive due to leadership confidence. **Sentiment Score: +1**
+
+7. **Stock Performance and Market Dynamics**: Apple's stock has shown some recovery with recent gains, but overall performance remains challenged by broader market dynamics and strategic concerns. The sentiment is neutral to mildly negative due to mixed stock performance and ongoing challenges. **Sentiment Score: -1**
+
+Overall, the sentiment for Apple Inc. is mixed, with a slight negative tilt due to strategic challenges, legal issues, and underperformance in key areas like AI. The company's strong market position and strategic initiatives provide some positive offsets, but uncertainties remain significant. **Overall Sentiment Score: -1**
+2025-07-28 14:03:14,497 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:03:14,499 - news_sentiment.news_collator - INFO - Raw sentiment response: -1
+2025-07-28 14:03:14,499 - pipelines.pipelines - INFO - Sentiment analysis retrieved successfully for AAPL
+2025-07-28 14:03:14,499 - pipelines.pipelines - INFO - Sentiment analysis completed for AAPL. Company sentiment length: 2790, Sector sentiment length: 2
+2025-07-28 14:03:14,499 - pipelines.pipelines - INFO - Step 3/3: Generating rating for AAPL
+2025-07-28 14:03:14,499 - pipelines.pipelines - INFO - Generating rating for AAPL
+2025-07-28 14:03:14,499 - ratings.rater - INFO - Starting stock rating analysis for AAPL
+2025-07-28 14:03:14,499 - ratings.rater - INFO - Creating rating prompt for AAPL
+2025-07-28 14:03:14,499 - ratings.rater - INFO - Creating rating prompt for AAPL
+2025-07-28 14:03:14,499 - ratings.rater - INFO - Loading stock rating prompt template
+2025-07-28 14:03:14,501 - ratings.rater - INFO - Formatting prompt with data for AAPL
+2025-07-28 14:03:14,501 - ratings.rater - INFO - Rating prompt created for AAPL. Length: 7504 characters
+2025-07-28 14:03:14,501 - ratings.rater - INFO - Sending rating request to ChatOpenAI for AAPL
+2025-07-28 14:03:20,121 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-28 14:03:20,125 - ratings.rater - INFO - Received rating response for AAPL. Length: 1512 characters
+2025-07-28 14:03:20,125 - ratings.rater - INFO - Parsing JSON response for AAPL
+2025-07-28 14:03:20,126 - ratings.rater - INFO - Extracted JSON from markdown code block for AAPL
+2025-07-28 14:03:20,126 - ratings.rater - INFO - Successfully parsed JSON response for AAPL
+2025-07-28 14:03:20,126 - ratings.rater - INFO - Creating RatingResult object for AAPL
+2025-07-28 14:03:20,126 - ratings.rater - INFO - Successfully rated AAPL as Hold with confidence 75.0%
+2025-07-28 14:03:20,126 - pipelines.pipelines - INFO - Rating generated successfully for AAPL
+2025-07-28 14:03:20,126 - pipelines.pipelines - INFO - Rating generated for AAPL: Hold (Confidence: 75.0%)
+2025-07-28 14:03:20,126 - pipelines.pipelines - INFO - Analysis completed for AAPL. Processing time: 147.53 seconds
+2025-07-28 14:03:20,126 - pipelines.pipelines - INFO - Successfully completed analysis for AAPL
+2025-07-28 14:03:20,126 - pipelines.pipelines - INFO - Progress: 1/1 completed, 1 successful
+2025-07-28 14:03:20,126 - pipelines.pipelines - INFO - Batch analysis completed. 1/1 successful
+2025-07-28 14:03:20,126 - __main__ - INFO - Batch analysis completed. Successful: 1, Failed: 0
+2025-07-28 14:03:20,127 - __main__ - INFO - Stock AAPL: Hold (Confidence: 75.0%)
+2025-07-28 14:03:20,127 - pipelines.pipelines - INFO - Creating analysis summary for AAPL
+2025-07-28 14:03:20,127 - pipelines.pipelines - INFO - Getting rating summary for AAPL
+2025-07-28 14:03:20,127 - ratings.rater - INFO - Creating rating summary
+2025-07-28 14:03:20,127 - ratings.rater - INFO - Rating summary created. Length: 1431 characters
+2025-07-28 14:03:20,127 - pipelines.pipelines - INFO - Creating complete analysis summary for AAPL
+2025-07-28 14:03:20,127 - pipelines.pipelines - INFO - Analysis summary created for AAPL. Length: 6745 characters

@@ -274,25 +274,248 @@ FINANCIAL DATA
         logger.info(f"Analysis summary created for {result.stock_symbol}. Length: {len(summary)} characters")
         return summary
     
-    def export_analysis_to_file(self, result: StockAnalysisResult, filename: str) -> None:
+    def export_analysis_to_file(self, result: StockAnalysisResult, filename: str, format: str = "txt") -> None:
         """
         Export the complete analysis to a file.
         
         Args:
             result: StockAnalysisResult object
             filename: Output filename
+            format: Export format ("txt", "json", "csv")
         """
         try:
-            logger.info(f"Exporting analysis for {result.stock_symbol} to {filename}")
-            summary = self.get_analysis_summary(result)
+            logger.info(f"Exporting analysis for {result.stock_symbol} to {filename} in {format} format")
             
-            with open(filename, 'w', encoding='utf-8') as f:
-                f.write(summary)
+            if format.lower() == "json":
+                self._export_to_json(result, filename)
+            elif format.lower() == "csv":
+                self._export_to_csv(result, filename)
+            else:  # Default to txt
+                self._export_to_txt(result, filename)
             
             logger.info(f"Analysis exported to {filename}")
             
         except Exception as e:
             logger.error(f"Error exporting analysis to {filename}: {e}", exc_info=True)
+            raise
+    
+    def _export_to_txt(self, result: StockAnalysisResult, filename: str) -> None:
+        """Export analysis to text format."""
+        logger.info(f"Exporting {result.stock_symbol} analysis to text file: {filename}")
+        summary = self.get_analysis_summary(result)
+        
+        with open(filename, 'w', encoding='utf-8') as f:
+            f.write(summary)
+    
+    def _export_to_json(self, result: StockAnalysisResult, filename: str) -> None:
+        """Export analysis to JSON format."""
+        logger.info(f"Exporting {result.stock_symbol} analysis to JSON file: {filename}")
+        
+        import json
+        from datetime import datetime
+        
+        # Create structured JSON data
+        export_data = {
+            "stock_symbol": result.stock_symbol,
+            "analysis_date": result.analysis_date,
+            "processing_time_seconds": result.processing_time_seconds,
+            "success": result.success,
+            "error_message": result.error_message,
+            "rating": {
+                "value": result.rating_result.rating.value,
+                "confidence": result.rating_result.confidence,
+                "reasoning": result.rating_result.reasoning,
+                "key_factors": result.rating_result.key_factors,
+                "risk_factors": result.rating_result.risk_factors,
+                "recommendation_summary": result.rating_result.recommendation_summary
+            },
+            "sentiment": {
+                "company_sentiment": result.company_sentiment,
+                "sector_sentiment": result.sector_sentiment
+            },
+            "financial_data_html": result.financial_data_html,
+            "export_timestamp": datetime.now().isoformat()
+        }
+        
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(export_data, f, indent=2, ensure_ascii=False)
+    
+    def _export_to_csv(self, result: StockAnalysisResult, filename: str) -> None:
+        """Export analysis to CSV format (summary only)."""
+        logger.info(f"Exporting {result.stock_symbol} analysis to CSV file: {filename}")
+        
+        import csv
+        
+        # Create CSV with key metrics
+        with open(filename, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.writer(f)
+            
+            # Write header
+            writer.writerow([
+                "Stock Symbol", "Analysis Date", "Rating", "Confidence", 
+                "Processing Time (s)", "Success", "Key Factors Count", "Risk Factors Count"
+            ])
+            
+            # Write data row
+            writer.writerow([
+                result.stock_symbol,
+                result.analysis_date,
+                result.rating_result.rating.value,
+                f"{result.rating_result.confidence:.3f}",
+                f"{result.processing_time_seconds:.2f}",
+                result.success,
+                len(result.rating_result.key_factors),
+                len(result.rating_result.risk_factors)
+            ])
+    
+    def export_batch_results(self, results: List[StockAnalysisResult], output_dir: str = "analysis_results", format: str = "txt") -> None:
+        """
+        Export multiple analysis results to files.
+        
+        Args:
+            results: List of StockAnalysisResult objects
+            output_dir: Directory to save files
+            format: Export format ("txt", "json", "csv")
+        """
+        try:
+            import os
+            from datetime import datetime
+            
+            # Create output directory
+            os.makedirs(output_dir, exist_ok=True)
+            logger.info(f"Created/verified output directory: {output_dir}")
+            
+            # Create timestamp for this batch
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            
+            successful_exports = 0
+            failed_exports = 0
+            
+            for i, result in enumerate(results, 1):
+                try:
+                    # Create filename with timestamp
+                    if format.lower() == "csv":
+                        filename = os.path.join(output_dir, f"batch_{timestamp}.csv")
+                        # For CSV, we'll append all results to one file
+                        if i == 1:  # First result, create new file
+                            self._export_to_csv(result, filename)
+                        else:  # Append to existing file
+                            self._append_to_csv(result, filename)
+                    else:
+                        # Individual files for txt and json
+                        filename = os.path.join(output_dir, f"{result.stock_symbol}_{timestamp}.{format}")
+                        self.export_analysis_to_file(result, filename, format)
+                    
+                    successful_exports += 1
+                    logger.info(f"Exported {result.stock_symbol} ({i}/{len(results)})")
+                    
+                except Exception as e:
+                    failed_exports += 1
+                    logger.error(f"Failed to export {result.stock_symbol}: {e}")
+            
+            logger.info(f"Batch export completed. Successful: {successful_exports}, Failed: {failed_exports}")
+            
+        except Exception as e:
+            logger.error(f"Error in batch export: {e}", exc_info=True)
+            raise
+    
+    def _append_to_csv(self, result: StockAnalysisResult, filename: str) -> None:
+        """Append a single result to existing CSV file."""
+        import csv
+        
+        with open(filename, 'a', newline='', encoding='utf-8') as f:
+            writer = csv.writer(f)
+            writer.writerow([
+                result.stock_symbol,
+                result.analysis_date,
+                result.rating_result.rating.value,
+                f"{result.rating_result.confidence:.3f}",
+                f"{result.processing_time_seconds:.2f}",
+                result.success,
+                len(result.rating_result.key_factors),
+                len(result.rating_result.risk_factors)
+            ])
+    
+    def create_analysis_report(self, results: List[StockAnalysisResult], output_file: str = None) -> str:
+        """
+        Create a comprehensive analysis report for multiple stocks.
+        
+        Args:
+            results: List of StockAnalysisResult objects
+            output_file: Optional file to save the report
+            
+        Returns:
+            Report content as string
+        """
+        try:
+            logger.info(f"Creating comprehensive analysis report for {len(results)} stocks")
+            
+            successful_results = [r for r in results if r.success]
+            failed_results = [r for r in results if not r.success]
+            
+            # Calculate summary statistics
+            total_processing_time = sum(r.processing_time_seconds for r in results)
+            avg_confidence = sum(r.rating_result.confidence for r in successful_results) / len(successful_results) if successful_results else 0
+            
+            # Create rating distribution
+            rating_counts = {}
+            for result in successful_results:
+                rating = result.rating_result.rating.value
+                rating_counts[rating] = rating_counts.get(rating, 0) + 1
+            
+            # Generate report
+            report = f"""
+COMPREHENSIVE STOCK ANALYSIS REPORT
+===================================
+
+Generated: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
+Total Stocks Analyzed: {len(results)}
+Successful Analyses: {len(successful_results)}
+Failed Analyses: {len(failed_results)}
+Total Processing Time: {total_processing_time:.2f} seconds
+Average Processing Time: {total_processing_time/len(results):.2f} seconds per stock
+
+RATING DISTRIBUTION
+==================
+"""
+            for rating, count in rating_counts.items():
+                percentage = (count / len(successful_results)) * 100
+                report += f"{rating}: {count} stocks ({percentage:.1f}%)\n"
+            
+            report += f"""
+AVERAGE CONFIDENCE: {avg_confidence:.1%}
+
+DETAILED RESULTS
+===============
+"""
+            
+            # Add individual results
+            for result in results:
+                report += f"""
+{result.stock_symbol.upper()}
+{'=' * len(result.stock_symbol)}
+Rating: {result.rating_result.rating.value}
+Confidence: {result.rating_result.confidence:.1%}
+Processing Time: {result.processing_time_seconds:.2f}s
+Success: {result.success}
+"""
+                if not result.success:
+                    report += f"Error: {result.error_message}\n"
+                else:
+                    report += f"Key Factors: {', '.join(result.rating_result.key_factors[:3])}\n"
+                    report += f"Risk Factors: {', '.join(result.rating_result.risk_factors[:3])}\n"
+            
+            # Save to file if specified
+            if output_file:
+                logger.info(f"Saving analysis report to {output_file}")
+                with open(output_file, 'w', encoding='utf-8') as f:
+                    f.write(report)
+            
+            logger.info(f"Analysis report created. Length: {len(report)} characters")
+            return report
+            
+        except Exception as e:
+            logger.error(f"Error creating analysis report: {e}", exc_info=True)
             raise
 
 
