@@ -16,6 +16,7 @@ class EnvSettings(BaseSettings):
     EXA_API_KEY: str
     TAVILY_API_KEY: str
     FINANCIAL_API_KEY: str
+    ALPHAVANTAGE_API_KEY: str
 
 class LocalDevSettings(EnvSettings):
 

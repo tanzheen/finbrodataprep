@@ -7,3 +7,4 @@ notebook.ipynb
 /analysis_results
 logs/app.log
 logs/app.log
+*.csv

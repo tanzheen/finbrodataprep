@@ -35,7 +35,7 @@ logger = logging.getLogger(__name__)
 # WORKING CAPITAL RATIO done from compute 
 
 
-class FinancialDataGatherer:
+class FMPFinancialDataGatherer:
     """
     A class for gathering comprehensive financial data about companies using finagg.
     

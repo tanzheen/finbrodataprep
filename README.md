@@ -15,13 +15,19 @@ This system provides end-to-end financial analysis capabilities:
 ```
 finbrodataprep/
 ├── fundamentals/          # Financial data collection
-│   └── finances.py       # FinancialDataGatherer class
+│   ├── __init__.py       # Module initialization
+│   ├── alphavantage.py   # AlphavantageFinancialDataGatherer class
+│   └── fmp.py           # FMPFinancialDataGatherer class
 ├── news_sentiment/       # News and sentiment analysis
 │   └── news_collator.py  # SentimentCollator class
 ├── ratings/              # Stock rating system
 │   └── rater.py         # StockRater class
 ├── pipelines/            # Complete analysis pipeline
 │   └── pipelines.py     # StockAnalysisPipeline class
+├── tests/                # Test suite
+│   ├── test_alphavantage.py    # AlphaVantage tests
+│   ├── test_basic.py           # Basic functionality tests
+│   └── main_tests.py           # Main application tests
 ├── prompts/              # AI prompt templates
 │   ├── news_sentiment_company.md
 │   ├── news_sentiment_sector.md
@@ -29,19 +35,26 @@ finbrodataprep/
 │   └── stock_rating.md
 ├── utils/                # Configuration and utilities
 │   └── config.py        # Environment configuration
-├── findata/              # Data storage
-├── main.py              # Main entry point
+├── analysis_results/     # Exported analysis results
+├── findata/              # Data storage (SQLite databases)
+├── logs/                 # Application logs
+├── main.py              # Main CLI entry point
+├── run_tests.py         # Test runner script
 └── pyproject.toml       # Dependencies and project config
 ```
 
 ## 🚀 Features
 
 ### 📊 Financial Data Collection
+- **Multiple Data Sources**: Alpha Vantage and Financial Modeling Prep (FMP) integration
 - **Comprehensive Metrics**: EPS, Net Income, ROE, ROA, Debt-to-Equity, Current Ratio
-- **Cash Flow Analysis**: Operating Cash Flow, Free Cash Flow
-- **Balance Sheet Items**: Assets, Liabilities, Shareholder Equity
-- **Growth Trends**: Quarter-over-quarter and year-over-year changes
-- **Standardized Units**: Automatic unit conversion and formatting
+- **Cash Flow Analysis**: Operating Cash Flow, Free Cash Flow, Capital Expenditures
+- **Balance Sheet Items**: Assets, Liabilities, Shareholder Equity, Inventory
+- **Growth Trends**: Quarter-over-quarter and year-over-year percentage changes
+- **Financial Ratios**: Book Value per Share, Quick Ratio, Leverage Ratio
+- **Standardized Units**: Automatic unit conversion (millions for USD amounts)
+- **Error Handling**: Comprehensive logging and exception handling
+- **Data Filtering**: Latest 4 quarters of financial data
 
 ### 📰 News Sentiment Analysis
 - **Multi-Source News**: Exa AI, Tavily, and DuckDuckGo integration
@@ -90,8 +103,11 @@ finbrodataprep/
 4. **Configure environment**:
    Create a `config` file with your API keys:
    ```bash
-   # Financial data API
-   FINANCIAL_API_KEY=your_financial_api_key
+   # Alpha Vantage API (for financial data)
+   ALPHAVANTAGE_API_KEY=your_alphavantage_api_key
+   
+   # Financial Modeling Prep API (alternative financial data source)
+   FMP_API_KEY=your_fmp_api_key
    
    # News and search APIs
    EXA_API_KEY=your_exa_api_key
@@ -177,46 +193,20 @@ python run_tests.py --no-coverage
 
 ### Individual Components
 
-```python
-from fundamentals.finances import FinancialDataGatherer
-from news_sentiment.news_collator import SentimentCollator
-from ratings.rater import StockRater
-
-# Initialize components
-financial_gatherer = FinancialDataGatherer()
-sentiment_collator = SentimentCollator()
-stock_rater = StockRater()
-
-# Analyze a stock
-company_name = "AAPL"
-
-# Get financial data
-financial_data = financial_gatherer.from_stock_to_dataframe(company_name)
-
-# Get sentiment analysis
-company_sentiment, sector_sentiment = sentiment_collator.get_stock_sentiment(company_name)
-
-# Rate the stock
-rating_result = stock_rater.rate_stock(
-    financial_data_html=financial_data,
-    company_sentiment=company_sentiment,
-    sector_sentiment=sector_sentiment,
-    company_name=company_name
-)
-
-# Display results
-print(stock_rater.get_rating_summary(rating_result))
-```
-
-### Individual Components
-
 #### Financial Data Collection
 ```python
-from fundamentals.finances import FinancialDataGatherer
+# Using Alpha Vantage data source
+from fundamentals.alphavantage import AlphavantageFinancialDataGatherer
 
-gatherer = FinancialDataGatherer()
+gatherer = AlphavantageFinancialDataGatherer()
 financial_data = gatherer.from_stock_to_dataframe("AAPL")
-print(financial_data)  # HTML table of financial metrics
+print(financial_data)  # Pandas DataFrame with financial metrics and units
+
+# Using FMP data source (alternative)
+from fundamentals.fmp import FMPFinancialDataGatherer
+
+fmp_gatherer = FMPFinancialDataGatherer()
+fmp_data = fmp_gatherer.from_stock_to_dataframe("AAPL")
 ```
 
 #### News Sentiment Analysis
@@ -246,7 +236,9 @@ print(result.rating.value)  # "Strong Buy", "Buy", etc.
 ## 📊 Data Sources
 
 ### Financial Data
-- **financetoolkit**: Comprehensive financial ratios and metrics
+- **Alpha Vantage**: Primary source for earnings, income statements, balance sheets, and cash flow data
+- **Financial Modeling Prep (FMP)**: Alternative comprehensive financial data provider
+- **financetoolkit**: Financial ratios and metrics calculation library
 - **yfinance**: Real-time stock data and historical prices
 - **financedatabase**: Company information and sector data
 
@@ -290,7 +282,8 @@ The system analyzes multiple factors to provide comprehensive stock ratings:
 ### Environment Variables
 ```bash
 # Required for financial data
-FINANCIAL_API_KEY=your_financial_api_key
+ALPHAVANTAGE_API_KEY=your_alphavantage_api_key
+FMP_API_KEY=your_fmp_api_key
 
 # Required for news analysis
 EXA_API_KEY=your_exa_api_key
@@ -310,10 +303,29 @@ All AI prompts are stored in the `prompts/` directory and can be customized:
 
 ## 🧪 Testing
 
-Run the test suite to verify functionality:
+The project includes comprehensive tests for all components:
+
 ```bash
-python ratings/test_rater.py
+# Run all tests with coverage
+python run_tests.py
+
+# Run specific test class
+python run_tests.py --test TestAlphavantageFinancialDataGatherer
+
+# Run tests verbosely
+python run_tests.py --verbose
+
+# List all available tests
+python run_tests.py --list
+
+# Run without coverage report
+python run_tests.py --no-coverage
 ```
+
+### Test Structure
+- `tests/test_alphavantage.py`: Tests for Alpha Vantage financial data gatherer
+- `tests/test_basic.py`: Basic functionality tests
+- `tests/main_tests.py`: Main application and CLI tests
 
 ## 📈 Example Output
 
@@ -376,3 +388,6 @@ For issues and questions:
 - [ ] Historical performance tracking
 - [ ] API endpoints for web integration
 - [ ] Mobile app support
+- [ ] Additional data sources integration (Polygon.io, Yahoo Finance)
+- [ ] Enhanced logging and monitoring capabilities
+- [ ] Data caching and performance optimization

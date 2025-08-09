@@ -16105,3 +16105,110 @@ Overall, while Palantir Technologies Inc. has demonstrated strong growth and str
 2025-07-28 16:12:12,740 - ratings.rater - INFO - Rating summary created. Length: 1408 characters
 2025-07-28 16:12:12,740 - pipelines.pipelines - INFO - Creating complete analysis summary for PLTR
 2025-07-28 16:12:12,740 - pipelines.pipelines - INFO - Analysis summary created for PLTR. Length: 7137 characters
+2025-08-07 23:10:35,744 - utils.config - INFO - Logging configured with level: INFO
+2025-08-07 23:10:36,330 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-08-07 23:10:36,331 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-08-07 23:10:36,331 - __main__ - INFO - Starting batch analysis for 1 stocks: ['LLY']
+2025-08-07 23:10:36,331 - __main__ - INFO - Initializing Stock Analysis Pipeline for batch processing
+2025-08-07 23:10:36,331 - pipelines.pipelines - INFO - Initializing Stock Analysis Pipeline...
+2025-08-07 23:10:36,331 - pipelines.pipelines - INFO - Initializing FinancialDataGatherer
+2025-08-07 23:10:36,331 - fundamentals.finances - INFO - FinancialDataGatherer initialized
+2025-08-07 23:10:36,331 - pipelines.pipelines - INFO - Initializing SentimentCollator
+2025-08-07 23:10:36,379 - news_sentiment.news_collator - INFO - NewsCollator initialized successfully
+2025-08-07 23:10:36,379 - pipelines.pipelines - INFO - Initializing StockRater
+2025-08-07 23:10:36,379 - ratings.rater - INFO - Initializing StockRater
+2025-08-07 23:10:36,379 - ratings.rater - INFO - Initializing ChatOpenAI for stock rating
+2025-08-07 23:10:36,568 - ratings.rater - INFO - StockRater initialized successfully
+2025-08-07 23:10:36,568 - pipelines.pipelines - INFO - Stock Analysis Pipeline initialized successfully
+2025-08-07 23:10:36,568 - __main__ - INFO - Starting batch analysis pipeline for 1 stocks
+2025-08-07 23:10:36,568 - pipelines.pipelines - INFO - Starting batch analysis of 1 stocks: ['LLY']
+2025-08-07 23:10:36,568 - pipelines.pipelines - INFO - Analyzing stock 1/1: LLY
+2025-08-07 23:10:36,568 - pipelines.pipelines - INFO - Starting analysis for stock: LLY
+2025-08-07 23:10:36,568 - pipelines.pipelines - INFO - Step 1/3: Gathering financial data for LLY
+2025-08-07 23:10:36,568 - pipelines.pipelines - INFO - Retrieving financial data for LLY
+2025-08-07 23:10:36,568 - fundamentals.finances - INFO - Starting complete financial data pipeline for LLY
+2025-08-07 23:10:36,568 - fundamentals.finances - INFO - Step 1: Retrieving raw financial data for LLY
+2025-08-07 23:10:36,568 - fundamentals.finances - INFO - Retrieving financial data for stock: LLY
+2025-08-07 23:10:36,568 - fundamentals.finances - INFO - Initializing Toolkit for LLY
+2025-08-07 23:10:39,801 - fundamentals.finances - INFO - Retrieving Earnings Per Share for LLY
+2025-08-07 23:10:42,514 - financetoolkit - ERROR - The following tickers are using a premium query parameter from Financial Modeling Prep: LLY.
+This is not available in your current plan. Consider upgrading your plan to a higher plan. You can get 15% off by using the following affiliate link which also supports the project: https://www.jeroenbouma.com/fmp
+2025-08-07 23:10:42,515 - financetoolkit - ERROR - The rate limit from Yahoo Finance has been reached or no data could be found from this source for the following ticker: LLY.
+This occurred after a previous attempt to use FinancialModelingPrep was unsuccessful and is likely due to no data being available for the ticker.
+2025-08-07 23:10:42,515 - financetoolkit - INFO - No balance data found for the following tickers: LLY
+2025-08-07 23:10:44,412 - financetoolkit - ERROR - The following tickers are using a premium query parameter from Financial Modeling Prep: LLY.
+This is not available in your current plan. Consider upgrading your plan to a higher plan. You can get 15% off by using the following affiliate link which also supports the project: https://www.jeroenbouma.com/fmp
+2025-08-07 23:10:44,412 - financetoolkit - ERROR - The rate limit from Yahoo Finance has been reached or no data could be found from this source for the following ticker: LLY.
+This occurred after a previous attempt to use FinancialModelingPrep was unsuccessful and is likely due to no data being available for the ticker.
+2025-08-07 23:10:44,412 - financetoolkit - INFO - No income data found for the following tickers: LLY
+2025-08-07 23:10:46,279 - financetoolkit - ERROR - The following tickers are using a premium query parameter from Financial Modeling Prep: LLY.
+This is not available in your current plan. Consider upgrading your plan to a higher plan. You can get 15% off by using the following affiliate link which also supports the project: https://www.jeroenbouma.com/fmp
+2025-08-07 23:10:46,279 - financetoolkit - ERROR - The rate limit from Yahoo Finance has been reached or no data could be found from this source for the following ticker: LLY.
+This occurred after a previous attempt to use FinancialModelingPrep was unsuccessful and is likely due to no data being available for the ticker.
+2025-08-07 23:10:46,279 - financetoolkit - INFO - No cashflow data found for the following tickers: LLY
+2025-08-07 23:10:46,282 - fundamentals.finances - ERROR - Error retrieving financial data for LLY: The datasets could not be populated and therefore the Ratios class cannot be initialized. This is usually because no tickers are equities, you have reached the API limit or entered an invalid API key.
+Traceback (most recent call last):
+  File "/Users/tannicholas/finbrodataprep/fundamentals/finances.py", line 63, in get_values
+    eps = toolkit.ratios.get_earnings_per_share()
+          ^^^^^^^^^^^^^^
+  File "/Users/tannicholas/finbrodataprep/.venv/lib/python3.13/site-packages/financetoolkit/toolkit_controller.py", line 659, in ratios
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The datasets could not be populated and therefore the Ratios class cannot be initialized. This is usually because no tickers are equities, you have reached the API limit or entered an invalid API key.
+2025-08-07 23:10:46,285 - fundamentals.finances - ERROR - Error in financial data pipeline for LLY: The datasets could not be populated and therefore the Ratios class cannot be initialized. This is usually because no tickers are equities, you have reached the API limit or entered an invalid API key.
+Traceback (most recent call last):
+  File "/Users/tannicholas/finbrodataprep/fundamentals/finances.py", line 210, in from_stock_to_dataframe
+    df = self.get_values(stock)
+  File "/Users/tannicholas/finbrodataprep/fundamentals/finances.py", line 63, in get_values
+    eps = toolkit.ratios.get_earnings_per_share()
+          ^^^^^^^^^^^^^^
+  File "/Users/tannicholas/finbrodataprep/.venv/lib/python3.13/site-packages/financetoolkit/toolkit_controller.py", line 659, in ratios
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The datasets could not be populated and therefore the Ratios class cannot be initialized. This is usually because no tickers are equities, you have reached the API limit or entered an invalid API key.
+2025-08-07 23:10:46,285 - pipelines.pipelines - ERROR - Error getting financial data for LLY: The datasets could not be populated and therefore the Ratios class cannot be initialized. This is usually because no tickers are equities, you have reached the API limit or entered an invalid API key.
+Traceback (most recent call last):
+  File "/Users/tannicholas/finbrodataprep/pipelines/pipelines.py", line 144, in _get_financial_data
+    financial_data = self.financial_gatherer.from_stock_to_dataframe(stock_symbol)
+  File "/Users/tannicholas/finbrodataprep/fundamentals/finances.py", line 210, in from_stock_to_dataframe
+    df = self.get_values(stock)
+  File "/Users/tannicholas/finbrodataprep/fundamentals/finances.py", line 63, in get_values
+    eps = toolkit.ratios.get_earnings_per_share()
+          ^^^^^^^^^^^^^^
+  File "/Users/tannicholas/finbrodataprep/.venv/lib/python3.13/site-packages/financetoolkit/toolkit_controller.py", line 659, in ratios
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The datasets could not be populated and therefore the Ratios class cannot be initialized. This is usually because no tickers are equities, you have reached the API limit or entered an invalid API key.
+2025-08-07 23:10:46,286 - pipelines.pipelines - ERROR - Error analyzing stock LLY: The datasets could not be populated and therefore the Ratios class cannot be initialized. This is usually because no tickers are equities, you have reached the API limit or entered an invalid API key.
+Traceback (most recent call last):
+  File "/Users/tannicholas/finbrodataprep/pipelines/pipelines.py", line 87, in analyze_stock
+    financial_data_html = self._get_financial_data(stock_symbol)
+  File "/Users/tannicholas/finbrodataprep/pipelines/pipelines.py", line 144, in _get_financial_data
+    financial_data = self.financial_gatherer.from_stock_to_dataframe(stock_symbol)
+  File "/Users/tannicholas/finbrodataprep/fundamentals/finances.py", line 210, in from_stock_to_dataframe
+    df = self.get_values(stock)
+  File "/Users/tannicholas/finbrodataprep/fundamentals/finances.py", line 63, in get_values
+    eps = toolkit.ratios.get_earnings_per_share()
+          ^^^^^^^^^^^^^^
+  File "/Users/tannicholas/finbrodataprep/.venv/lib/python3.13/site-packages/financetoolkit/toolkit_controller.py", line 659, in ratios
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The datasets could not be populated and therefore the Ratios class cannot be initialized. This is usually because no tickers are equities, you have reached the API limit or entered an invalid API key.
+2025-08-07 23:10:46,287 - pipelines.pipelines - WARNING - Creating error rating result due to analysis failure
+2025-08-07 23:10:46,288 - pipelines.pipelines - INFO - Progress: 1/1 completed, 0 successful
+2025-08-07 23:10:46,288 - pipelines.pipelines - INFO - Batch analysis completed. 0/1 successful
+2025-08-07 23:10:46,288 - __main__ - INFO - Batch analysis completed. Successful: 0, Failed: 1
+2025-08-07 23:10:46,288 - __main__ - ERROR - Failed analysis for LLY: The datasets could not be populated and therefore the Ratios class cannot be initialized. This is usually because no tickers are equities, you have reached the API limit or entered an invalid API key.
+2025-08-07 23:10:46,288 - __main__ - INFO - Exporting analysis files to directory: analysis_results in txt format
+2025-08-07 23:10:46,288 - pipelines.pipelines - INFO - Created/verified output directory: analysis_results
+2025-08-07 23:10:46,288 - pipelines.pipelines - INFO - Exporting analysis for LLY to analysis_results/LLY_20250807_231046.txt in txt format
+2025-08-07 23:10:46,288 - pipelines.pipelines - INFO - Exporting LLY analysis to text file: analysis_results/LLY_20250807_231046.txt
+2025-08-07 23:10:46,288 - pipelines.pipelines - INFO - Creating analysis summary for LLY
+2025-08-07 23:10:46,288 - pipelines.pipelines - WARNING - Creating error summary for failed analysis of LLY
+2025-08-07 23:10:46,289 - pipelines.pipelines - INFO - Analysis exported to analysis_results/LLY_20250807_231046.txt
+2025-08-07 23:10:46,289 - pipelines.pipelines - INFO - Exported LLY (1/1)
+2025-08-07 23:10:46,289 - pipelines.pipelines - INFO - Batch export completed. Successful: 1, Failed: 0

@@ -15,7 +15,8 @@ from dataclasses import dataclass
 from datetime import datetime
 
 # Import our custom modules
-from fundamentals.finances import FinancialDataGatherer
+from fundamentals.fmp import FMPFinancialDataGatherer
+from fundamentals.alphavantage import AlphavantageFinancialDataGatherer
 from news_sentiment.news_collator import SentimentCollator
 from ratings.rater import StockRater, RatingResult
 
@@ -53,7 +54,7 @@ class StockAnalysisPipeline:
             
             # Initialize all components
             logger.info("Initializing FinancialDataGatherer")
-            self.financial_gatherer = FinancialDataGatherer()
+            self.financial_gatherer = AlphavantageFinancialDataGatherer()
             
             logger.info("Initializing SentimentCollator")
             self.sentiment_collator = SentimentCollator()

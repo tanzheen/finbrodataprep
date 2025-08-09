@@ -21,6 +21,8 @@ dependencies = [
     "click>=8.0.0",
     "pytest>=8.4.1",
     "pytest-cov>=4.0.0",
+    "polygon-api-client>=1.15.3",
+    "alpha-vantage>=3.0.0",
 ]
 
 [project.optional-dependencies]
