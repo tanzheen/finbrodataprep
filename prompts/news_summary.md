@@ -14,6 +14,5 @@ Title: {title}
 Article:
 {article_content}
 
-Your task is to summarize the content above in 5-6 sentences. Emphasize what happened, why it matters, and any implications for the company, its competitors, or the sector. Feel free to quote facts. Avoid speculating. 
-
+Your task is to summarize the content above. Emphasize what happened, why it matters, and any implications for the company, its competitors, or the industry. Quote facts and avoid speculation.
 

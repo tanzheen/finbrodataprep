@@ -1,7 +1,7 @@
 import os
 import json
 import pandas as pd
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 from typing import List, Dict, Optional, Any
 from dataclasses import dataclass, asdict
 import logging
@@ -10,6 +10,7 @@ import logging
 from exa_py import Exa
 from openai import OpenAI
 from dotenv import load_dotenv
+from pydantic import BaseModel
 
 from langchain_openai import ChatOpenAI
 from langchain.schema import SystemMessage, HumanMessage
@@ -36,10 +37,15 @@ class NewsArticle:
     search_query: Optional[str] = None
     collected_at: Optional[str] = None
 
+class SearchQueries(BaseModel):
+    """Pydantic model for structured output of search queries"""
+    queries: List[str]
+
 class SentimentCollator:
     """
     A class to gather news from various sources using Exa AI,
     perform summaries using OpenAI, and conduct sentiment analysis.
+    TODO: test and record everything to check how the LLM generates stuff
     """
     
     def __init__(self):
@@ -72,37 +78,43 @@ class SentimentCollator:
         
     def generate_queries(self, company_name: str) -> List[str]:
         """
-        Generate queries for news search using llm 
+        Generate queries for news search using LLM with structured output
+        TODO: change to cheaper LLM 
+        TODO: change the possible stock generation: nasdaq might not be the best etc e
+        TODO: e.g US semiconductor industry
         """
 
         context = self.context_search(company_name + " company")
 
         prompt = """
-        You are a financial news analyst. 
-        You are given a company and you need to generate a list of queries to search for news about the company stock.
-        You should generate queries regarding the company and the sector that the company is in.
-        The queries should be looking for news from reliable sources.
-        The queries should be in the format of a list of strings.
+You are a financial news analyst. Today's date is {date}
 
-        Strictly return the list of queries, no other text.
-        
-        Example:
-        Input: AAPL
-        Output: ["AAPL stock nasdaq news", "AAPL stock cnbc news", "tech sector news"]
+Your task:
+- Given a company and its context, generate **exactly** 5 search queries.
+- The first 3 queries must focus on **news about the company and its stock**.
+- The last 2 queries must focus on the **company's stock performance relative to its industry/sector**.
 
-        Input: NVDA
-        Output: ["NVDA stock nasdaq news", "semiconductor sector news"]
+Requirements:
+- Queries must aim to find **informative and resourceful articles** that help assess whether the company's stock is a good investment.
+- Avoid generic or vague search terms; be specific about performance, valuation, market trends, and analyst sentiment.
+- Use the provided context to tailor queries for the company and sector.
 
-        Use the following context about the company to generate the queries about the company and the sector.
-        {context}
-        
-        """
+Context about the company:
+{context}
+"""
+
+        # Create structured output model
         chat = ChatOpenAI(model_name=env.LLM_NAME, temperature=0, api_key=env.LLM_API_KEY)
-        response = chat([
-            HumanMessage(content=prompt.format(context=context))
+        structured_chat = chat.with_structured_output(SearchQueries)
+        
+        response = structured_chat.invoke([
+            HumanMessage(content=prompt.format(
+                date=date.today().strftime("%B %d, %Y"),
+                context=context
+            ))
         ])
 
-        return json.loads(response.content)
+        return response.queries
     
     def search_news(self, 
                    query: str) -> List[NewsArticle]:
@@ -118,6 +130,9 @@ class SentimentCollator:
             
         Returns:
             List of NewsArticle objects
+            TODO: think how to find the better kind of articles
+            TODO: what kind of articles should i be looking for?
+            TODO: should i make a crawler since content is 20% more cost
         """
         try:
 
@@ -139,6 +154,7 @@ class SentimentCollator:
                 # Perform search
                 search_response = self.exa_client.search_and_contents( query, 
                                                             text = True, 
+                                                            category="news",
                                                             start_published_date=start_published_date,
                                                         end_published_date=end_published_date,
                                                         context= True) 
@@ -193,6 +209,9 @@ class SentimentCollator:
 
         Returns:
             Summary text
+            TODO: need to put date for LLM reference
+            TODO: Title and source also 
+            TODO: best to put in a dataclass then load as json or something
         """
         try:
             if not article.content:
@@ -213,7 +232,8 @@ class SentimentCollator:
 
             summary = response.content.strip()
             logger.info(f"Generated summary for article: {article.title[:50]}...")
-            return summary
+            article.summary = summary
+            return article
 
         except Exception as e:
             logger.error(f"Error summarizing article: {e}")
@@ -224,7 +244,7 @@ class SentimentCollator:
         Summarize all the articles.
         """
         summaries = [self.summarize_article(article) for article in articles]
-        summaries = "\n\n".join(summaries)
+        
         return summaries
     
     def analyze_sentiment(self, summaries: str, mode: str = "company", target_name: str = "Company") -> tuple[int, str]:
@@ -274,8 +294,10 @@ class SentimentCollator:
     def get_stock_sentiment(self, company_name: str) -> str:
         """
         Given the name of the company, get the articles, perform the summaries then get the 2 sentiment scores, one for the company and one for the sector.
+        TODO: figure out how to analyse the sentiments properly
+        TODO: have to create template
         """
-
+        
         # search for stock articles 
         articles = self.search_news(company_name)
         summaries = self.summarize_all_articles(articles)

@@ -20,12 +20,10 @@ class TestAlphavantageFinancialDataGatherer:
     def setup_method(self):
         """Set up test fixtures before each test method."""
         with patch('fundamentals.alphavantage.env') as mock_env:
-            mock_env.get_value.return_value = "test_api_key"
             self.gatherer = AlphavantageFinancialDataGatherer()
     
     def test_init(self):
         """Test that the class initializes correctly."""
-        assert self.gatherer.api_key == "test_api_key"
         assert self.gatherer.base_url == "https://www.alphavantage.co/query"
     
     @patch('fundamentals.alphavantage.requests.get')

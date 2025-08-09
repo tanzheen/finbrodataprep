@@ -8,3 +8,7 @@ notebook.ipynb
 logs/app.log
 logs/app.log
 *.csv
+/test_results
+/logs
+/logs
+/logs

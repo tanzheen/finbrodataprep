@@ -14,4 +14,4 @@ Scoring guidelines:
 
 Evaluate the sentiment based on macroeconomic factors, regulations, demand/supply trends, and aggregated company news.
 
-Return only a sentiment score on the -5 to +5 scale. Do not elaborate unless prompted.
+Give the explanations with quoted facts, followed by the sentiment score on the -5 to +5 scale. 

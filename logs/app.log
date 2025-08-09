@@ -16212,3 +16212,691 @@ ValueError: The datasets could not be populated and therefore the Ratios class c
 2025-08-07 23:10:46,289 - pipelines.pipelines - INFO - Analysis exported to analysis_results/LLY_20250807_231046.txt
 2025-08-07 23:10:46,289 - pipelines.pipelines - INFO - Exported LLY (1/1)
 2025-08-07 23:10:46,289 - pipelines.pipelines - INFO - Batch export completed. Successful: 1, Failed: 0
+2025-08-09 14:41:17,885 - utils.config - INFO - Logging configured with level: INFO
+2025-08-09 14:41:18,034 - news_sentiment.news_collator - INFO - NewsCollator initialized successfully
+2025-08-09 14:41:18,035 - news_sentiment.news_collator - INFO - Searching for news with query: AAPL
+2025-08-09 14:41:22,838 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 14:41:22,852 - news_sentiment.news_collator - INFO - Generated queries: ['AAPL stock nasdaq news', 'AAPL stock cnbc news', 'tech sector news'], type: <class 'list'>
+2025-08-09 14:41:26,829 - news_sentiment.news_collator - INFO - Found 10 results for query: AAPL stock nasdaq news
+2025-08-09 14:41:29,467 - news_sentiment.news_collator - INFO - Found 10 results for query: AAPL stock cnbc news
+2025-08-09 14:41:32,796 - news_sentiment.news_collator - INFO - Found 9 results for query: tech sector news
+2025-08-09 14:41:32,796 - news_sentiment.news_collator - INFO - Total search results found: 29
+2025-08-09 14:41:32,796 - news_sentiment.news_collator - INFO - result length 7757 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,797 - news_sentiment.news_collator - INFO - result length 526 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,797 - news_sentiment.news_collator - INFO - result length 9463 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,797 - news_sentiment.news_collator - INFO - result length 27894 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,797 - news_sentiment.news_collator - INFO - result length 4654 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,797 - news_sentiment.news_collator - INFO - result length 2527 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,797 - news_sentiment.news_collator - INFO - result length 7678 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,797 - news_sentiment.news_collator - INFO - result length 21869 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,797 - news_sentiment.news_collator - INFO - result length 9742 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,797 - news_sentiment.news_collator - INFO - result length 8911 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,797 - news_sentiment.news_collator - INFO - result length 7757 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,797 - news_sentiment.news_collator - INFO - result length 205 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,797 - news_sentiment.news_collator - INFO - result length 205 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,797 - news_sentiment.news_collator - INFO - result length 3652 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,798 - news_sentiment.news_collator - INFO - result length 7907 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,798 - news_sentiment.news_collator - INFO - result length 3821 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,798 - news_sentiment.news_collator - INFO - result length 4743 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,798 - news_sentiment.news_collator - INFO - result length 3821 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,798 - news_sentiment.news_collator - INFO - result length 3807 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,798 - news_sentiment.news_collator - INFO - result length 3821 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,798 - news_sentiment.news_collator - INFO - result length 702 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,798 - news_sentiment.news_collator - INFO - result length 38147 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,798 - news_sentiment.news_collator - INFO - result length 12488 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,798 - news_sentiment.news_collator - INFO - result length 2857 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,798 - news_sentiment.news_collator - INFO - result length 7391 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,798 - news_sentiment.news_collator - INFO - result length 11424 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,798 - news_sentiment.news_collator - INFO - result length 29164 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,798 - news_sentiment.news_collator - INFO - result length 20631 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,798 - news_sentiment.news_collator - INFO - result length 5092 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:32,798 - news_sentiment.news_collator - INFO - Found 29 articles for query: tech sector news
+2025-08-09 14:41:32,805 - news_sentiment.news_collator - INFO - Searching for news with query: MSFT
+2025-08-09 14:41:36,499 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 14:41:36,502 - news_sentiment.news_collator - INFO - Generated queries: ['MSFT stock nasdaq news', 'Microsoft earnings news', 'technology sector news'], type: <class 'list'>
+2025-08-09 14:41:40,319 - news_sentiment.news_collator - INFO - Found 10 results for query: MSFT stock nasdaq news
+2025-08-09 14:41:43,302 - news_sentiment.news_collator - INFO - Found 10 results for query: Microsoft earnings news
+2025-08-09 14:41:46,314 - news_sentiment.news_collator - INFO - Found 10 results for query: technology sector news
+2025-08-09 14:41:46,314 - news_sentiment.news_collator - INFO - Total search results found: 30
+2025-08-09 14:41:46,314 - news_sentiment.news_collator - INFO - result length 6832 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,314 - news_sentiment.news_collator - INFO - result length 9352 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,314 - news_sentiment.news_collator - INFO - result length 13687 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,315 - news_sentiment.news_collator - INFO - result length 7127 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,315 - news_sentiment.news_collator - INFO - result length 13668 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,315 - news_sentiment.news_collator - INFO - result length 18533 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,315 - news_sentiment.news_collator - INFO - result length 7911 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,315 - news_sentiment.news_collator - INFO - result length 2426 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,315 - news_sentiment.news_collator - INFO - result length 8089 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,315 - news_sentiment.news_collator - INFO - result length 1917 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,315 - news_sentiment.news_collator - INFO - result length 5458 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,315 - news_sentiment.news_collator - INFO - result length 5506 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,315 - news_sentiment.news_collator - INFO - result length 7165 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,315 - news_sentiment.news_collator - INFO - result length 823 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,315 - news_sentiment.news_collator - INFO - result length 1898 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,315 - news_sentiment.news_collator - INFO - result length 26031 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,315 - news_sentiment.news_collator - INFO - result length 2426 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,315 - news_sentiment.news_collator - INFO - result length 26031 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,315 - news_sentiment.news_collator - INFO - result length 13735 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,315 - news_sentiment.news_collator - INFO - result length 9377 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,315 - news_sentiment.news_collator - INFO - result length 702 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,316 - news_sentiment.news_collator - INFO - result length 38147 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,316 - news_sentiment.news_collator - INFO - result length 12488 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,316 - news_sentiment.news_collator - INFO - result length 2526 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,316 - news_sentiment.news_collator - INFO - result length 2696 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,316 - news_sentiment.news_collator - INFO - result length 11764 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,316 - news_sentiment.news_collator - INFO - result length 5075 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,316 - news_sentiment.news_collator - INFO - result length 14141 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,316 - news_sentiment.news_collator - INFO - result length 29164 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,316 - news_sentiment.news_collator - INFO - result length 10871 type <class 'exa_py.api.Result'>
+2025-08-09 14:41:46,316 - news_sentiment.news_collator - INFO - Found 30 articles for query: technology sector news
+2025-08-09 14:41:50,461 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 14:41:50,465 - news_sentiment.news_collator - INFO - Generated summary for article: MSFT: Microsoft Corp - Stock Price, Quote and News...
+2025-08-09 14:41:53,877 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 14:41:53,883 - news_sentiment.news_collator - INFO - Generated summary for article: Microsoft Corporation (MSFT) News Headlines | Nasd...
+2025-08-09 14:41:57,785 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 14:41:57,786 - news_sentiment.news_collator - INFO - Generated summary for article: Microsoft Corporation (MSFT) Stock Price, Quote, N...
+2025-08-09 14:41:57,790 - news_sentiment.news_collator - INFO - Searching for news with query: NVDA
+2025-08-09 14:42:01,696 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 14:42:01,722 - news_sentiment.news_collator - INFO - Generated queries: ['Nvidia stock nasdaq news', 'Nvidia stock cnbc news', 'semiconductor sector news', 'Nvidia AI technology news', 'Nvidia GPU market news', 'Nvidia gaming industry news', 'Nvidia autonomous vehicles news', 'Nvidia robotics news'], type: <class 'list'>
+2025-08-09 14:42:05,843 - news_sentiment.news_collator - INFO - Found 10 results for query: Nvidia stock nasdaq news
+2025-08-09 14:42:08,364 - news_sentiment.news_collator - INFO - Found 10 results for query: Nvidia stock cnbc news
+2025-08-09 14:42:11,166 - news_sentiment.news_collator - INFO - Found 10 results for query: semiconductor sector news
+2025-08-09 14:42:14,035 - news_sentiment.news_collator - INFO - Found 9 results for query: Nvidia AI technology news
+2025-08-09 14:42:16,938 - news_sentiment.news_collator - INFO - Found 10 results for query: Nvidia GPU market news
+2025-08-09 14:42:19,911 - news_sentiment.news_collator - INFO - Found 10 results for query: Nvidia gaming industry news
+2025-08-09 14:42:22,614 - news_sentiment.news_collator - INFO - Found 10 results for query: Nvidia autonomous vehicles news
+2025-08-09 14:42:25,417 - news_sentiment.news_collator - INFO - Found 10 results for query: Nvidia robotics news
+2025-08-09 14:42:25,417 - news_sentiment.news_collator - INFO - Total search results found: 79
+2025-08-09 14:42:25,417 - news_sentiment.news_collator - INFO - result length 8863 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,417 - news_sentiment.news_collator - INFO - result length 6261 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,417 - news_sentiment.news_collator - INFO - result length 8065 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,417 - news_sentiment.news_collator - INFO - result length 5194 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,417 - news_sentiment.news_collator - INFO - result length 4874 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,418 - news_sentiment.news_collator - INFO - result length 5479 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,418 - news_sentiment.news_collator - INFO - result length 10346 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,418 - news_sentiment.news_collator - INFO - result length 8279 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,418 - news_sentiment.news_collator - INFO - result length 4829 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,418 - news_sentiment.news_collator - INFO - result length 10972 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,418 - news_sentiment.news_collator - INFO - result length 1074 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,418 - news_sentiment.news_collator - INFO - result length 3500 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,418 - news_sentiment.news_collator - INFO - result length 4767 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,418 - news_sentiment.news_collator - INFO - result length 3905 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,418 - news_sentiment.news_collator - INFO - result length 4901 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,418 - news_sentiment.news_collator - INFO - result length 3821 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,418 - news_sentiment.news_collator - INFO - result length 3920 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,418 - news_sentiment.news_collator - INFO - result length 3125 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,418 - news_sentiment.news_collator - INFO - result length 3821 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,418 - news_sentiment.news_collator - INFO - result length 4708 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,419 - news_sentiment.news_collator - INFO - result length 10876 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,419 - news_sentiment.news_collator - INFO - result length 26055 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,419 - news_sentiment.news_collator - INFO - result length 10915 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,419 - news_sentiment.news_collator - INFO - result length 2618 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,419 - news_sentiment.news_collator - INFO - result length 9036 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,419 - news_sentiment.news_collator - INFO - result length 62630 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,419 - news_sentiment.news_collator - INFO - result length 11576 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,419 - news_sentiment.news_collator - INFO - result length 10203 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,419 - news_sentiment.news_collator - INFO - result length 6537 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,419 - news_sentiment.news_collator - INFO - result length 11261 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,419 - news_sentiment.news_collator - INFO - result length 7178 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,419 - news_sentiment.news_collator - INFO - result length 16916 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,419 - news_sentiment.news_collator - INFO - result length 3335 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,419 - news_sentiment.news_collator - INFO - result length 25812 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,420 - news_sentiment.news_collator - INFO - result length 13642 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,420 - news_sentiment.news_collator - INFO - result length 13080 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,420 - news_sentiment.news_collator - INFO - result length 3245 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,420 - news_sentiment.news_collator - INFO - result length 5771 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,420 - news_sentiment.news_collator - INFO - result length 2760 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,420 - news_sentiment.news_collator - INFO - result length 5199 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,420 - news_sentiment.news_collator - INFO - result length 7823 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,420 - news_sentiment.news_collator - INFO - result length 5968 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,420 - news_sentiment.news_collator - INFO - result length 15647 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,420 - news_sentiment.news_collator - INFO - result length 6871 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,420 - news_sentiment.news_collator - INFO - result length 8372 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,420 - news_sentiment.news_collator - INFO - result length 8920 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,420 - news_sentiment.news_collator - INFO - result length 9522 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,420 - news_sentiment.news_collator - INFO - result length 3021 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,420 - news_sentiment.news_collator - INFO - result length 20987 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,421 - news_sentiment.news_collator - INFO - result length 18499 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,421 - news_sentiment.news_collator - INFO - result length 1490 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,421 - news_sentiment.news_collator - INFO - result length 18103 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,421 - news_sentiment.news_collator - INFO - result length 21257 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,421 - news_sentiment.news_collator - INFO - result length 7823 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,421 - news_sentiment.news_collator - INFO - result length 9297 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,421 - news_sentiment.news_collator - INFO - result length 5810 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,421 - news_sentiment.news_collator - INFO - result length 4846 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,421 - news_sentiment.news_collator - INFO - result length 16052 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,421 - news_sentiment.news_collator - INFO - result length 12206 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,421 - news_sentiment.news_collator - INFO - result length 4828 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,421 - news_sentiment.news_collator - INFO - result length 6318 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,421 - news_sentiment.news_collator - INFO - result length 4693 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,421 - news_sentiment.news_collator - INFO - result length 6711 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,422 - news_sentiment.news_collator - INFO - result length 4348 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,422 - news_sentiment.news_collator - INFO - result length 1785 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,422 - news_sentiment.news_collator - INFO - result length 25812 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,422 - news_sentiment.news_collator - INFO - result length 12673 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,422 - news_sentiment.news_collator - INFO - result length 2417 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,422 - news_sentiment.news_collator - INFO - result length 9502 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,422 - news_sentiment.news_collator - INFO - result length 27362 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,422 - news_sentiment.news_collator - INFO - result length 1059 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,422 - news_sentiment.news_collator - INFO - result length 9020 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,422 - news_sentiment.news_collator - INFO - result length 6945 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,422 - news_sentiment.news_collator - INFO - result length 3894 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,422 - news_sentiment.news_collator - INFO - result length 20128 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,422 - news_sentiment.news_collator - INFO - result length 11072 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,422 - news_sentiment.news_collator - INFO - result length 25812 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,422 - news_sentiment.news_collator - INFO - result length 15693 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,422 - news_sentiment.news_collator - INFO - result length 4466 type <class 'exa_py.api.Result'>
+2025-08-09 14:42:25,422 - news_sentiment.news_collator - INFO - Found 79 articles for query: Nvidia robotics news
+2025-08-09 14:42:29,401 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 14:42:29,403 - news_sentiment.news_collator - INFO - Generated summary for article: Should You Buy Nvidia Before Aug. 27?...
+2025-08-09 14:42:32,163 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 14:42:32,166 - news_sentiment.news_collator - INFO - Generated summary for article: 5 Reasons Nvidia Stock Is Still a Genius Buy Right...
+2025-08-09 14:42:39,739 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 14:42:39,741 - news_sentiment.news_collator - INFO - Raw sentiment response: The summary presents several highly positive developments for Nvidia, indicating a strong financial outlook and potential for continued stock appreciation. Key points include:
+
+1. **Market Value Milestone**: Nvidia reaching a market value of $4 trillion and surpassing Microsoft as the world's largest company is a significant achievement, reflecting strong investor confidence and market performance.
+
+2. **Revenue Growth**: The substantial increase in revenue from $27 billion to over $130 billion highlights the company's successful strategic focus on AI and its ability to capitalize on industry demands.
+
+3. **Strategic Positioning**: Nvidia's GPUs are essential for AI data centers, with projected growth in global data center capital expenditures positioning the company to benefit significantly.
+
+4. **Export License to China**: The potential reinstatement of its export license to China could recover an estimated $8 billion in lost revenue, providing a substantial boost to future earnings.
+
+5. **Leadership and Market Position**: CEO Jensen Huang's leadership and Nvidia's dominant market position in the AI sector are critical assets for the company's continued success.
+
+Overall, these factors suggest a very positive sentiment for Nvidia's financial outlook, with strong growth prospects and strategic advantages in the AI market. The potential economic and regulatory challenges are noted but do not significantly detract from the overwhelmingly positive developments.
+
+Sentiment Score: +5
+2025-08-09 14:42:40,558 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 14:42:40,560 - news_sentiment.news_collator - INFO - Raw sentiment response: +5
+2025-08-09 14:42:44,530 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 22:45:13,557 - utils.config - INFO - Logging configured with level: INFO
+2025-08-09 22:45:13,705 - news_sentiment.news_collator - INFO - NewsCollator initialized successfully
+2025-08-09 22:45:13,706 - news_sentiment.news_collator - INFO - Searching for news with query: AAPL
+2025-08-09 22:45:20,530 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 22:45:20,543 - news_sentiment.news_collator - ERROR - Error searching for news: Expecting value: line 1 column 1 (char 0)
+2025-08-09 22:45:20,617 - news_sentiment.news_collator - INFO - Searching for news with query: MSFT
+2025-08-09 22:45:26,162 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 22:45:26,166 - news_sentiment.news_collator - ERROR - Error searching for news: Expecting value: line 1 column 1 (char 0)
+2025-08-09 22:45:26,189 - news_sentiment.news_collator - INFO - Searching for news with query: NVDA
+2025-08-09 22:45:33,518 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 22:45:33,520 - news_sentiment.news_collator - ERROR - Error searching for news: Expecting value: line 1 column 1 (char 0)
+2025-08-09 22:45:38,751 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 22:49:00,822 - utils.config - INFO - Logging configured with level: INFO
+2025-08-09 22:49:00,963 - news_sentiment.news_collator - INFO - NewsCollator initialized successfully
+2025-08-09 22:49:00,964 - news_sentiment.news_collator - INFO - Searching for news with query: AAPL
+2025-08-09 22:49:06,319 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 22:49:06,347 - news_sentiment.news_collator - ERROR - Error searching for news: Expecting value: line 1 column 1 (char 0)
+2025-08-09 22:49:06,423 - news_sentiment.news_collator - INFO - Searching for news with query: MSFT
+2025-08-09 22:49:12,052 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 22:49:12,055 - news_sentiment.news_collator - ERROR - Error searching for news: Expecting value: line 1 column 1 (char 0)
+2025-08-09 22:49:12,071 - news_sentiment.news_collator - INFO - Searching for news with query: NVDA
+2025-08-09 22:49:16,474 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 22:49:16,479 - news_sentiment.news_collator - ERROR - Error searching for news: Expecting value: line 1 column 1 (char 0)
+2025-08-09 22:49:21,064 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 22:49:54,820 - utils.config - INFO - Logging configured with level: INFO
+2025-08-09 22:49:54,931 - news_sentiment.news_collator - INFO - NewsCollator initialized successfully
+2025-08-09 22:49:54,931 - news_sentiment.news_collator - INFO - Searching for news with query: AAPL
+2025-08-09 22:49:59,543 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 22:49:59,558 - news_sentiment.news_collator - INFO - Generated queries: ['Apple Inc stock performance August 2025', 'Apple Inc strategic challenges and stock rating August 2025', 'Apple Inc earnings call and revenue growth August 2025', 'Apple Inc stock performance vs technology sector August 2025', 'Apple Inc stock valuation compared to tech industry August 2025'], type: <class 'list'>
+2025-08-09 22:50:03,895 - news_sentiment.news_collator - INFO - Found 10 results for query: Apple Inc stock performance August 2025
+2025-08-09 22:50:07,806 - news_sentiment.news_collator - INFO - Found 10 results for query: Apple Inc strategic challenges and stock rating August 2025
+2025-08-09 22:50:11,238 - news_sentiment.news_collator - INFO - Found 10 results for query: Apple Inc earnings call and revenue growth August 2025
+2025-08-09 22:50:14,698 - news_sentiment.news_collator - INFO - Found 10 results for query: Apple Inc stock performance vs technology sector August 2025
+2025-08-09 22:50:18,914 - news_sentiment.news_collator - INFO - Found 10 results for query: Apple Inc stock valuation compared to tech industry August 2025
+2025-08-09 22:50:18,914 - news_sentiment.news_collator - INFO - Total search results found: 50
+2025-08-09 22:50:18,914 - news_sentiment.news_collator - INFO - result length 31261 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,914 - news_sentiment.news_collator - INFO - result length 9463 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,915 - news_sentiment.news_collator - INFO - result length 10489 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,915 - news_sentiment.news_collator - INFO - result length 23467 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,915 - news_sentiment.news_collator - INFO - result length 9784 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,915 - news_sentiment.news_collator - INFO - result length 2393 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,915 - news_sentiment.news_collator - INFO - result length 9988 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,915 - news_sentiment.news_collator - INFO - result length 10850 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,915 - news_sentiment.news_collator - INFO - result length 17775 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,915 - news_sentiment.news_collator - INFO - result length 9242 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,915 - news_sentiment.news_collator - INFO - result length 938 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,915 - news_sentiment.news_collator - INFO - result length 23467 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,915 - news_sentiment.news_collator - INFO - result length 9044 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,915 - news_sentiment.news_collator - INFO - result length 10850 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,915 - news_sentiment.news_collator - INFO - result length 2007 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,916 - news_sentiment.news_collator - INFO - result length 9988 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,916 - news_sentiment.news_collator - INFO - result length 8717 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,916 - news_sentiment.news_collator - INFO - result length 9242 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,916 - news_sentiment.news_collator - INFO - result length 61606 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,916 - news_sentiment.news_collator - INFO - result length 12896 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,916 - news_sentiment.news_collator - INFO - result length 44424 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,916 - news_sentiment.news_collator - INFO - result length 56137 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,916 - news_sentiment.news_collator - INFO - result length 48835 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,916 - news_sentiment.news_collator - INFO - result length 26798 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,916 - news_sentiment.news_collator - INFO - result length 8143 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,916 - news_sentiment.news_collator - INFO - result length 2393 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,916 - news_sentiment.news_collator - INFO - result length 9448 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,916 - news_sentiment.news_collator - INFO - result length 11207 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,916 - news_sentiment.news_collator - INFO - result length 7937 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,916 - news_sentiment.news_collator - INFO - result length 7907 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,916 - news_sentiment.news_collator - INFO - result length 31262 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,916 - news_sentiment.news_collator - INFO - result length 1359 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,916 - news_sentiment.news_collator - INFO - result length 23467 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,917 - news_sentiment.news_collator - INFO - result length 5717 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,917 - news_sentiment.news_collator - INFO - result length 6985 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,917 - news_sentiment.news_collator - INFO - result length 9988 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,917 - news_sentiment.news_collator - INFO - result length 9242 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,917 - news_sentiment.news_collator - INFO - result length 4692 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,917 - news_sentiment.news_collator - INFO - result length 10850 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,917 - news_sentiment.news_collator - INFO - result length 61606 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,917 - news_sentiment.news_collator - INFO - result length 31262 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,917 - news_sentiment.news_collator - INFO - result length 1359 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,917 - news_sentiment.news_collator - INFO - result length 13666 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,917 - news_sentiment.news_collator - INFO - result length 34039 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,917 - news_sentiment.news_collator - INFO - result length 14947 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,917 - news_sentiment.news_collator - INFO - result length 73628 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,917 - news_sentiment.news_collator - INFO - result length 9988 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,917 - news_sentiment.news_collator - INFO - result length 16608 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,917 - news_sentiment.news_collator - INFO - result length 13995 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,917 - news_sentiment.news_collator - INFO - result length 9242 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:18,917 - news_sentiment.news_collator - INFO - Found 50 articles for query: Apple Inc stock valuation compared to tech industry August 2025
+2025-08-09 22:50:18,935 - news_sentiment.news_collator - INFO - Searching for news with query: MSFT
+2025-08-09 22:50:25,628 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 22:50:25,630 - news_sentiment.news_collator - INFO - Generated queries: ['Microsoft stock news August 2025 site:wsj.com', 'Microsoft earnings report August 2025 site:bloomberg.com', 'Microsoft stock analyst ratings August 2025 site:reuters.com', 'Microsoft stock performance vs technology sector August 2025 site:marketwatch.com', 'Microsoft vs competitors stock performance August 2025 site:financialtimes.com'], type: <class 'list'>
+2025-08-09 22:50:29,645 - news_sentiment.news_collator - INFO - Found 10 results for query: Microsoft stock news August 2025 site:wsj.com
+2025-08-09 22:50:32,950 - news_sentiment.news_collator - INFO - Found 10 results for query: Microsoft earnings report August 2025 site:bloomberg.com
+2025-08-09 22:50:35,907 - news_sentiment.news_collator - INFO - Found 9 results for query: Microsoft stock analyst ratings August 2025 site:reuters.com
+2025-08-09 22:50:39,679 - news_sentiment.news_collator - INFO - Found 10 results for query: Microsoft stock performance vs technology sector August 2025 site:marketwatch.com
+2025-08-09 22:50:45,847 - news_sentiment.news_collator - INFO - Found 9 results for query: Microsoft vs competitors stock performance August 2025 site:financialtimes.com
+2025-08-09 22:50:45,847 - news_sentiment.news_collator - INFO - Total search results found: 48
+2025-08-09 22:50:45,847 - news_sentiment.news_collator - INFO - result length 22012 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,847 - news_sentiment.news_collator - INFO - result length 14462 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,847 - news_sentiment.news_collator - INFO - result length 2657 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,847 - news_sentiment.news_collator - INFO - result length 6909 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,847 - news_sentiment.news_collator - INFO - result length 1917 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,847 - news_sentiment.news_collator - INFO - result length 7244 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,847 - news_sentiment.news_collator - INFO - result length 10442 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,847 - news_sentiment.news_collator - INFO - result length 2618 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,847 - news_sentiment.news_collator - INFO - result length 2426 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,847 - news_sentiment.news_collator - INFO - result length 7238 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,847 - news_sentiment.news_collator - INFO - result length 2291 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,847 - news_sentiment.news_collator - INFO - result length 2536 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,848 - news_sentiment.news_collator - INFO - result length 557 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,848 - news_sentiment.news_collator - INFO - result length 2511 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,848 - news_sentiment.news_collator - INFO - result length 2281 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,848 - news_sentiment.news_collator - INFO - result length 649 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,848 - news_sentiment.news_collator - INFO - result length 13735 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,848 - news_sentiment.news_collator - INFO - result length 7165 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,848 - news_sentiment.news_collator - INFO - result length 476 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,848 - news_sentiment.news_collator - INFO - result length 26031 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,848 - news_sentiment.news_collator - INFO - result length 6966 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,848 - news_sentiment.news_collator - INFO - result length 9506 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,848 - news_sentiment.news_collator - INFO - result length 7966 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,848 - news_sentiment.news_collator - INFO - result length 7279 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,848 - news_sentiment.news_collator - INFO - result length 3296 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,848 - news_sentiment.news_collator - INFO - result length 21816 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,848 - news_sentiment.news_collator - INFO - result length 22815 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,849 - news_sentiment.news_collator - INFO - result length 27934 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,849 - news_sentiment.news_collator - INFO - result length 4441 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,849 - news_sentiment.news_collator - INFO - result length 3280 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,849 - news_sentiment.news_collator - INFO - result length 905 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,849 - news_sentiment.news_collator - INFO - result length 8726 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,849 - news_sentiment.news_collator - INFO - result length 823 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,849 - news_sentiment.news_collator - INFO - result length 1223 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,849 - news_sentiment.news_collator - INFO - result length 318 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,849 - news_sentiment.news_collator - INFO - result length 348 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,849 - news_sentiment.news_collator - INFO - result length 15629 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,849 - news_sentiment.news_collator - INFO - result length 2618 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,849 - news_sentiment.news_collator - INFO - result length 6909 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,849 - news_sentiment.news_collator - INFO - result length 4549 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,849 - news_sentiment.news_collator - INFO - result length 4693 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,849 - news_sentiment.news_collator - INFO - result length 4552 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,849 - news_sentiment.news_collator - INFO - result length 4792 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,849 - news_sentiment.news_collator - INFO - result length 4544 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,849 - news_sentiment.news_collator - INFO - result length 271773 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,849 - news_sentiment.news_collator - INFO - result length 4096 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,849 - news_sentiment.news_collator - INFO - result length 10340 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,849 - news_sentiment.news_collator - INFO - result length 19649 type <class 'exa_py.api.Result'>
+2025-08-09 22:50:45,850 - news_sentiment.news_collator - INFO - Found 48 articles for query: Microsoft vs competitors stock performance August 2025 site:financialtimes.com
+2025-08-09 22:50:48,907 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 22:50:48,909 - news_sentiment.news_collator - INFO - Generated summary for article: MicroStrategy's Bitcoin Bet Pays Off: A Deep Dive ...
+2025-08-09 22:50:51,353 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 22:50:51,356 - news_sentiment.news_collator - INFO - Generated summary for article: Microsoft’s Windows XP Crocs are no joke...
+2025-08-09 22:50:56,370 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 22:50:56,373 - news_sentiment.news_collator - INFO - Generated summary for article: Microsoft (MSFT) Exhibited Terrific Organic Revenu...
+2025-08-09 22:50:56,452 - news_sentiment.news_collator - INFO - Searching for news with query: NVDA
+2025-08-09 22:51:01,296 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 22:51:01,298 - news_sentiment.news_collator - ERROR - Error searching for news: Expecting value: line 1 column 1 (char 0)
+2025-08-09 22:51:05,988 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 23:03:30,293 - utils.config - INFO - Logging configured with level: INFO
+2025-08-09 23:03:30,440 - news_sentiment.news_collator - INFO - NewsCollator initialized successfully
+2025-08-09 23:03:30,440 - news_sentiment.news_collator - INFO - Searching for news with query: AAPL
+2025-08-09 23:03:35,515 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 23:03:35,530 - news_sentiment.news_collator - INFO - Generated queries: ['Apple Inc. stock performance analysis August 2025', 'Apple Inc. strategic challenges and stock rating August 2025', 'Apple Inc. earnings report and stock impact August 2025', 'Apple Inc. stock performance vs technology sector August 2025', 'Apple Inc. stock valuation compared to tech industry August 2025'], type: <class 'list'>
+2025-08-09 23:03:39,920 - news_sentiment.news_collator - INFO - Found 10 results for query: Apple Inc. stock performance analysis August 2025
+2025-08-09 23:03:43,293 - news_sentiment.news_collator - INFO - Found 10 results for query: Apple Inc. strategic challenges and stock rating August 2025
+2025-08-09 23:03:46,209 - news_sentiment.news_collator - INFO - Found 10 results for query: Apple Inc. earnings report and stock impact August 2025
+2025-08-09 23:03:50,205 - news_sentiment.news_collator - INFO - Found 10 results for query: Apple Inc. stock performance vs technology sector August 2025
+2025-08-09 23:03:53,493 - news_sentiment.news_collator - INFO - Found 10 results for query: Apple Inc. stock valuation compared to tech industry August 2025
+2025-08-09 23:03:53,493 - news_sentiment.news_collator - INFO - Total search results found: 50
+2025-08-09 23:03:53,494 - news_sentiment.news_collator - INFO - result length 9463 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,494 - news_sentiment.news_collator - INFO - result length 11556 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,494 - news_sentiment.news_collator - INFO - result length 23467 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,495 - news_sentiment.news_collator - INFO - result length 9784 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,495 - news_sentiment.news_collator - INFO - result length 17851 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,495 - news_sentiment.news_collator - INFO - result length 7907 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,495 - news_sentiment.news_collator - INFO - result length 10152 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,495 - news_sentiment.news_collator - INFO - result length 2393 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,495 - news_sentiment.news_collator - INFO - result length 9320 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,495 - news_sentiment.news_collator - INFO - result length 9988 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,495 - news_sentiment.news_collator - INFO - result length 23467 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,495 - news_sentiment.news_collator - INFO - result length 10489 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,495 - news_sentiment.news_collator - INFO - result length 10452 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,495 - news_sentiment.news_collator - INFO - result length 7678 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,496 - news_sentiment.news_collator - INFO - result length 25277 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,496 - news_sentiment.news_collator - INFO - result length 11633 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,496 - news_sentiment.news_collator - INFO - result length 4867 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,496 - news_sentiment.news_collator - INFO - result length 938 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,496 - news_sentiment.news_collator - INFO - result length 9901 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,496 - news_sentiment.news_collator - INFO - result length 28115 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,496 - news_sentiment.news_collator - INFO - result length 2393 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,496 - news_sentiment.news_collator - INFO - result length 3931 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,496 - news_sentiment.news_collator - INFO - result length 4153 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,496 - news_sentiment.news_collator - INFO - result length 7937 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,496 - news_sentiment.news_collator - INFO - result length 9876 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,496 - news_sentiment.news_collator - INFO - result length 48835 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,496 - news_sentiment.news_collator - INFO - result length 8143 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,496 - news_sentiment.news_collator - INFO - result length 2415 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,496 - news_sentiment.news_collator - INFO - result length 7625 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,497 - news_sentiment.news_collator - INFO - result length 9463 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,497 - news_sentiment.news_collator - INFO - result length 31262 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,497 - news_sentiment.news_collator - INFO - result length 30940 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,497 - news_sentiment.news_collator - INFO - result length 23467 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,497 - news_sentiment.news_collator - INFO - result length 17851 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,497 - news_sentiment.news_collator - INFO - result length 20339 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,497 - news_sentiment.news_collator - INFO - result length 10152 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,497 - news_sentiment.news_collator - INFO - result length 9988 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,497 - news_sentiment.news_collator - INFO - result length 9861 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,497 - news_sentiment.news_collator - INFO - result length 10850 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,497 - news_sentiment.news_collator - INFO - result length 9242 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,497 - news_sentiment.news_collator - INFO - result length 1359 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,497 - news_sentiment.news_collator - INFO - result length 938 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,497 - news_sentiment.news_collator - INFO - result length 30821 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,497 - news_sentiment.news_collator - INFO - result length 2901 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,498 - news_sentiment.news_collator - INFO - result length 9988 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,498 - news_sentiment.news_collator - INFO - result length 13995 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,498 - news_sentiment.news_collator - INFO - result length 9861 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,499 - news_sentiment.news_collator - INFO - result length 10850 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,499 - news_sentiment.news_collator - INFO - result length 9242 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,499 - news_sentiment.news_collator - INFO - result length 23467 type <class 'exa_py.api.Result'>
+2025-08-09 23:03:53,499 - news_sentiment.news_collator - INFO - Found 50 articles for query: Apple Inc. stock valuation compared to tech industry August 2025
+2025-08-09 23:03:53,512 - news_sentiment.news_collator - INFO - Searching for news with query: MSFT
+2025-08-09 23:03:58,595 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 23:03:58,597 - news_sentiment.news_collator - INFO - Generated queries: ['Microsoft stock news August 2025 site:wsj.com', 'Microsoft earnings report August 2025 site:bloomberg.com', 'Microsoft stock analyst ratings August 2025 site:reuters.com', 'Microsoft stock performance vs technology sector August 2025 site:marketwatch.com', 'Microsoft vs competitors stock performance August 2025 site:financialtimes.com'], type: <class 'list'>
+2025-08-09 23:04:01,734 - news_sentiment.news_collator - INFO - Found 10 results for query: Microsoft stock news August 2025 site:wsj.com
+2025-08-09 23:04:04,813 - news_sentiment.news_collator - INFO - Found 10 results for query: Microsoft earnings report August 2025 site:bloomberg.com
+2025-08-09 23:04:08,347 - news_sentiment.news_collator - INFO - Found 10 results for query: Microsoft stock analyst ratings August 2025 site:reuters.com
+2025-08-09 23:04:11,402 - news_sentiment.news_collator - INFO - Found 10 results for query: Microsoft stock performance vs technology sector August 2025 site:marketwatch.com
+2025-08-09 23:04:14,187 - news_sentiment.news_collator - INFO - Found 10 results for query: Microsoft vs competitors stock performance August 2025 site:financialtimes.com
+2025-08-09 23:04:14,188 - news_sentiment.news_collator - INFO - Total search results found: 50
+2025-08-09 23:04:14,189 - news_sentiment.news_collator - INFO - result length 2657 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,189 - news_sentiment.news_collator - INFO - result length 6909 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,189 - news_sentiment.news_collator - INFO - result length 22012 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,189 - news_sentiment.news_collator - INFO - result length 1917 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,189 - news_sentiment.news_collator - INFO - result length 2618 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,189 - news_sentiment.news_collator - INFO - result length 7244 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,189 - news_sentiment.news_collator - INFO - result length 10442 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,189 - news_sentiment.news_collator - INFO - result length 2426 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,189 - news_sentiment.news_collator - INFO - result length 14462 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,189 - news_sentiment.news_collator - INFO - result length 17709 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,189 - news_sentiment.news_collator - INFO - result length 2291 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,189 - news_sentiment.news_collator - INFO - result length 1898 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,189 - news_sentiment.news_collator - INFO - result length 2426 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,190 - news_sentiment.news_collator - INFO - result length 2898 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,190 - news_sentiment.news_collator - INFO - result length 5453 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,190 - news_sentiment.news_collator - INFO - result length 5148 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,190 - news_sentiment.news_collator - INFO - result length 26031 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,190 - news_sentiment.news_collator - INFO - result length 2281 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,190 - news_sentiment.news_collator - INFO - result length 557 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,190 - news_sentiment.news_collator - INFO - result length 2511 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,190 - news_sentiment.news_collator - INFO - result length 5148 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,190 - news_sentiment.news_collator - INFO - result length 6966 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,190 - news_sentiment.news_collator - INFO - result length 9506 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,190 - news_sentiment.news_collator - INFO - result length 22815 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,190 - news_sentiment.news_collator - INFO - result length 3296 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,190 - news_sentiment.news_collator - INFO - result length 21806 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,190 - news_sentiment.news_collator - INFO - result length 1409 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,190 - news_sentiment.news_collator - INFO - result length 1917 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,191 - news_sentiment.news_collator - INFO - result length 7279 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,191 - news_sentiment.news_collator - INFO - result length 22920 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,191 - news_sentiment.news_collator - INFO - result length 3280 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,191 - news_sentiment.news_collator - INFO - result length 823 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,191 - news_sentiment.news_collator - INFO - result length 2898 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,191 - news_sentiment.news_collator - INFO - result length 544 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,191 - news_sentiment.news_collator - INFO - result length 318 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,191 - news_sentiment.news_collator - INFO - result length 22499 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,191 - news_sentiment.news_collator - INFO - result length 348 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,191 - news_sentiment.news_collator - INFO - result length 2618 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,191 - news_sentiment.news_collator - INFO - result length 15629 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,191 - news_sentiment.news_collator - INFO - result length 6909 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,191 - news_sentiment.news_collator - INFO - result length 4552 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,191 - news_sentiment.news_collator - INFO - result length 4549 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,192 - news_sentiment.news_collator - INFO - result length 4792 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,192 - news_sentiment.news_collator - INFO - result length 4693 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,192 - news_sentiment.news_collator - INFO - result length 4544 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,192 - news_sentiment.news_collator - INFO - result length 5148 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,192 - news_sentiment.news_collator - INFO - result length 2703 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,192 - news_sentiment.news_collator - INFO - result length 2291 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,192 - news_sentiment.news_collator - INFO - result length 7244 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,192 - news_sentiment.news_collator - INFO - result length 6455 type <class 'exa_py.api.Result'>
+2025-08-09 23:04:14,192 - news_sentiment.news_collator - INFO - Found 50 articles for query: Microsoft vs competitors stock performance August 2025 site:financialtimes.com
+2025-08-09 23:04:17,386 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 23:04:17,390 - news_sentiment.news_collator - INFO - Generated summary for article: Microsoft (MSFT) Exhibited Terrific Organic Revenu...
+2025-08-09 23:04:20,469 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 23:04:20,470 - news_sentiment.news_collator - INFO - Generated summary for article: Why Is Everyone Talking About Microsoft Stock?...
+2025-08-09 23:04:26,301 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 23:04:26,306 - news_sentiment.news_collator - INFO - Generated summary for article: MicroStrategy's Bitcoin Bet Pays Off: A Deep Dive ...
+2025-08-09 23:04:26,311 - news_sentiment.news_collator - INFO - Searching for news with query: NVDA
+2025-08-09 23:04:31,980 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 23:04:31,988 - news_sentiment.news_collator - ERROR - Error searching for news: Expecting value: line 1 column 1 (char 0)
+2025-08-09 23:04:39,862 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 23:05:39,732 - utils.config - INFO - Logging configured with level: INFO
+2025-08-09 23:05:39,870 - news_sentiment.news_collator - INFO - NewsCollator initialized successfully
+2025-08-09 23:05:39,870 - news_sentiment.news_collator - INFO - Searching for news with query: AAPL
+2025-08-09 23:05:45,792 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 23:05:45,804 - news_sentiment.news_collator - INFO - Generated queries: ['Apple Inc. stock performance August 2025', 'Apple Inc. strategic challenges and stock rating August 2025', 'Apple Inc. earnings call and revenue growth August 2025', 'Apple Inc. stock performance vs technology sector August 2025', 'Apple Inc. stock valuation compared to tech industry August 2025'], type: <class 'list'>
+2025-08-09 23:05:50,559 - news_sentiment.news_collator - INFO - Found 10 results for query: Apple Inc. stock performance August 2025
+2025-08-09 23:05:54,412 - news_sentiment.news_collator - INFO - Found 10 results for query: Apple Inc. strategic challenges and stock rating August 2025
+2025-08-09 23:05:57,786 - news_sentiment.news_collator - INFO - Found 10 results for query: Apple Inc. earnings call and revenue growth August 2025
+2025-08-09 23:06:01,625 - news_sentiment.news_collator - INFO - Found 10 results for query: Apple Inc. stock performance vs technology sector August 2025
+2025-08-09 23:06:04,707 - news_sentiment.news_collator - INFO - Found 10 results for query: Apple Inc. stock valuation compared to tech industry August 2025
+2025-08-09 23:06:04,707 - news_sentiment.news_collator - INFO - Total search results found: 50
+2025-08-09 23:06:04,707 - news_sentiment.news_collator - INFO - result length 9463 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,707 - news_sentiment.news_collator - INFO - result length 2393 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,707 - news_sentiment.news_collator - INFO - result length 17851 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,707 - news_sentiment.news_collator - INFO - result length 9988 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,707 - news_sentiment.news_collator - INFO - result length 10850 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,707 - news_sentiment.news_collator - INFO - result length 23467 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,707 - news_sentiment.news_collator - INFO - result length 5337 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,707 - news_sentiment.news_collator - INFO - result length 9861 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,707 - news_sentiment.news_collator - INFO - result length 9242 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 7907 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 1359 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 9895 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 23467 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 9784 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 61606 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 5337 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 10489 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 7907 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 10452 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 6974 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 56137 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 44424 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 48835 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 7937 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 4153 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 9448 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 2393 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 7625 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 11207 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 8143 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 31262 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 17851 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 23467 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 1359 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,708 - news_sentiment.news_collator - INFO - result length 30940 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,709 - news_sentiment.news_collator - INFO - result length 9988 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,709 - news_sentiment.news_collator - INFO - result length 9861 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,709 - news_sentiment.news_collator - INFO - result length 10850 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,709 - news_sentiment.news_collator - INFO - result length 9242 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,709 - news_sentiment.news_collator - INFO - result length 6985 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,709 - news_sentiment.news_collator - INFO - result length 31261 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,709 - news_sentiment.news_collator - INFO - result length 1359 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,709 - news_sentiment.news_collator - INFO - result length 23467 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,709 - news_sentiment.news_collator - INFO - result length 5661 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,709 - news_sentiment.news_collator - INFO - result length 9988 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,709 - news_sentiment.news_collator - INFO - result length 13995 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,709 - news_sentiment.news_collator - INFO - result length 9861 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,709 - news_sentiment.news_collator - INFO - result length 10850 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,709 - news_sentiment.news_collator - INFO - result length 9242 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,709 - news_sentiment.news_collator - INFO - result length 7907 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:04,709 - news_sentiment.news_collator - INFO - Found 50 articles for query: Apple Inc. stock valuation compared to tech industry August 2025
+2025-08-09 23:06:04,720 - news_sentiment.news_collator - INFO - Searching for news with query: MSFT
+2025-08-09 23:06:08,180 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 23:06:08,184 - news_sentiment.news_collator - INFO - Generated queries: ['Microsoft stock news August 2025', 'Microsoft earnings report August 2025 analysis', 'Microsoft stock analyst ratings August 2025', 'Microsoft stock performance vs technology sector August 2025', 'Microsoft vs competitors stock performance August 2025'], type: <class 'list'>
+2025-08-09 23:06:12,524 - news_sentiment.news_collator - INFO - Found 10 results for query: Microsoft stock news August 2025
+2025-08-09 23:06:16,067 - news_sentiment.news_collator - INFO - Found 10 results for query: Microsoft earnings report August 2025 analysis
+2025-08-09 23:06:19,311 - news_sentiment.news_collator - INFO - Found 9 results for query: Microsoft stock analyst ratings August 2025
+2025-08-09 23:06:22,447 - news_sentiment.news_collator - INFO - Found 10 results for query: Microsoft stock performance vs technology sector August 2025
+2025-08-09 23:06:26,532 - news_sentiment.news_collator - INFO - Found 10 results for query: Microsoft vs competitors stock performance August 2025
+2025-08-09 23:06:26,533 - news_sentiment.news_collator - INFO - Total search results found: 49
+2025-08-09 23:06:26,533 - news_sentiment.news_collator - INFO - result length 15001 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 9853 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 12156 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 2898 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 61013 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 12328 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 6909 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 1917 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 7244 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 10442 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 26031 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 5458 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 59415 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 5453 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 26031 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 13735 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 2291 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 6455 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 8029 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 23057 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 21613 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 22815 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,534 - news_sentiment.news_collator - INFO - result length 5089 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,535 - news_sentiment.news_collator - INFO - result length 3657 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,535 - news_sentiment.news_collator - INFO - result length 12328 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,535 - news_sentiment.news_collator - INFO - result length 1917 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,535 - news_sentiment.news_collator - INFO - result length 22920 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,535 - news_sentiment.news_collator - INFO - result length 1409 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,535 - news_sentiment.news_collator - INFO - result length 21806 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,535 - news_sentiment.news_collator - INFO - result length 21579 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,535 - news_sentiment.news_collator - INFO - result length 12328 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,535 - news_sentiment.news_collator - INFO - result length 6909 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,535 - news_sentiment.news_collator - INFO - result length 31261 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,535 - news_sentiment.news_collator - INFO - result length 1917 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,535 - news_sentiment.news_collator - INFO - result length 2618 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,535 - news_sentiment.news_collator - INFO - result length 13169 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,535 - news_sentiment.news_collator - INFO - result length 8029 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,535 - news_sentiment.news_collator - INFO - result length 5453 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,535 - news_sentiment.news_collator - INFO - result length 4549 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,535 - news_sentiment.news_collator - INFO - result length 4898 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,535 - news_sentiment.news_collator - INFO - result length 6849 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,535 - news_sentiment.news_collator - INFO - result length 5148 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,536 - news_sentiment.news_collator - INFO - result length 2426 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,536 - news_sentiment.news_collator - INFO - result length 7238 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,536 - news_sentiment.news_collator - INFO - result length 27934 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,536 - news_sentiment.news_collator - INFO - result length 6909 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,536 - news_sentiment.news_collator - INFO - result length 1917 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,536 - news_sentiment.news_collator - INFO - result length 2618 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,536 - news_sentiment.news_collator - INFO - result length 8029 type <class 'exa_py.api.Result'>
+2025-08-09 23:06:26,536 - news_sentiment.news_collator - INFO - Found 49 articles for query: Microsoft vs competitors stock performance August 2025
+2025-08-09 23:06:31,991 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 23:06:31,991 - news_sentiment.news_collator - INFO - Generated summary for article: Is AI causing tech worker layoffs? That’s what CEO...
+2025-08-09 23:06:36,030 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 23:06:36,095 - news_sentiment.news_collator - INFO - Generated summary for article: Xbox Game Pass Hits $5 Billion In Annual Revenue A...
+2025-08-09 23:06:41,414 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 23:06:41,417 - news_sentiment.news_collator - INFO - Generated summary for article: Microsoft Stock Soars on the Back of AI. Can the M...
+2025-08-09 23:06:41,420 - news_sentiment.news_collator - INFO - Searching for news with query: NVDA
+2025-08-09 23:06:45,807 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 23:06:45,810 - news_sentiment.news_collator - INFO - Generated queries: ['Nvidia stock news August 2025', 'Nvidia earnings report Q2 2025 analysis', 'Nvidia AI technology impact on stock price 2025', 'Nvidia stock performance vs semiconductor industry 2025', 'Nvidia vs AMD stock performance comparison 2025'], type: <class 'list'>
+2025-08-09 23:06:48,889 - news_sentiment.news_collator - INFO - Found 10 results for query: Nvidia stock news August 2025
+2025-08-09 23:06:53,243 - news_sentiment.news_collator - INFO - Found 10 results for query: Nvidia earnings report Q2 2025 analysis
+2025-08-09 23:06:56,909 - news_sentiment.news_collator - INFO - Found 10 results for query: Nvidia AI technology impact on stock price 2025
+2025-08-09 23:06:59,777 - news_sentiment.news_collator - INFO - Found 9 results for query: Nvidia stock performance vs semiconductor industry 2025
+2025-08-09 23:07:03,339 - news_sentiment.news_collator - INFO - Found 10 results for query: Nvidia vs AMD stock performance comparison 2025
+2025-08-09 23:07:03,339 - news_sentiment.news_collator - INFO - Total search results found: 49
+2025-08-09 23:07:03,339 - news_sentiment.news_collator - INFO - result length 5848 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,340 - news_sentiment.news_collator - INFO - result length 1351 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,340 - news_sentiment.news_collator - INFO - result length 5194 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,340 - news_sentiment.news_collator - INFO - result length 14506 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,340 - news_sentiment.news_collator - INFO - result length 11607 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,340 - news_sentiment.news_collator - INFO - result length 4089 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,340 - news_sentiment.news_collator - INFO - result length 8065 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,340 - news_sentiment.news_collator - INFO - result length 10968 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,340 - news_sentiment.news_collator - INFO - result length 6723 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,340 - news_sentiment.news_collator - INFO - result length 16717 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,340 - news_sentiment.news_collator - INFO - result length 5170 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,340 - news_sentiment.news_collator - INFO - result length 12675 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,340 - news_sentiment.news_collator - INFO - result length 1703 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,340 - news_sentiment.news_collator - INFO - result length 3511 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,340 - news_sentiment.news_collator - INFO - result length 6723 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,341 - news_sentiment.news_collator - INFO - result length 10787 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,341 - news_sentiment.news_collator - INFO - result length 16717 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,341 - news_sentiment.news_collator - INFO - result length 6074 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,341 - news_sentiment.news_collator - INFO - result length 42544 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,341 - news_sentiment.news_collator - INFO - result length 8065 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,341 - news_sentiment.news_collator - INFO - result length 33319 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,341 - news_sentiment.news_collator - INFO - result length 6963 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,341 - news_sentiment.news_collator - INFO - result length 2680 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,341 - news_sentiment.news_collator - INFO - result length 3080 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,341 - news_sentiment.news_collator - INFO - result length 11856 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,341 - news_sentiment.news_collator - INFO - result length 16717 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,341 - news_sentiment.news_collator - INFO - result length 14532 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,341 - news_sentiment.news_collator - INFO - result length 10968 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,341 - news_sentiment.news_collator - INFO - result length 12522 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,341 - news_sentiment.news_collator - INFO - result length 10972 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,342 - news_sentiment.news_collator - INFO - result length 22426 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,342 - news_sentiment.news_collator - INFO - result length 1351 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,342 - news_sentiment.news_collator - INFO - result length 5773 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,342 - news_sentiment.news_collator - INFO - result length 736 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,342 - news_sentiment.news_collator - INFO - result length 6358 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,342 - news_sentiment.news_collator - INFO - result length 8065 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,342 - news_sentiment.news_collator - INFO - result length 3080 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,342 - news_sentiment.news_collator - INFO - result length 4689 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,342 - news_sentiment.news_collator - INFO - result length 26016 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,342 - news_sentiment.news_collator - INFO - result length 638 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,342 - news_sentiment.news_collator - INFO - result length 4685 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,342 - news_sentiment.news_collator - INFO - result length 7498 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,342 - news_sentiment.news_collator - INFO - result length 12841 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,342 - news_sentiment.news_collator - INFO - result length 3223 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,342 - news_sentiment.news_collator - INFO - result length 6401 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,342 - news_sentiment.news_collator - INFO - result length 5176 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,343 - news_sentiment.news_collator - INFO - result length 7747 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,343 - news_sentiment.news_collator - INFO - result length 5194 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,343 - news_sentiment.news_collator - INFO - result length 8920 type <class 'exa_py.api.Result'>
+2025-08-09 23:07:03,343 - news_sentiment.news_collator - INFO - Found 49 articles for query: Nvidia vs AMD stock performance comparison 2025
+2025-08-09 23:07:09,683 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 23:07:09,685 - news_sentiment.news_collator - INFO - Generated summary for article: NVDA Dominance: Trade Setups and Catalysts in 2025...
+2025-08-09 23:07:11,639 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 23:07:11,643 - news_sentiment.news_collator - INFO - Generated summary for article: Nvidia Stock Rises Amid Open AI's ChatGPT News...
+2025-08-09 23:07:15,816 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 23:07:15,818 - news_sentiment.news_collator - INFO - Raw sentiment response: The summary provides a comprehensive overview of NVIDIA's strong position in the technology sector, particularly in AI and data centers. Key points include:
+
+- NVIDIA's dominance in the AI market, with its GPUs being crucial for data centers and AI applications, and the global AI market projected to surpass $1 trillion by 2030.
+- Financially robust with a revenue growth CAGR of over 35%, gross margins above 70%, and over $30 billion in cash with minimal debt.
+- Consistent earnings beats, new product launches, and strategic partnerships further bolster its growth prospects.
+- The stock is trading near all-time highs, with bullish technical indicators and investor confidence reflected in the stock's rise following developments related to OpenAI's ChatGPT.
+
+These factors collectively indicate a very positive sentiment for NVIDIA's financial outlook. The company's strong market position, financial health, and growth prospects in the booming AI sector suggest a significant positive impact on its stock and financial outlook.
+
+Sentiment Score: +5
+2025-08-09 23:07:16,283 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-09 23:07:16,286 - news_sentiment.news_collator - INFO - Raw sentiment response: +5
+2025-08-09 23:07:24,190 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"

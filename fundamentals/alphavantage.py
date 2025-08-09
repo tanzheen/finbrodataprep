@@ -195,8 +195,17 @@ class AlphavantageFinancialDataGatherer:
         transposed_df.loc[usd_mask, numeric_cols] = transposed_df.loc[usd_mask, numeric_cols] / 1_000_000
 
         return transposed_df
-
-        
+    def convert_df_to_html(self, df: pd.DataFrame) -> str:
+        """Convert the dataframe to an html table."""
+        self.logger.info("Converting DataFrame to HTML format")
+        try:
+            html_table = df.to_html(index=False)
+            self.logger.info(f"Successfully converted DataFrame to HTML. Length: {len(html_table)} characters")
+            return html_table
+        except Exception as e:
+            self.logger.error(f"Error converting DataFrame to HTML: {e}", exc_info=True)
+            raise
+    
     
     def from_stock_to_dataframe(self, ticker: str): 
         try:
@@ -206,6 +215,7 @@ class AlphavantageFinancialDataGatherer:
             df = self.calculate_ratios(df)
             df = self.filter_latest(df)
             df = self.initialise_units(df)
+            df = self.convert_df_to_html(df)
 
             self.logger.info(f"Successfully completed financial analysis for {ticker}")
             return df
