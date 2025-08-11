@@ -1,6 +1,6 @@
 # FinBro Data Prep
 
-A comprehensive financial data preparation and analysis system that combines financial fundamentals, news sentiment analysis, and AI-powered stock rating to provide actionable investment insights.
+A comprehensive financial data preparation and analysis system that combines financial fundamentals, news sentiment analysis, AI-powered stock rating, and advanced stock screening to provide actionable investment insights.
 
 ## 🎯 Overview
 
@@ -8,6 +8,7 @@ This system provides end-to-end financial analysis capabilities:
 - **Financial Data Collection**: Gather comprehensive financial metrics and ratios
 - **News Sentiment Analysis**: Analyze company and sector-specific sentiment from news sources
 - **AI-Powered Stock Rating**: Generate stock ratings using OpenAI's ChatOpenAI
+- **Advanced Stock Screening**: Find investment opportunities using proven strategies (Value, Growth, Dividend, Momentum)
 - **Modular Architecture**: Clean, maintainable codebase with separate modules for each component
 
 ## 🏗️ Architecture
@@ -22,11 +23,14 @@ finbrodataprep/
 │   └── news_collator.py  # SentimentCollator class
 ├── ratings/              # Stock rating system
 │   └── rater.py         # StockRater class
+├── screening/            # Stock screening system
+│   └── finviz.py        # FinvizScreener class for live stock screening
 ├── pipelines/            # Complete analysis pipeline
 │   └── pipelines.py     # StockAnalysisPipeline class
 ├── tests/                # Test suite
 │   ├── test_alphavantage.py    # AlphaVantage tests
 │   ├── test_basic.py           # Basic functionality tests
+│   ├── test_finviz_screener.py # Finviz screener integration tests
 │   └── main_tests.py           # Main application tests
 ├── prompts/              # AI prompt templates
 │   ├── news_sentiment_company.md
@@ -37,6 +41,7 @@ finbrodataprep/
 │   └── config.py        # Environment configuration
 ├── analysis_results/     # Exported analysis results
 ├── findata/              # Data storage (SQLite databases)
+├── test_results/         # Test results and screening outputs
 ├── logs/                 # Application logs
 ├── main.py              # Main CLI entry point
 ├── run_tests.py         # Test runner script
@@ -69,6 +74,15 @@ finbrodataprep/
 - **Comprehensive Analysis**: Detailed reasoning, key factors, and risk factors
 - **Batch Processing**: Rate multiple stocks efficiently
 - **Error Handling**: Robust fallback mechanisms
+
+### 📈 Advanced Stock Screening
+- **Live Market Data**: Real-time screening from Finviz using web scraping
+- **Multiple Strategies**: Value, Growth, Dividend, Momentum, and custom screens
+- **Proven Investment Approaches**: Warren Buffett, Peter Lynch, and Dividend Aristocrat styles
+- **Comprehensive Filtering**: P/E ratios, ROE, debt levels, growth rates, dividend yields
+- **Export Capabilities**: CSV and SQLite exports for further analysis
+- **Batch Processing**: Screen hundreds of stocks across multiple pages
+- **Dynamic Column Detection**: Automatically handles different Finviz table formats
 
 ### 🔄 Complete Analysis Pipeline
 - **End-to-End Workflow**: Single function call for complete analysis
@@ -145,6 +159,52 @@ python main.py info AAPL
 
 # Show example commands
 python main.py list-examples
+```
+
+### Stock Screening Usage
+
+Find investment opportunities using proven screening strategies:
+
+```python
+from screening.finviz import FinvizScreener, ScreeningStrategies
+
+# Initialize the screener
+screener = FinvizScreener()
+
+# Quality Growth Screen (based on your Finviz URL parameters)
+results_df = screener.quality_growth_screen()
+top_stocks = screener.get_top_stocks(10)
+
+# Print results
+for i, stock in enumerate(top_stocks, 1):
+    ticker = stock['Ticker']
+    price = stock['Price'] 
+    change = stock['Change']
+    print(f"{i}. {ticker}: ${price} ({change})")
+
+# Export results
+screener.export_results("quality_growth_stocks", "csv")
+
+# Dividend Growth Screen
+div_results = screener.dividend_growth_screen(min_yield=2.5)
+
+# Value Screen
+value_results = screener.value_screen()
+
+# Momentum Screen  
+momentum_results = screener.momentum_screen()
+
+# Warren Buffett Style
+buffett_filters = ScreeningStrategies.warren_buffett_style()
+buffett_results = screener.custom_screen(buffett_filters, table='Valuation')
+
+# Peter Lynch Style
+lynch_filters = ScreeningStrategies.peter_lynch_style()  
+lynch_results = screener.custom_screen(lynch_filters, table='Performance')
+
+# Get screening summary
+summary = screener.get_screening_summary()
+print(f"Found {summary['total_stocks']} stocks")
 ```
 
 ### Programmatic Usage
@@ -320,15 +380,20 @@ python run_tests.py --list
 
 # Run without coverage report
 python run_tests.py --no-coverage
+
+# Test the Finviz screener with real data
+uv run python -m pytest tests/test_finviz_screener.py -v -s
 ```
 
 ### Test Structure
 - `tests/test_alphavantage.py`: Tests for Alpha Vantage financial data gatherer
 - `tests/test_basic.py`: Basic functionality tests
+- `tests/test_finviz_screener.py`: Integration tests for Finviz screener with real data
 - `tests/main_tests.py`: Main application and CLI tests
 
 ## 📈 Example Output
 
+### Stock Analysis Example
 ```
 STOCK RATING SUMMARY
 ===================
@@ -361,6 +426,31 @@ market sentiment. The company's diversified business model and strong financial 
 support a Buy rating, though investors should monitor supply chain and regulatory risks.
 ```
 
+### Stock Screening Example
+```
+🔍 Running Quality Growth Screen...
+Successfully scraped 15 total stocks from 1 pages
+✅ Found 15 quality growth stocks
+
+📈 Top 5 Quality Growth Stocks:
+1. ADBE: $341.05 (0.82%) P/E: 21.81
+2. CHKP: $183.32 (-0.92%) P/E: 23.89
+3. DOCU: $69.19 (-1.83%) P/E: 13.08
+4. EXEL: $37.72 (0.88%) P/E: 18.09
+5. FER: $52.50 (-0.30%) P/E: 10.41
+
+📊 Exported CSV to: quality_growth_20250811_141539.csv
+
+💰 Running Dividend Growth Screen...
+✅ Found 19 dividend growth stocks
+
+🎯 Running Warren Buffett Strategy Screen...
+✅ Found 26 Buffett-style stocks
+
+📈 Running Peter Lynch Strategy Screen...
+✅ Found 211 Lynch-style stocks across 11 pages
+```
+
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -382,12 +472,15 @@ For issues and questions:
 
 ## 🔮 Roadmap
 
+- [x] **Advanced Stock Screening**: Live market data screening with proven investment strategies ✅
 - [ ] Real-time data streaming
 - [ ] Portfolio optimization recommendations
 - [ ] Risk assessment models
 - [ ] Historical performance tracking
 - [ ] API endpoints for web integration
 - [ ] Mobile app support
-- [ ] Additional data sources integration (Polygon.io, Yahoo Finance)
+- [ ] Additional screening sources integration (Yahoo Finance, Polygon.io)
 - [ ] Enhanced logging and monitoring capabilities
 - [ ] Data caching and performance optimization
+- [ ] Automated screening schedules and alerts
+- [ ] Portfolio backtesting with screening results
