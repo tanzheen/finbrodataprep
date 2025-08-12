@@ -16900,3 +16900,1168 @@ Sentiment Score: +5
 2025-08-09 23:07:16,283 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-08-09 23:07:16,286 - news_sentiment.news_collator - INFO - Raw sentiment response: +5
 2025-08-09 23:07:24,190 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:00:53,051 - utils.config - INFO - Logging configured with level: INFO
+2025-08-12 15:00:53,514 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-08-12 15:00:53,515 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-08-12 15:00:53,515 - __main__ - INFO - Starting batch analysis for 1 stocks: ['QCOM']
+2025-08-12 15:00:53,515 - __main__ - INFO - Initializing Stock Analysis Pipeline for batch processing
+2025-08-12 15:00:53,515 - pipelines.pipelines - INFO - Initializing Stock Analysis Pipeline...
+2025-08-12 15:00:53,515 - pipelines.pipelines - INFO - Initializing FinancialDataGatherer
+2025-08-12 15:00:53,515 - pipelines.pipelines - INFO - Initializing SentimentCollator
+2025-08-12 15:00:53,691 - news_sentiment.news_collator - INFO - NewsCollator initialized successfully
+2025-08-12 15:00:53,691 - pipelines.pipelines - INFO - Initializing StockRater
+2025-08-12 15:00:53,691 - ratings.rater - INFO - Initializing StockRater
+2025-08-12 15:00:53,691 - ratings.rater - INFO - Initializing ChatOpenAI for stock rating
+2025-08-12 15:00:53,831 - ratings.rater - INFO - StockRater initialized successfully
+2025-08-12 15:00:53,831 - pipelines.pipelines - INFO - Stock Analysis Pipeline initialized successfully
+2025-08-12 15:00:53,831 - __main__ - INFO - Starting batch analysis pipeline for 1 stocks
+2025-08-12 15:00:53,831 - pipelines.pipelines - INFO - Starting batch analysis of 1 stocks: ['QCOM']
+2025-08-12 15:00:53,831 - pipelines.pipelines - INFO - Analyzing stock 1/1: QCOM
+2025-08-12 15:00:53,831 - pipelines.pipelines - INFO - Starting analysis for stock: QCOM
+2025-08-12 15:00:53,831 - pipelines.pipelines - INFO - Step 1/3: Gathering financial data for QCOM
+2025-08-12 15:00:53,831 - pipelines.pipelines - INFO - Retrieving financial data for QCOM
+2025-08-12 15:00:53,831 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Processing complete financial analysis for QCOM
+2025-08-12 15:00:53,831 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Starting financial data gathering for QCOM
+2025-08-12 15:00:53,831 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for QCOM with function EARNINGS
+2025-08-12 15:00:56,222 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for QCOM
+2025-08-12 15:00:56,231 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for QCOM with function INCOME_STATEMENT
+2025-08-12 15:00:57,791 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for QCOM
+2025-08-12 15:00:57,792 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for QCOM with function BALANCE_SHEET
+2025-08-12 15:00:59,291 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for QCOM
+2025-08-12 15:00:59,292 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for QCOM with function CASH_FLOW
+2025-08-12 15:01:01,002 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for QCOM
+2025-08-12 15:01:01,016 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - ERROR - Error gathering financial data for QCOM: Unable to parse string "None" at position 116
+2025-08-12 15:01:01,017 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - ERROR - Error in complete financial analysis for QCOM: Unable to parse string "None" at position 116
+2025-08-12 15:01:01,017 - pipelines.pipelines - ERROR - Error getting financial data for QCOM: Unable to parse string "None" at position 116
+Traceback (most recent call last):
+  File "pandas/_libs/lib.pyx", line 2407, in pandas._libs.lib.maybe_convert_numeric
+ValueError: Unable to parse string "None"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/tannicholas/finbrodataprep/pipelines/pipelines.py", line 145, in _get_financial_data
+    financial_data = self.financial_gatherer.from_stock_to_dataframe(stock_symbol)
+  File "/Users/tannicholas/finbrodataprep/fundamentals/alphavantage.py", line 213, in from_stock_to_dataframe
+    df = self.get_financial_data(ticker)
+  File "/Users/tannicholas/finbrodataprep/fundamentals/alphavantage.py", line 113, in get_financial_data
+    df[df.columns.difference(['fiscalDateEnding'])] = df[df.columns.difference(['fiscalDateEnding'])].apply(pd.to_numeric)
+                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/tannicholas/finbrodataprep/.venv/lib/python3.13/site-packages/pandas/core/frame.py", line 10381, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ~~~~~~~~^^
+  File "/Users/tannicholas/finbrodataprep/.venv/lib/python3.13/site-packages/pandas/core/apply.py", line 916, in apply
+    return self.apply_standard()
+           ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tannicholas/finbrodataprep/.venv/lib/python3.13/site-packages/pandas/core/apply.py", line 1063, in apply_standard
+    results, res_index = self.apply_series_generator()
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tannicholas/finbrodataprep/.venv/lib/python3.13/site-packages/pandas/core/apply.py", line 1081, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+                 ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tannicholas/finbrodataprep/.venv/lib/python3.13/site-packages/pandas/core/tools/numeric.py", line 235, in to_numeric
+    values, new_mask = lib.maybe_convert_numeric(  # type: ignore[call-overload]
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        values,
+        ^^^^^^^
+    ...<4 lines>...
+        and values_dtype.na_value is libmissing.NA,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "pandas/_libs/lib.pyx", line 2449, in pandas._libs.lib.maybe_convert_numeric
+ValueError: Unable to parse string "None" at position 116
+2025-08-12 15:01:01,024 - pipelines.pipelines - ERROR - Error analyzing stock QCOM: Unable to parse string "None" at position 116
+Traceback (most recent call last):
+  File "pandas/_libs/lib.pyx", line 2407, in pandas._libs.lib.maybe_convert_numeric
+ValueError: Unable to parse string "None"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/tannicholas/finbrodataprep/pipelines/pipelines.py", line 88, in analyze_stock
+    financial_data_html = self._get_financial_data(stock_symbol)
+  File "/Users/tannicholas/finbrodataprep/pipelines/pipelines.py", line 145, in _get_financial_data
+    financial_data = self.financial_gatherer.from_stock_to_dataframe(stock_symbol)
+  File "/Users/tannicholas/finbrodataprep/fundamentals/alphavantage.py", line 213, in from_stock_to_dataframe
+    df = self.get_financial_data(ticker)
+  File "/Users/tannicholas/finbrodataprep/fundamentals/alphavantage.py", line 113, in get_financial_data
+    df[df.columns.difference(['fiscalDateEnding'])] = df[df.columns.difference(['fiscalDateEnding'])].apply(pd.to_numeric)
+                                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/tannicholas/finbrodataprep/.venv/lib/python3.13/site-packages/pandas/core/frame.py", line 10381, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ~~~~~~~~^^
+  File "/Users/tannicholas/finbrodataprep/.venv/lib/python3.13/site-packages/pandas/core/apply.py", line 916, in apply
+    return self.apply_standard()
+           ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tannicholas/finbrodataprep/.venv/lib/python3.13/site-packages/pandas/core/apply.py", line 1063, in apply_standard
+    results, res_index = self.apply_series_generator()
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/tannicholas/finbrodataprep/.venv/lib/python3.13/site-packages/pandas/core/apply.py", line 1081, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+                 ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tannicholas/finbrodataprep/.venv/lib/python3.13/site-packages/pandas/core/tools/numeric.py", line 235, in to_numeric
+    values, new_mask = lib.maybe_convert_numeric(  # type: ignore[call-overload]
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        values,
+        ^^^^^^^
+    ...<4 lines>...
+        and values_dtype.na_value is libmissing.NA,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "pandas/_libs/lib.pyx", line 2449, in pandas._libs.lib.maybe_convert_numeric
+ValueError: Unable to parse string "None" at position 116
+2025-08-12 15:01:01,026 - pipelines.pipelines - WARNING - Creating error rating result due to analysis failure
+2025-08-12 15:01:01,026 - pipelines.pipelines - INFO - Progress: 1/1 completed, 0 successful
+2025-08-12 15:01:01,026 - pipelines.pipelines - INFO - Batch analysis completed. 0/1 successful
+2025-08-12 15:01:01,026 - __main__ - INFO - Batch analysis completed. Successful: 0, Failed: 1
+2025-08-12 15:01:01,026 - __main__ - ERROR - Failed analysis for QCOM: Unable to parse string "None" at position 116
+2025-08-12 15:01:01,026 - __main__ - INFO - Exporting analysis files to directory: analysis_results in txt format
+2025-08-12 15:01:01,026 - pipelines.pipelines - INFO - Created/verified output directory: analysis_results
+2025-08-12 15:01:01,026 - pipelines.pipelines - INFO - Exporting analysis for QCOM to analysis_results/QCOM_20250812_150101.txt in txt format
+2025-08-12 15:01:01,026 - pipelines.pipelines - INFO - Exporting QCOM analysis to text file: analysis_results/QCOM_20250812_150101.txt
+2025-08-12 15:01:01,026 - pipelines.pipelines - INFO - Creating analysis summary for QCOM
+2025-08-12 15:01:01,026 - pipelines.pipelines - WARNING - Creating error summary for failed analysis of QCOM
+2025-08-12 15:01:01,027 - pipelines.pipelines - INFO - Analysis exported to analysis_results/QCOM_20250812_150101.txt
+2025-08-12 15:01:01,027 - pipelines.pipelines - INFO - Exported QCOM (1/1)
+2025-08-12 15:01:01,027 - pipelines.pipelines - INFO - Batch export completed. Successful: 1, Failed: 0
+2025-08-12 15:03:23,029 - utils.config - INFO - Logging configured with level: INFO
+2025-08-12 15:03:23,458 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-08-12 15:03:23,458 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-08-12 15:03:23,459 - __main__ - INFO - Starting batch analysis for 1 stocks: ['QCOM']
+2025-08-12 15:03:23,459 - __main__ - INFO - Initializing Stock Analysis Pipeline for batch processing
+2025-08-12 15:03:23,459 - pipelines.pipelines - INFO - Initializing Stock Analysis Pipeline...
+2025-08-12 15:03:23,459 - pipelines.pipelines - INFO - Initializing FinancialDataGatherer
+2025-08-12 15:03:23,459 - pipelines.pipelines - INFO - Initializing SentimentCollator
+2025-08-12 15:03:23,543 - news_sentiment.news_collator - INFO - NewsCollator initialized successfully
+2025-08-12 15:03:23,543 - pipelines.pipelines - INFO - Initializing StockRater
+2025-08-12 15:03:23,543 - ratings.rater - INFO - Initializing StockRater
+2025-08-12 15:03:23,543 - ratings.rater - INFO - Initializing ChatOpenAI for stock rating
+2025-08-12 15:03:23,675 - ratings.rater - INFO - StockRater initialized successfully
+2025-08-12 15:03:23,675 - pipelines.pipelines - INFO - Stock Analysis Pipeline initialized successfully
+2025-08-12 15:03:23,675 - __main__ - INFO - Starting batch analysis pipeline for 1 stocks
+2025-08-12 15:03:23,675 - pipelines.pipelines - INFO - Starting batch analysis of 1 stocks: ['QCOM']
+2025-08-12 15:03:23,675 - pipelines.pipelines - INFO - Analyzing stock 1/1: QCOM
+2025-08-12 15:03:23,675 - pipelines.pipelines - INFO - Starting analysis for stock: QCOM
+2025-08-12 15:03:23,675 - pipelines.pipelines - INFO - Step 1/3: Gathering financial data for QCOM
+2025-08-12 15:03:23,675 - pipelines.pipelines - INFO - Retrieving financial data for QCOM
+2025-08-12 15:03:23,675 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Processing complete financial analysis for QCOM
+2025-08-12 15:03:23,676 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Starting financial data gathering for QCOM
+2025-08-12 15:03:23,676 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for QCOM with function EARNINGS
+2025-08-12 15:03:24,937 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for QCOM
+2025-08-12 15:03:24,947 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for QCOM with function INCOME_STATEMENT
+2025-08-12 15:03:26,509 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for QCOM
+2025-08-12 15:03:26,511 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for QCOM with function BALANCE_SHEET
+2025-08-12 15:03:28,236 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for QCOM
+2025-08-12 15:03:28,239 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for QCOM with function CASH_FLOW
+2025-08-12 15:03:29,811 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for QCOM
+2025-08-12 15:03:29,819 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully compiled financial data for QCOM
+2025-08-12 15:03:29,819 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Calculating percentage changes and free cash flow
+2025-08-12 15:03:29,821 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully calculated changes and free cash flow
+2025-08-12 15:03:29,822 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Calculating financial ratios
+2025-08-12 15:03:29,822 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully calculated financial ratios
+2025-08-12 15:03:29,830 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Converting DataFrame to HTML format
+2025-08-12 15:03:29,833 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully converted DataFrame to HTML. Length: 4004 characters
+2025-08-12 15:03:29,833 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully completed financial analysis for QCOM
+2025-08-12 15:03:29,833 - pipelines.pipelines - INFO - Financial data retrieved successfully for QCOM
+2025-08-12 15:03:29,833 - pipelines.pipelines - INFO - Financial data retrieved for QCOM. Length: 4004 characters
+2025-08-12 15:03:29,833 - pipelines.pipelines - INFO - Step 2/3: Analyzing news sentiment for QCOM
+2025-08-12 15:03:29,833 - pipelines.pipelines - INFO - Retrieving sentiment analysis for QCOM
+2025-08-12 15:03:29,833 - news_sentiment.news_collator - INFO - Searching for news with query: QCOM
+2025-08-12 15:03:38,746 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:03:38,760 - news_sentiment.news_collator - INFO - Generated queries: ['Qualcomm stock news August 2025', 'Qualcomm AI data centers partnership with HUMAIN', 'Qualcomm Snapdragon product updates August 2025', 'Qualcomm stock performance vs. semiconductor industry August 2025', 'Qualcomm vs. Broadcom stock analysis August 2025'], type: <class 'list'>
+2025-08-12 15:03:43,320 - news_sentiment.news_collator - INFO - Found 10 results for query: Qualcomm stock news August 2025
+2025-08-12 15:03:47,481 - news_sentiment.news_collator - INFO - Found 10 results for query: Qualcomm AI data centers partnership with HUMAIN
+2025-08-12 15:03:50,724 - news_sentiment.news_collator - INFO - Found 10 results for query: Qualcomm Snapdragon product updates August 2025
+2025-08-12 15:03:53,833 - news_sentiment.news_collator - INFO - Found 10 results for query: Qualcomm stock performance vs. semiconductor industry August 2025
+2025-08-12 15:03:57,091 - news_sentiment.news_collator - INFO - Found 10 results for query: Qualcomm vs. Broadcom stock analysis August 2025
+2025-08-12 15:03:57,092 - news_sentiment.news_collator - INFO - Total search results found: 50
+2025-08-12 15:03:57,092 - news_sentiment.news_collator - INFO - result length 17206 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,092 - news_sentiment.news_collator - INFO - result length 9210 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,092 - news_sentiment.news_collator - INFO - result length 736 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,092 - news_sentiment.news_collator - INFO - result length 2762 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,092 - news_sentiment.news_collator - INFO - result length 2504 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,092 - news_sentiment.news_collator - INFO - result length 16175 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,092 - news_sentiment.news_collator - INFO - result length 24252 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,092 - news_sentiment.news_collator - INFO - result length 4059 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,092 - news_sentiment.news_collator - INFO - result length 5094 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,092 - news_sentiment.news_collator - INFO - result length 17644 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,092 - news_sentiment.news_collator - INFO - result length 26251 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,092 - news_sentiment.news_collator - INFO - result length 13102 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,092 - news_sentiment.news_collator - INFO - result length 2506 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,093 - news_sentiment.news_collator - INFO - result length 1449 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,093 - news_sentiment.news_collator - INFO - result length 2802 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,093 - news_sentiment.news_collator - INFO - result length 2405 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,093 - news_sentiment.news_collator - INFO - result length 2696 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,093 - news_sentiment.news_collator - INFO - result length 8745 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,093 - news_sentiment.news_collator - INFO - result length 1387 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,093 - news_sentiment.news_collator - INFO - result length 13536 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,093 - news_sentiment.news_collator - INFO - result length 18169 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,093 - news_sentiment.news_collator - INFO - result length 2975 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,093 - news_sentiment.news_collator - INFO - result length 3705 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,093 - news_sentiment.news_collator - INFO - result length 23027 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,093 - news_sentiment.news_collator - INFO - result length 10939 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,093 - news_sentiment.news_collator - INFO - result length 9461 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,093 - news_sentiment.news_collator - INFO - result length 2280 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,093 - news_sentiment.news_collator - INFO - result length 15739 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,093 - news_sentiment.news_collator - INFO - result length 15203 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,094 - news_sentiment.news_collator - INFO - result length 6317 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,094 - news_sentiment.news_collator - INFO - result length 11384 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,094 - news_sentiment.news_collator - INFO - result length 736 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,094 - news_sentiment.news_collator - INFO - result length 9210 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,094 - news_sentiment.news_collator - INFO - result length 5094 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,094 - news_sentiment.news_collator - INFO - result length 2762 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,094 - news_sentiment.news_collator - INFO - result length 2504 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,094 - news_sentiment.news_collator - INFO - result length 16175 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,094 - news_sentiment.news_collator - INFO - result length 1203 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,094 - news_sentiment.news_collator - INFO - result length 26016 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,094 - news_sentiment.news_collator - INFO - result length 24252 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,094 - news_sentiment.news_collator - INFO - result length 9210 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,094 - news_sentiment.news_collator - INFO - result length 2762 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,094 - news_sentiment.news_collator - INFO - result length 16175 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,094 - news_sentiment.news_collator - INFO - result length 6900 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,094 - news_sentiment.news_collator - INFO - result length 12509 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,094 - news_sentiment.news_collator - INFO - result length 2696 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,094 - news_sentiment.news_collator - INFO - result length 11384 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,094 - news_sentiment.news_collator - INFO - result length 17320 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,094 - news_sentiment.news_collator - INFO - result length 56676 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,095 - news_sentiment.news_collator - INFO - result length 2504 type <class 'exa_py.api.Result'>
+2025-08-12 15:03:57,095 - news_sentiment.news_collator - INFO - Found 50 articles for query: Qualcomm vs. Broadcom stock analysis August 2025
+2025-08-12 15:04:01,307 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:04:01,317 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (NASDAQ:QCOM) Shares Up 1.1% - Should You...
+2025-08-12 15:04:05,280 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:04:05,282 - news_sentiment.news_collator - INFO - Generated summary for article: The Bull Case For QUALCOMM (QCOM) Could Change Fol...
+2025-08-12 15:04:06,970 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:04:06,972 - news_sentiment.news_collator - INFO - Generated summary for article: Can Solid Automotive Revenues Propel QCOM Stock Am...
+2025-08-12 15:04:11,658 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:04:11,664 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (QCOM) Reports Q3 Revenue Of US$10 Billio...
+2025-08-12 15:04:15,089 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:04:15,095 - news_sentiment.news_collator - INFO - Generated summary for article: Benchmark Stays Bullish on Qualcomm (QCOM) —Here’s...
+2025-08-12 15:04:19,730 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:04:19,738 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (NASDAQ:QCOM) Trading Down 1%  - What's N...
+2025-08-12 15:04:26,794 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:04:26,799 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm FY 2025 3rd Quarter Earnings Release...
+2025-08-12 15:04:30,346 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:04:30,354 - news_sentiment.news_collator - INFO - Generated summary for article: I'm Long Qualcomm: A Cheap Stock With An Expensive...
+2025-08-12 15:04:36,579 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:04:36,584 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm's premium smartphone chip reliance, Apple...
+2025-08-12 15:04:41,619 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:04:41,622 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM Incorporated (NASDAQ:QCOM) Shares Acquire...
+2025-08-12 15:04:46,456 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:04:46,464 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm Q3 FY 2025 Earnings Driven by Auto and Io...
+2025-08-12 15:04:51,821 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:04:51,826 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm Q3 revenue up 10% as it expands into smar...
+2025-08-12 15:04:56,556 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:04:56,561 - news_sentiment.news_collator - INFO - Generated summary for article: Musk’s xAI to Rent Data Centre Capacity in Saudi F...
+2025-08-12 15:04:59,587 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:04:59,592 - news_sentiment.news_collator - INFO - Generated summary for article: xAI pursues Humain data centre tie-up...
+2025-08-12 15:05:01,435 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:05:01,438 - news_sentiment.news_collator - INFO - Generated summary for article: World’s Largest AI Data Center Planned for South K...
+2025-08-12 15:05:06,493 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:05:06,497 - news_sentiment.news_collator - INFO - Generated summary for article: Meta places order for its next-gen ASIC-powered AI...
+2025-08-12 15:05:09,962 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:05:09,965 - news_sentiment.news_collator - INFO - Generated summary for article: Broadcom launches Jericho chip to advance AI data ...
+2025-08-12 15:05:14,615 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:05:14,618 - news_sentiment.news_collator - INFO - Generated summary for article: CoreWeave's $6 Billion AI Data Center: A Catalyst ...
+2025-08-12 15:05:19,778 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:05:19,781 - news_sentiment.news_collator - INFO - Generated summary for article: 傳馬斯克旗下xAI擬與沙國 Humain 合作 建立全球最大AI資料中心 | 鉅亨網 - 科技...
+2025-08-12 15:05:26,446 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:05:26,449 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm working on datacenter CPU and in ‘advance...
+2025-08-12 15:05:34,017 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:05:34,018 - news_sentiment.news_collator - INFO - Generated summary for article: Snapdragon 8 Gen 5 Name Leaked As Qualcomm's New S...
+2025-08-12 15:05:38,083 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:05:38,087 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm could shake things up with a Snapdragon 8...
+2025-08-12 15:05:43,642 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:05:43,645 - news_sentiment.news_collator - INFO - Generated summary for article: Snagdragon 8 Elite Gen 2 details just leaked — thi...
+2025-08-12 15:05:48,005 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:05:48,009 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm Q3 FY 2025 Earnings Driven by Auto and Io...
+2025-08-12 15:05:52,010 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:05:52,014 - news_sentiment.news_collator - INFO - Generated summary for article: Can Solid Automotive Revenues Propel QCOM Stock Am...
+2025-08-12 15:05:56,409 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:05:56,423 - news_sentiment.news_collator - INFO - Generated summary for article: Google’s August Patch Fixes Two Qualcomm Vulnerabi...
+2025-08-12 15:06:00,298 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:06:00,299 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm announces eight years of OS and security ...
+2025-08-12 15:06:04,480 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:06:04,483 - news_sentiment.news_collator - INFO - Generated summary for article: Xiaomi confirmed to release Snapdragon 8 Elite 2 p...
+2025-08-12 15:06:18,235 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:06:18,240 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm Snapdragon SM8845 SoC could be launched a...
+2025-08-12 15:06:23,651 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:06:23,654 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm Teases Big Wi-Fi 8 Speed, Latency And Rel...
+2025-08-12 15:06:29,016 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:06:29,019 - news_sentiment.news_collator - INFO - Generated summary for article: The Best Semiconductor Stocks to Buy Now - Daily F...
+2025-08-12 15:06:30,752 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:06:30,753 - news_sentiment.news_collator - INFO - Generated summary for article: Can Solid Automotive Revenues Propel QCOM Stock Am...
+2025-08-12 15:06:36,072 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:06:36,075 - news_sentiment.news_collator - INFO - Generated summary for article: The Bull Case For QUALCOMM (QCOM) Could Change Fol...
+2025-08-12 15:06:42,294 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:06:42,298 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm's premium smartphone chip reliance, Apple...
+2025-08-12 15:06:48,023 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:06:48,025 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (QCOM) Reports Q3 Revenue Of US$10 Billio...
+2025-08-12 15:06:53,195 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:06:53,200 - news_sentiment.news_collator - INFO - Generated summary for article: Benchmark Stays Bullish on Qualcomm (QCOM) —Here’s...
+2025-08-12 15:06:56,092 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:06:56,092 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (NASDAQ:QCOM) Trading Down 1%  - What's N...
+2025-08-12 15:06:58,751 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:06:58,754 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM Incorporated (QCOM) Stock Price, News, Qu...
+2025-08-12 15:07:08,252 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:07:08,256 - news_sentiment.news_collator - INFO - Generated summary for article: 7 Best Semiconductor Stocks to Buy for 2025 | Inve...
+2025-08-12 15:07:15,672 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:07:15,673 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm FY 2025 3rd Quarter Earnings Release...
+2025-08-12 15:07:20,075 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:07:20,076 - news_sentiment.news_collator - INFO - Generated summary for article: The Bull Case For QUALCOMM (QCOM) Could Change Fol...
+2025-08-12 15:07:25,465 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:07:25,469 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (QCOM) Reports Q3 Revenue Of US$10 Billio...
+2025-08-12 15:07:33,356 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:07:33,374 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (NASDAQ:QCOM) Trading Down 1%  - What's N...
+2025-08-12 15:07:36,806 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:07:36,809 - news_sentiment.news_collator - INFO - Generated summary for article: Why AI Stock Broadcom Was Rising on Monday...
+2025-08-12 15:07:42,577 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:07:42,579 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm vs. Broadcom: Which Chip Giant is the Bet...
+2025-08-12 15:07:47,570 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:07:47,578 - news_sentiment.news_collator - INFO - Generated summary for article: Broadcom launches Jericho chip to advance AI data ...
+2025-08-12 15:07:51,693 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:07:51,706 - news_sentiment.news_collator - INFO - Generated summary for article: The Best Semiconductor Stocks to Buy Now - Daily F...
+2025-08-12 15:07:56,350 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:07:56,351 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (NASDAQ:QCOM) Shares Up 1.1% - Should You...
+2025-08-12 15:07:56,786 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-12 15:08:07,792 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:08:07,795 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm (QCOM) Earnings Dip 4.9% to $2.71: Stock ...
+2025-08-12 15:08:08,200 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-12 15:08:10,197 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-12 15:08:17,521 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:08:17,525 - news_sentiment.news_collator - INFO - Generated summary for article: Benchmark Stays Bullish on Qualcomm (QCOM) —Here’s...
+2025-08-12 15:08:19,368 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-12 15:08:21,349 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-12 15:08:23,999 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-12 15:08:24,000 - news_sentiment.news_collator - ERROR - Error analyzing sentiment: Error code: 429 - {'error': {'message': 'Request too large for gpt-4o in organization org-7rwsBhmwhhOy9Q17FIeOpADr on tokens per min (TPM): Limit 30000, Requested 153232. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2025-08-12 15:08:25,776 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-12 15:08:28,069 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-12 15:08:30,438 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-12 15:08:30,439 - news_sentiment.news_collator - ERROR - Error analyzing sentiment: Error code: 429 - {'error': {'message': 'Request too large for gpt-4o in organization org-7rwsBhmwhhOy9Q17FIeOpADr on tokens per min (TPM): Limit 30000, Requested 153231. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2025-08-12 15:08:30,439 - pipelines.pipelines - INFO - Sentiment analysis retrieved successfully for QCOM
+2025-08-12 15:08:30,439 - pipelines.pipelines - INFO - Sentiment analysis completed for QCOM. Company sentiment length: 25, Sector sentiment length: 25
+2025-08-12 15:08:30,439 - pipelines.pipelines - INFO - Step 3/3: Generating rating for QCOM
+2025-08-12 15:08:30,439 - pipelines.pipelines - INFO - Generating rating for QCOM
+2025-08-12 15:08:30,439 - ratings.rater - INFO - Starting stock rating analysis for QCOM
+2025-08-12 15:08:30,439 - ratings.rater - INFO - Creating rating prompt for QCOM
+2025-08-12 15:08:30,439 - ratings.rater - INFO - Creating rating prompt for QCOM
+2025-08-12 15:08:30,439 - ratings.rater - INFO - Loading stock rating prompt template
+2025-08-12 15:08:30,440 - ratings.rater - INFO - Formatting prompt with data for QCOM
+2025-08-12 15:08:30,440 - ratings.rater - INFO - Rating prompt created for QCOM. Length: 6499 characters
+2025-08-12 15:08:30,440 - ratings.rater - INFO - Sending rating request to ChatOpenAI for QCOM
+2025-08-12 15:08:37,567 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:08:37,571 - ratings.rater - INFO - Received rating response for QCOM. Length: 1579 characters
+2025-08-12 15:08:37,571 - ratings.rater - INFO - Parsing JSON response for QCOM
+2025-08-12 15:08:37,572 - ratings.rater - INFO - Extracted JSON from markdown code block for QCOM
+2025-08-12 15:08:37,572 - ratings.rater - INFO - Successfully parsed JSON response for QCOM
+2025-08-12 15:08:37,572 - ratings.rater - INFO - Creating RatingResult object for QCOM
+2025-08-12 15:08:37,572 - ratings.rater - INFO - Successfully rated QCOM as Hold with confidence 75.0%
+2025-08-12 15:08:37,573 - pipelines.pipelines - INFO - Rating generated successfully for QCOM
+2025-08-12 15:08:37,573 - pipelines.pipelines - INFO - Rating generated for QCOM: Hold (Confidence: 75.0%)
+2025-08-12 15:08:37,573 - pipelines.pipelines - INFO - Analysis completed for QCOM. Processing time: 313.90 seconds
+2025-08-12 15:08:37,573 - pipelines.pipelines - INFO - Successfully completed analysis for QCOM
+2025-08-12 15:08:37,573 - pipelines.pipelines - INFO - Progress: 1/1 completed, 1 successful
+2025-08-12 15:08:37,573 - pipelines.pipelines - INFO - Batch analysis completed. 1/1 successful
+2025-08-12 15:08:37,573 - __main__ - INFO - Batch analysis completed. Successful: 1, Failed: 0
+2025-08-12 15:08:37,573 - __main__ - INFO - Stock QCOM: Hold (Confidence: 75.0%)
+2025-08-12 15:08:37,573 - __main__ - INFO - Exporting analysis files to directory: analysis_results in txt format
+2025-08-12 15:08:37,574 - pipelines.pipelines - INFO - Created/verified output directory: analysis_results
+2025-08-12 15:08:37,574 - pipelines.pipelines - INFO - Exporting analysis for QCOM to analysis_results/QCOM_20250812_150837.txt in txt format
+2025-08-12 15:08:37,574 - pipelines.pipelines - INFO - Exporting QCOM analysis to text file: analysis_results/QCOM_20250812_150837.txt
+2025-08-12 15:08:37,574 - pipelines.pipelines - INFO - Creating analysis summary for QCOM
+2025-08-12 15:08:37,574 - pipelines.pipelines - INFO - Getting rating summary for QCOM
+2025-08-12 15:08:37,574 - ratings.rater - INFO - Creating rating summary
+2025-08-12 15:08:37,574 - ratings.rater - INFO - Rating summary created. Length: 1498 characters
+2025-08-12 15:08:37,574 - pipelines.pipelines - INFO - Creating complete analysis summary for QCOM
+2025-08-12 15:08:37,574 - pipelines.pipelines - INFO - Analysis summary created for QCOM. Length: 5807 characters
+2025-08-12 15:08:37,576 - pipelines.pipelines - INFO - Analysis exported to analysis_results/QCOM_20250812_150837.txt
+2025-08-12 15:08:37,576 - pipelines.pipelines - INFO - Exported QCOM (1/1)
+2025-08-12 15:08:37,576 - pipelines.pipelines - INFO - Batch export completed. Successful: 1, Failed: 0
+2025-08-12 15:08:37,576 - pipelines.pipelines - INFO - Creating analysis summary for QCOM
+2025-08-12 15:08:37,576 - pipelines.pipelines - INFO - Getting rating summary for QCOM
+2025-08-12 15:08:37,576 - ratings.rater - INFO - Creating rating summary
+2025-08-12 15:08:37,576 - ratings.rater - INFO - Rating summary created. Length: 1498 characters
+2025-08-12 15:08:37,576 - pipelines.pipelines - INFO - Creating complete analysis summary for QCOM
+2025-08-12 15:08:37,576 - pipelines.pipelines - INFO - Analysis summary created for QCOM. Length: 5807 characters
+2025-08-12 15:23:24,846 - utils.config - INFO - Logging configured with level: INFO
+2025-08-12 15:23:25,277 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-08-12 15:23:25,277 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-08-12 15:23:25,277 - __main__ - INFO - Starting batch analysis for 1 stocks: ['QCOM']
+2025-08-12 15:23:25,277 - __main__ - INFO - Initializing Stock Analysis Pipeline for batch processing
+2025-08-12 15:23:25,277 - pipelines.pipelines - INFO - Initializing Stock Analysis Pipeline...
+2025-08-12 15:23:25,277 - pipelines.pipelines - INFO - Initializing FinancialDataGatherer
+2025-08-12 15:23:25,277 - pipelines.pipelines - INFO - Initializing SentimentCollator
+2025-08-12 15:23:25,356 - news_sentiment.news_collator - INFO - NewsCollator initialized successfully
+2025-08-12 15:23:25,356 - pipelines.pipelines - INFO - Initializing StockRater
+2025-08-12 15:23:25,356 - ratings.rater - INFO - Initializing StockRater
+2025-08-12 15:23:25,356 - ratings.rater - INFO - Initializing ChatOpenAI for stock rating
+2025-08-12 15:23:25,481 - ratings.rater - INFO - StockRater initialized successfully
+2025-08-12 15:23:25,481 - pipelines.pipelines - INFO - Stock Analysis Pipeline initialized successfully
+2025-08-12 15:23:25,481 - __main__ - INFO - Starting batch analysis pipeline for 1 stocks
+2025-08-12 15:23:25,481 - pipelines.pipelines - INFO - Starting batch analysis of 1 stocks: ['QCOM']
+2025-08-12 15:23:25,481 - pipelines.pipelines - INFO - Analyzing stock 1/1: QCOM
+2025-08-12 15:23:25,482 - pipelines.pipelines - INFO - Starting analysis for stock: QCOM
+2025-08-12 15:23:25,482 - pipelines.pipelines - INFO - Step 1/3: Gathering financial data for QCOM
+2025-08-12 15:23:25,482 - pipelines.pipelines - INFO - Retrieving financial data for QCOM
+2025-08-12 15:23:25,482 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Processing complete financial analysis for QCOM
+2025-08-12 15:23:25,482 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Starting financial data gathering for QCOM
+2025-08-12 15:23:25,482 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for QCOM with function EARNINGS
+2025-08-12 15:23:27,426 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for QCOM
+2025-08-12 15:23:27,437 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for QCOM with function INCOME_STATEMENT
+2025-08-12 15:23:29,177 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for QCOM
+2025-08-12 15:23:29,180 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for QCOM with function BALANCE_SHEET
+2025-08-12 15:23:31,104 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for QCOM
+2025-08-12 15:23:31,108 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for QCOM with function CASH_FLOW
+2025-08-12 15:23:32,103 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for QCOM
+2025-08-12 15:23:32,118 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully compiled financial data for QCOM
+2025-08-12 15:23:32,118 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Calculating percentage changes and free cash flow
+2025-08-12 15:23:32,122 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully calculated changes and free cash flow
+2025-08-12 15:23:32,122 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Calculating financial ratios
+2025-08-12 15:23:32,123 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully calculated financial ratios
+2025-08-12 15:23:32,136 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Converting DataFrame to HTML format
+2025-08-12 15:23:32,140 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully converted DataFrame to HTML. Length: 4004 characters
+2025-08-12 15:23:32,140 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully completed financial analysis for QCOM
+2025-08-12 15:23:32,140 - pipelines.pipelines - INFO - Financial data retrieved successfully for QCOM
+2025-08-12 15:23:32,140 - pipelines.pipelines - INFO - Financial data retrieved for QCOM. Length: 4004 characters
+2025-08-12 15:23:32,140 - pipelines.pipelines - INFO - Step 2/3: Analyzing news sentiment for QCOM
+2025-08-12 15:23:32,140 - pipelines.pipelines - INFO - Retrieving sentiment analysis for QCOM
+2025-08-12 15:23:32,140 - news_sentiment.news_collator - INFO - Searching for news with query: QCOM
+2025-08-12 15:23:37,551 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:23:37,578 - news_sentiment.news_collator - INFO - Generated queries: ['"Qualcomm AI data centers partnership with HUMAIN impact on stock price August 2025"', '"Qualcomm Snapdragon product line performance and market reception August 2025"', '"Qualcomm QCT semiconductor business earnings report and stock analysis August 2025"', '"Qualcomm stock performance compared to semiconductor industry trends August 2025"'], type: <class 'list'>
+2025-08-12 15:23:40,835 - news_sentiment.news_collator - INFO - Found 10 results for query: "Qualcomm AI data centers partnership with HUMAIN impact on stock price August 2025"
+2025-08-12 15:23:43,816 - news_sentiment.news_collator - INFO - Found 10 results for query: "Qualcomm Snapdragon product line performance and market reception August 2025"
+2025-08-12 15:23:48,132 - news_sentiment.news_collator - INFO - Found 10 results for query: "Qualcomm QCT semiconductor business earnings report and stock analysis August 2025"
+2025-08-12 15:23:51,396 - news_sentiment.news_collator - INFO - Found 10 results for query: "Qualcomm stock performance compared to semiconductor industry trends August 2025"
+2025-08-12 15:23:51,397 - news_sentiment.news_collator - INFO - Total search results found: 40
+2025-08-12 15:23:51,397 - news_sentiment.news_collator - INFO - result length 13102 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,397 - news_sentiment.news_collator - INFO - result length 13536 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,397 - news_sentiment.news_collator - INFO - result length 2735 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,398 - news_sentiment.news_collator - INFO - result length 2504 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,398 - news_sentiment.news_collator - INFO - result length 2762 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,398 - news_sentiment.news_collator - INFO - result length 4059 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,398 - news_sentiment.news_collator - INFO - result length 2489 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,398 - news_sentiment.news_collator - INFO - result length 17594 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,398 - news_sentiment.news_collator - INFO - result length 2405 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,398 - news_sentiment.news_collator - INFO - result length 4728 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,399 - news_sentiment.news_collator - INFO - result length 2975 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,399 - news_sentiment.news_collator - INFO - result length 18169 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,399 - news_sentiment.news_collator - INFO - result length 15739 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,399 - news_sentiment.news_collator - INFO - result length 15203 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,399 - news_sentiment.news_collator - INFO - result length 9461 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,399 - news_sentiment.news_collator - INFO - result length 2762 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,399 - news_sentiment.news_collator - INFO - result length 7968 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,399 - news_sentiment.news_collator - INFO - result length 2793 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,399 - news_sentiment.news_collator - INFO - result length 9507 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,399 - news_sentiment.news_collator - INFO - result length 13102 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,399 - news_sentiment.news_collator - INFO - result length 24252 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,399 - news_sentiment.news_collator - INFO - result length 2762 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,399 - news_sentiment.news_collator - INFO - result length 2504 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,399 - news_sentiment.news_collator - INFO - result length 16175 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,399 - news_sentiment.news_collator - INFO - result length 5094 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,399 - news_sentiment.news_collator - INFO - result length 7700 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,399 - news_sentiment.news_collator - INFO - result length 13102 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,399 - news_sentiment.news_collator - INFO - result length 13536 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,399 - news_sentiment.news_collator - INFO - result length 7996 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,400 - news_sentiment.news_collator - INFO - result length 7968 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,400 - news_sentiment.news_collator - INFO - result length 2504 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,400 - news_sentiment.news_collator - INFO - result length 5094 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,400 - news_sentiment.news_collator - INFO - result length 2762 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,400 - news_sentiment.news_collator - INFO - result length 4059 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,400 - news_sentiment.news_collator - INFO - result length 16175 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,400 - news_sentiment.news_collator - INFO - result length 1386 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,400 - news_sentiment.news_collator - INFO - result length 7968 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,400 - news_sentiment.news_collator - INFO - result length 5007 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,400 - news_sentiment.news_collator - INFO - result length 8637 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,400 - news_sentiment.news_collator - INFO - result length 13102 type <class 'exa_py.api.Result'>
+2025-08-12 15:23:51,400 - news_sentiment.news_collator - INFO - Found 40 articles for query: "Qualcomm stock performance compared to semiconductor industry trends August 2025"
+2025-08-12 15:23:54,903 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:23:54,906 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm Q3 revenue up 10% as it expands into smar...
+2025-08-12 15:24:01,617 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:24:01,620 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm working on datacenter CPU and in ‘advance...
+2025-08-12 15:24:04,953 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:24:04,954 - news_sentiment.news_collator - INFO - Generated summary for article: Groq and HUMAIN Launch OpenAI's New Open Models Da...
+2025-08-12 15:24:09,134 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:24:09,138 - news_sentiment.news_collator - INFO - Generated summary for article: Benchmark Stays Bullish on Qualcomm (QCOM) —Here’s...
+2025-08-12 15:24:16,027 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:24:16,034 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (QCOM) Reports Q3 Revenue Of US$10 Billio...
+2025-08-12 15:24:21,300 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:24:21,307 - news_sentiment.news_collator - INFO - Generated summary for article: I'm Long Qualcomm: A Cheap Stock With An Expensive...
+2025-08-12 15:24:24,692 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:24:24,696 - news_sentiment.news_collator - INFO - Generated summary for article: 1 Incredible Reason to Buy This Value Stock Before...
+2025-08-12 15:24:30,669 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:24:30,673 - news_sentiment.news_collator - INFO - Generated summary for article: Prediction: This Artificial Intelligence (AI) Stoc...
+2025-08-12 15:24:37,283 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:24:37,286 - news_sentiment.news_collator - INFO - Generated summary for article: Meta places order for its next-gen ASIC-powered AI...
+2025-08-12 15:24:43,097 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:24:43,102 - news_sentiment.news_collator - INFO - Generated summary for article: Broadcom Jericho 4 Networking Chip For AI Data Cen...
+2025-08-12 15:24:46,133 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:24:46,142 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm could shake things up with a Snapdragon 8...
+2025-08-12 15:24:51,649 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:24:51,653 - news_sentiment.news_collator - INFO - Generated summary for article: Snapdragon 8 Gen 5 Name Leaked As Qualcomm's New S...
+2025-08-12 15:24:56,529 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:24:56,533 - news_sentiment.news_collator - INFO - Generated summary for article: Xiaomi confirmed to release Snapdragon 8 Elite 2 p...
+2025-08-12 15:25:01,198 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:25:01,202 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm Snapdragon SM8845 SoC could be launched a...
+2025-08-12 15:25:05,952 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:25:05,956 - news_sentiment.news_collator - INFO - Generated summary for article: Google’s August Patch Fixes Two Qualcomm Vulnerabi...
+2025-08-12 15:25:10,858 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:25:10,871 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (QCOM) Reports Q3 Revenue Of US$10 Billio...
+2025-08-12 15:25:13,482 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:25:13,483 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm sees handset rebound by year-end, signals...
+2025-08-12 15:25:18,182 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:25:18,188 - news_sentiment.news_collator - INFO - Generated summary for article: Snapdragon X Series Laptops Explained: Should You ...
+2025-08-12 15:25:22,668 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:25:22,672 - news_sentiment.news_collator - INFO - Generated summary for article: Snapdragon 8 Elite Vs 8s Gen 4: Full Performance C...
+2025-08-12 15:25:27,190 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:25:27,193 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm Q3 revenue up 10% as it expands into smar...
+2025-08-12 15:25:33,786 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:25:33,800 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm FY 2025 3rd Quarter Earnings Release...
+2025-08-12 15:25:38,248 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:25:38,256 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (QCOM) Reports Q3 Revenue Of US$10 Billio...
+2025-08-12 15:25:44,231 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:25:44,235 - news_sentiment.news_collator - INFO - Generated summary for article: Benchmark Stays Bullish on Qualcomm (QCOM) —Here’s...
+2025-08-12 15:25:49,299 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:25:49,301 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (NASDAQ:QCOM) Trading Down 1%  - What's N...
+2025-08-12 15:25:55,963 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:25:55,966 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm's premium smartphone chip reliance, Apple...
+2025-08-12 15:25:59,810 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:25:59,826 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm posts solid Q3, but Apple warning clouds ...
+2025-08-12 15:26:04,168 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:26:04,171 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm Q3 revenue up 10% as it expands into smar...
+2025-08-12 15:26:11,953 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:26:11,961 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm working on datacenter CPU and in ‘advance...
+2025-08-12 15:26:16,863 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:26:16,865 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm eyes post-mobile era with Alphawave acqui...
+2025-08-12 15:26:19,520 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:26:19,523 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm sees handset rebound by year-end, signals...
+2025-08-12 15:26:24,759 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:26:24,765 - news_sentiment.news_collator - INFO - Generated summary for article: Benchmark Stays Bullish on Qualcomm (QCOM) —Here’s...
+2025-08-12 15:26:28,949 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:26:28,954 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm's premium smartphone chip reliance, Apple...
+2025-08-12 15:26:34,314 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:26:34,324 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (QCOM) Reports Q3 Revenue Of US$10 Billio...
+2025-08-12 15:26:38,430 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:26:38,432 - news_sentiment.news_collator - INFO - Generated summary for article: I'm Long Qualcomm: A Cheap Stock With An Expensive...
+2025-08-12 15:26:42,060 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:26:42,063 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (NASDAQ:QCOM) Trading Down 1%  - What's N...
+2025-08-12 15:26:45,040 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:26:45,045 - news_sentiment.news_collator - INFO - Generated summary for article: Should Investors Buy Qualcomm Stock Before July 30...
+2025-08-12 15:26:48,192 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:26:48,203 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm sees handset rebound by year-end, signals...
+2025-08-12 15:26:55,745 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:26:55,752 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (QCOM) Stock Forecast & Price Targets...
+2025-08-12 15:27:02,670 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:27:02,678 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (NASDAQ:QCOM) Stock Price Down 2.4%  - Ti...
+2025-08-12 15:27:06,000 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:27:06,001 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm Q3 revenue up 10% as it expands into smar...
+2025-08-12 15:27:07,482 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-12 15:27:09,367 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-12 15:27:11,459 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-12 15:27:11,460 - news_sentiment.news_collator - ERROR - Error analyzing sentiment: Error code: 429 - {'error': {'message': 'Request too large for gpt-4o in organization org-7rwsBhmwhhOy9Q17FIeOpADr on tokens per min (TPM): Limit 30000, Requested 100537. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2025-08-12 15:27:12,989 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-12 15:27:14,836 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-12 15:27:17,178 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-12 15:27:17,181 - news_sentiment.news_collator - ERROR - Error analyzing sentiment: Error code: 429 - {'error': {'message': 'Request too large for gpt-4o in organization org-7rwsBhmwhhOy9Q17FIeOpADr on tokens per min (TPM): Limit 30000, Requested 100536. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2025-08-12 15:27:17,181 - pipelines.pipelines - INFO - Sentiment analysis retrieved successfully for QCOM
+2025-08-12 15:27:17,181 - pipelines.pipelines - INFO - Sentiment analysis completed for QCOM. Company sentiment length: 25, Sector sentiment length: 25
+2025-08-12 15:27:17,182 - pipelines.pipelines - INFO - Step 3/3: Generating rating for QCOM
+2025-08-12 15:27:17,182 - pipelines.pipelines - INFO - Generating rating for QCOM
+2025-08-12 15:27:17,182 - ratings.rater - INFO - Starting stock rating analysis for QCOM
+2025-08-12 15:27:17,182 - ratings.rater - INFO - Creating rating prompt for QCOM
+2025-08-12 15:27:17,182 - ratings.rater - INFO - Creating rating prompt for QCOM
+2025-08-12 15:27:17,182 - ratings.rater - INFO - Loading stock rating prompt template
+2025-08-12 15:27:17,184 - ratings.rater - INFO - Formatting prompt with data for QCOM
+2025-08-12 15:27:17,184 - ratings.rater - INFO - Rating prompt created for QCOM. Length: 6499 characters
+2025-08-12 15:27:17,184 - ratings.rater - INFO - Sending rating request to ChatOpenAI for QCOM
+2025-08-12 15:27:24,645 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:27:24,647 - ratings.rater - INFO - Received rating response for QCOM. Length: 1624 characters
+2025-08-12 15:27:24,647 - ratings.rater - INFO - Parsing JSON response for QCOM
+2025-08-12 15:27:24,647 - ratings.rater - INFO - Extracted JSON from markdown code block for QCOM
+2025-08-12 15:27:24,647 - ratings.rater - INFO - Successfully parsed JSON response for QCOM
+2025-08-12 15:27:24,647 - ratings.rater - INFO - Creating RatingResult object for QCOM
+2025-08-12 15:27:24,647 - ratings.rater - INFO - Successfully rated QCOM as Hold with confidence 75.0%
+2025-08-12 15:27:24,647 - pipelines.pipelines - INFO - Rating generated successfully for QCOM
+2025-08-12 15:27:24,647 - pipelines.pipelines - INFO - Rating generated for QCOM: Hold (Confidence: 75.0%)
+2025-08-12 15:27:24,647 - pipelines.pipelines - INFO - Analysis completed for QCOM. Processing time: 239.17 seconds
+2025-08-12 15:27:24,647 - pipelines.pipelines - INFO - Successfully completed analysis for QCOM
+2025-08-12 15:27:24,647 - pipelines.pipelines - INFO - Progress: 1/1 completed, 1 successful
+2025-08-12 15:27:24,647 - pipelines.pipelines - INFO - Batch analysis completed. 1/1 successful
+2025-08-12 15:27:24,648 - __main__ - INFO - Batch analysis completed. Successful: 1, Failed: 0
+2025-08-12 15:27:24,648 - __main__ - INFO - Stock QCOM: Hold (Confidence: 75.0%)
+2025-08-12 15:27:24,648 - __main__ - INFO - Exporting analysis files to directory: analysis_results in txt format
+2025-08-12 15:27:24,648 - pipelines.pipelines - INFO - Created/verified output directory: analysis_results
+2025-08-12 15:27:24,648 - pipelines.pipelines - INFO - Exporting analysis for QCOM to analysis_results/QCOM_20250812_152724.txt in txt format
+2025-08-12 15:27:24,648 - pipelines.pipelines - INFO - Exporting QCOM analysis to text file: analysis_results/QCOM_20250812_152724.txt
+2025-08-12 15:27:24,648 - pipelines.pipelines - INFO - Creating analysis summary for QCOM
+2025-08-12 15:27:24,648 - pipelines.pipelines - INFO - Getting rating summary for QCOM
+2025-08-12 15:27:24,648 - ratings.rater - INFO - Creating rating summary
+2025-08-12 15:27:24,648 - ratings.rater - INFO - Rating summary created. Length: 1543 characters
+2025-08-12 15:27:24,648 - pipelines.pipelines - INFO - Creating complete analysis summary for QCOM
+2025-08-12 15:27:24,648 - pipelines.pipelines - INFO - Analysis summary created for QCOM. Length: 5852 characters
+2025-08-12 15:27:24,648 - pipelines.pipelines - INFO - Analysis exported to analysis_results/QCOM_20250812_152724.txt
+2025-08-12 15:27:24,648 - pipelines.pipelines - INFO - Exported QCOM (1/1)
+2025-08-12 15:27:24,648 - pipelines.pipelines - INFO - Batch export completed. Successful: 1, Failed: 0
+2025-08-12 15:27:24,649 - pipelines.pipelines - INFO - Creating analysis summary for QCOM
+2025-08-12 15:27:24,649 - pipelines.pipelines - INFO - Getting rating summary for QCOM
+2025-08-12 15:27:24,649 - ratings.rater - INFO - Creating rating summary
+2025-08-12 15:27:24,649 - ratings.rater - INFO - Rating summary created. Length: 1543 characters
+2025-08-12 15:27:24,649 - pipelines.pipelines - INFO - Creating complete analysis summary for QCOM
+2025-08-12 15:27:24,649 - pipelines.pipelines - INFO - Analysis summary created for QCOM. Length: 5852 characters
+2025-08-12 15:28:29,918 - utils.config - INFO - Logging configured with level: INFO
+2025-08-12 15:28:30,367 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-08-12 15:28:30,367 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-08-12 15:28:30,367 - __main__ - INFO - Starting batch analysis for 1 stocks: ['QCOM']
+2025-08-12 15:28:30,368 - __main__ - INFO - Initializing Stock Analysis Pipeline for batch processing
+2025-08-12 15:28:30,368 - pipelines.pipelines - INFO - Initializing Stock Analysis Pipeline...
+2025-08-12 15:28:30,368 - pipelines.pipelines - INFO - Initializing FinancialDataGatherer
+2025-08-12 15:28:30,368 - pipelines.pipelines - INFO - Initializing SentimentCollator
+2025-08-12 15:28:30,452 - news_sentiment.news_collator - INFO - NewsCollator initialized successfully
+2025-08-12 15:28:30,452 - pipelines.pipelines - INFO - Initializing StockRater
+2025-08-12 15:28:30,452 - ratings.rater - INFO - Initializing StockRater
+2025-08-12 15:28:30,452 - ratings.rater - INFO - Initializing ChatOpenAI for stock rating
+2025-08-12 15:28:30,584 - ratings.rater - INFO - StockRater initialized successfully
+2025-08-12 15:28:30,584 - pipelines.pipelines - INFO - Stock Analysis Pipeline initialized successfully
+2025-08-12 15:28:30,584 - __main__ - INFO - Starting batch analysis pipeline for 1 stocks
+2025-08-12 15:28:30,584 - pipelines.pipelines - INFO - Starting batch analysis of 1 stocks: ['QCOM']
+2025-08-12 15:28:30,584 - pipelines.pipelines - INFO - Analyzing stock 1/1: QCOM
+2025-08-12 15:28:30,584 - pipelines.pipelines - INFO - Starting analysis for stock: QCOM
+2025-08-12 15:28:30,584 - pipelines.pipelines - INFO - Step 1/3: Gathering financial data for QCOM
+2025-08-12 15:28:30,584 - pipelines.pipelines - INFO - Retrieving financial data for QCOM
+2025-08-12 15:28:30,585 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Processing complete financial analysis for QCOM
+2025-08-12 15:28:30,585 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Starting financial data gathering for QCOM
+2025-08-12 15:28:30,585 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for QCOM with function EARNINGS
+2025-08-12 15:28:31,839 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for QCOM
+2025-08-12 15:28:31,848 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for QCOM with function INCOME_STATEMENT
+2025-08-12 15:28:33,315 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for QCOM
+2025-08-12 15:28:33,319 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for QCOM with function BALANCE_SHEET
+2025-08-12 15:28:34,369 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for QCOM
+2025-08-12 15:28:34,374 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for QCOM with function CASH_FLOW
+2025-08-12 15:28:35,862 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for QCOM
+2025-08-12 15:28:35,874 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully compiled financial data for QCOM
+2025-08-12 15:28:35,875 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Calculating percentage changes and free cash flow
+2025-08-12 15:28:35,878 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully calculated changes and free cash flow
+2025-08-12 15:28:35,879 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Calculating financial ratios
+2025-08-12 15:28:35,880 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully calculated financial ratios
+2025-08-12 15:28:35,891 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Converting DataFrame to HTML format
+2025-08-12 15:28:35,895 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully converted DataFrame to HTML. Length: 4004 characters
+2025-08-12 15:28:35,895 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully completed financial analysis for QCOM
+2025-08-12 15:28:35,895 - pipelines.pipelines - INFO - Financial data retrieved successfully for QCOM
+2025-08-12 15:28:35,895 - pipelines.pipelines - INFO - Financial data retrieved for QCOM. Length: 4004 characters
+2025-08-12 15:28:35,896 - pipelines.pipelines - INFO - Step 2/3: Analyzing news sentiment for QCOM
+2025-08-12 15:28:35,896 - pipelines.pipelines - INFO - Retrieving sentiment analysis for QCOM
+2025-08-12 15:28:35,896 - news_sentiment.news_collator - INFO - Searching for news with query: QCOM
+2025-08-12 15:28:41,171 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:28:41,191 - news_sentiment.news_collator - INFO - Generated queries: ['Qualcomm stock news August 2025 AI data centers partnership with HUMAIN', 'Qualcomm Technologies semiconductor business performance August 2025', 'Qualcomm stock performance compared to semiconductor industry August 2025'], type: <class 'list'>
+2025-08-12 15:28:45,010 - news_sentiment.news_collator - INFO - Found 10 results for query: Qualcomm stock news August 2025 AI data centers partnership with HUMAIN
+2025-08-12 15:28:48,460 - news_sentiment.news_collator - INFO - Found 10 results for query: Qualcomm Technologies semiconductor business performance August 2025
+2025-08-12 15:28:52,031 - news_sentiment.news_collator - INFO - Found 10 results for query: Qualcomm stock performance compared to semiconductor industry August 2025
+2025-08-12 15:28:52,032 - news_sentiment.news_collator - INFO - Total search results found: 30
+2025-08-12 15:28:52,032 - news_sentiment.news_collator - INFO - result length 13102 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,032 - news_sentiment.news_collator - INFO - result length 6302 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,032 - news_sentiment.news_collator - INFO - result length 2762 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,032 - news_sentiment.news_collator - INFO - result length 23027 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,032 - news_sentiment.news_collator - INFO - result length 2223 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,032 - news_sentiment.news_collator - INFO - result length 4728 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,032 - news_sentiment.news_collator - INFO - result length 2504 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,032 - news_sentiment.news_collator - INFO - result length 4818 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,032 - news_sentiment.news_collator - INFO - result length 13727 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,032 - news_sentiment.news_collator - INFO - result length 2641 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,032 - news_sentiment.news_collator - INFO - result length 9210 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,033 - news_sentiment.news_collator - INFO - result length 2762 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,033 - news_sentiment.news_collator - INFO - result length 5094 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,033 - news_sentiment.news_collator - INFO - result length 24252 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,033 - news_sentiment.news_collator - INFO - result length 2504 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,033 - news_sentiment.news_collator - INFO - result length 23027 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,033 - news_sentiment.news_collator - INFO - result length 24679 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,033 - news_sentiment.news_collator - INFO - result length 2223 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,033 - news_sentiment.news_collator - INFO - result length 7968 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,033 - news_sentiment.news_collator - INFO - result length 7996 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,033 - news_sentiment.news_collator - INFO - result length 17409 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,033 - news_sentiment.news_collator - INFO - result length 11384 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,033 - news_sentiment.news_collator - INFO - result length 2762 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,033 - news_sentiment.news_collator - INFO - result length 2504 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,033 - news_sentiment.news_collator - INFO - result length 16175 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,033 - news_sentiment.news_collator - INFO - result length 26016 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,033 - news_sentiment.news_collator - INFO - result length 24679 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,033 - news_sentiment.news_collator - INFO - result length 24252 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,033 - news_sentiment.news_collator - INFO - result length 4059 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,033 - news_sentiment.news_collator - INFO - result length 7198 type <class 'exa_py.api.Result'>
+2025-08-12 15:28:52,033 - news_sentiment.news_collator - INFO - Found 30 articles for query: Qualcomm stock performance compared to semiconductor industry August 2025
+2025-08-12 15:28:58,393 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:28:58,398 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm Q3 revenue up 10% as it expands into smar...
+2025-08-12 15:29:04,366 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:29:04,371 - news_sentiment.news_collator - INFO - Generated summary for article: Is Qualcomm Stock a Smart Buy Before Q3 Earnings R...
+2025-08-12 15:29:08,956 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:29:08,959 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (QCOM) Reports Q3 Revenue Of US$10 Billio...
+2025-08-12 15:29:10,252 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 503 Service Unavailable"
+2025-08-12 15:29:17,694 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:29:17,698 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm Q3 FY 2025 Earnings Driven by Auto and Io...
+2025-08-12 15:29:20,992 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:29:20,997 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm - Investor Relations...
+2025-08-12 15:29:26,090 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:29:26,092 - news_sentiment.news_collator - INFO - Generated summary for article: Broadcom Jericho 4 Networking Chip For AI Data Cen...
+2025-08-12 15:29:30,814 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:29:30,818 - news_sentiment.news_collator - INFO - Generated summary for article: Benchmark Stays Bullish on Qualcomm (QCOM) —Here’s...
+2025-08-12 15:29:35,254 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:29:35,257 - news_sentiment.news_collator - INFO - Generated summary for article: Intel Eyes Ericsson Partnership for $Billion NEX I...
+2025-08-12 15:29:40,566 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:29:40,569 - news_sentiment.news_collator - INFO - Generated summary for article: AMD's Ryzen AI Max+ 395 Chip is Game Changer in De...
+2025-08-12 15:29:45,203 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:29:45,208 - news_sentiment.news_collator - INFO - Generated summary for article: AMD's AI Chips Gain Ground in Data Centers: A Sign...
+2025-08-12 15:29:50,546 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:29:50,555 - news_sentiment.news_collator - INFO - Generated summary for article: The Bull Case For QUALCOMM (QCOM) Could Change Fol...
+2025-08-12 15:29:55,412 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:29:55,416 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (QCOM) Reports Q3 Revenue Of US$10 Billio...
+2025-08-12 15:30:01,237 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:30:01,240 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm's premium smartphone chip reliance, Apple...
+2025-08-12 15:30:09,311 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:30:09,313 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm FY 2025 3rd Quarter Earnings Release...
+2025-08-12 15:30:15,700 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:30:15,704 - news_sentiment.news_collator - INFO - Generated summary for article: Benchmark Stays Bullish on Qualcomm (QCOM) —Here’s...
+2025-08-12 15:30:21,095 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:30:21,099 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm Q3 FY 2025 Earnings Driven by Auto and Io...
+2025-08-12 15:30:24,319 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:30:24,322 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm shares drops, but exceeds Q2 2025 estimat...
+2025-08-12 15:30:27,570 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:30:27,573 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm - Investor Relations...
+2025-08-12 15:30:29,472 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:30:29,475 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm sees handset rebound by year-end, signals...
+2025-08-12 15:30:32,409 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:30:32,412 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm eyes post-mobile era with Alphawave acqui...
+2025-08-12 15:30:37,526 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:30:37,531 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (NASDAQ:QCOM) Shares Up 1.1% - Should You...
+2025-08-12 15:30:42,086 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:30:42,091 - news_sentiment.news_collator - INFO - Generated summary for article: The Best Semiconductor Stocks to Buy Now - Daily F...
+2025-08-12 15:30:46,541 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:30:46,545 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (QCOM) Reports Q3 Revenue Of US$10 Billio...
+2025-08-12 15:30:51,826 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:30:51,830 - news_sentiment.news_collator - INFO - Generated summary for article: Benchmark Stays Bullish on Qualcomm (QCOM) —Here’s...
+2025-08-12 15:30:56,342 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:30:56,356 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (NASDAQ:QCOM) Trading Down 1%  - What's N...
+2025-08-12 15:31:08,966 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:31:08,970 - news_sentiment.news_collator - INFO - Generated summary for article: 7 Best Semiconductor Stocks to Buy for 2025 | Inve...
+2025-08-12 15:31:11,916 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:31:11,920 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm shares drops, but exceeds Q2 2025 estimat...
+2025-08-12 15:31:18,881 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:31:18,885 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm FY 2025 3rd Quarter Earnings Release...
+2025-08-12 15:31:23,880 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:31:23,885 - news_sentiment.news_collator - INFO - Generated summary for article: I'm Long Qualcomm: A Cheap Stock With An Expensive...
+2025-08-12 15:31:28,932 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:31:28,934 - news_sentiment.news_collator - INFO - Generated summary for article: ARM Down Over 11%, Worst Performer in the Nasdaq 1...
+2025-08-12 15:31:30,152 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-12 15:31:31,642 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-12 15:31:34,052 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-12 15:31:34,057 - news_sentiment.news_collator - ERROR - Error analyzing sentiment: Error code: 429 - {'error': {'message': 'Request too large for gpt-4o in organization org-7rwsBhmwhhOy9Q17FIeOpADr on tokens per min (TPM): Limit 30000, Requested 94766. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2025-08-12 15:31:35,266 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-12 15:31:36,938 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-12 15:31:38,926 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-12 15:31:38,927 - news_sentiment.news_collator - ERROR - Error analyzing sentiment: Error code: 429 - {'error': {'message': 'Request too large for gpt-4o in organization org-7rwsBhmwhhOy9Q17FIeOpADr on tokens per min (TPM): Limit 30000, Requested 94765. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2025-08-12 15:31:38,927 - pipelines.pipelines - INFO - Sentiment analysis retrieved successfully for QCOM
+2025-08-12 15:31:38,927 - pipelines.pipelines - INFO - Sentiment analysis completed for QCOM. Company sentiment length: 25, Sector sentiment length: 25
+2025-08-12 15:31:38,927 - pipelines.pipelines - INFO - Step 3/3: Generating rating for QCOM
+2025-08-12 15:31:38,927 - pipelines.pipelines - INFO - Generating rating for QCOM
+2025-08-12 15:31:38,927 - ratings.rater - INFO - Starting stock rating analysis for QCOM
+2025-08-12 15:31:38,927 - ratings.rater - INFO - Creating rating prompt for QCOM
+2025-08-12 15:31:38,927 - ratings.rater - INFO - Creating rating prompt for QCOM
+2025-08-12 15:31:38,927 - ratings.rater - INFO - Loading stock rating prompt template
+2025-08-12 15:31:38,927 - ratings.rater - INFO - Formatting prompt with data for QCOM
+2025-08-12 15:31:38,928 - ratings.rater - INFO - Rating prompt created for QCOM. Length: 6499 characters
+2025-08-12 15:31:38,928 - ratings.rater - INFO - Sending rating request to ChatOpenAI for QCOM
+2025-08-12 15:31:45,527 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:31:45,539 - ratings.rater - INFO - Received rating response for QCOM. Length: 1564 characters
+2025-08-12 15:31:45,539 - ratings.rater - INFO - Parsing JSON response for QCOM
+2025-08-12 15:31:45,539 - ratings.rater - INFO - Extracted JSON from markdown code block for QCOM
+2025-08-12 15:31:45,539 - ratings.rater - INFO - Successfully parsed JSON response for QCOM
+2025-08-12 15:31:45,539 - ratings.rater - INFO - Creating RatingResult object for QCOM
+2025-08-12 15:31:45,540 - ratings.rater - INFO - Successfully rated QCOM as Hold with confidence 75.0%
+2025-08-12 15:31:45,540 - pipelines.pipelines - INFO - Rating generated successfully for QCOM
+2025-08-12 15:31:45,540 - pipelines.pipelines - INFO - Rating generated for QCOM: Hold (Confidence: 75.0%)
+2025-08-12 15:31:45,540 - pipelines.pipelines - INFO - Analysis completed for QCOM. Processing time: 194.96 seconds
+2025-08-12 15:31:45,540 - pipelines.pipelines - INFO - Successfully completed analysis for QCOM
+2025-08-12 15:31:45,540 - pipelines.pipelines - INFO - Progress: 1/1 completed, 1 successful
+2025-08-12 15:31:45,540 - pipelines.pipelines - INFO - Batch analysis completed. 1/1 successful
+2025-08-12 15:31:45,540 - __main__ - INFO - Batch analysis completed. Successful: 1, Failed: 0
+2025-08-12 15:31:45,540 - __main__ - INFO - Stock QCOM: Hold (Confidence: 75.0%)
+2025-08-12 15:31:45,540 - __main__ - INFO - Exporting analysis files to directory: analysis_results in txt format
+2025-08-12 15:31:45,540 - pipelines.pipelines - INFO - Created/verified output directory: analysis_results
+2025-08-12 15:31:45,541 - pipelines.pipelines - INFO - Exporting analysis for QCOM to analysis_results/QCOM_20250812_153145.txt in txt format
+2025-08-12 15:31:45,541 - pipelines.pipelines - INFO - Exporting QCOM analysis to text file: analysis_results/QCOM_20250812_153145.txt
+2025-08-12 15:31:45,541 - pipelines.pipelines - INFO - Creating analysis summary for QCOM
+2025-08-12 15:31:45,541 - pipelines.pipelines - INFO - Getting rating summary for QCOM
+2025-08-12 15:31:45,541 - ratings.rater - INFO - Creating rating summary
+2025-08-12 15:31:45,541 - ratings.rater - INFO - Rating summary created. Length: 1483 characters
+2025-08-12 15:31:45,541 - pipelines.pipelines - INFO - Creating complete analysis summary for QCOM
+2025-08-12 15:31:45,541 - pipelines.pipelines - INFO - Analysis summary created for QCOM. Length: 5792 characters
+2025-08-12 15:31:45,542 - pipelines.pipelines - INFO - Analysis exported to analysis_results/QCOM_20250812_153145.txt
+2025-08-12 15:31:45,542 - pipelines.pipelines - INFO - Exported QCOM (1/1)
+2025-08-12 15:31:45,542 - pipelines.pipelines - INFO - Batch export completed. Successful: 1, Failed: 0
+2025-08-12 15:31:45,542 - pipelines.pipelines - INFO - Creating analysis summary for QCOM
+2025-08-12 15:31:45,542 - pipelines.pipelines - INFO - Getting rating summary for QCOM
+2025-08-12 15:31:45,542 - ratings.rater - INFO - Creating rating summary
+2025-08-12 15:31:45,542 - ratings.rater - INFO - Rating summary created. Length: 1483 characters
+2025-08-12 15:31:45,542 - pipelines.pipelines - INFO - Creating complete analysis summary for QCOM
+2025-08-12 15:31:45,542 - pipelines.pipelines - INFO - Analysis summary created for QCOM. Length: 5792 characters
+2025-08-12 15:45:47,120 - utils.config - INFO - Logging configured with level: INFO
+2025-08-12 15:45:47,580 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-08-12 15:45:47,580 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-08-12 15:45:47,580 - __main__ - INFO - Starting batch analysis for 1 stocks: ['QCOM']
+2025-08-12 15:45:47,580 - __main__ - INFO - Initializing Stock Analysis Pipeline for batch processing
+2025-08-12 15:45:47,580 - pipelines.pipelines - INFO - Initializing Stock Analysis Pipeline...
+2025-08-12 15:45:47,580 - pipelines.pipelines - INFO - Initializing FinancialDataGatherer
+2025-08-12 15:45:47,580 - pipelines.pipelines - INFO - Initializing SentimentCollator
+2025-08-12 15:45:47,661 - news_sentiment.news_collator - INFO - NewsCollator initialized successfully
+2025-08-12 15:45:47,662 - pipelines.pipelines - INFO - Initializing StockRater
+2025-08-12 15:45:47,662 - ratings.rater - INFO - Initializing StockRater
+2025-08-12 15:45:47,662 - ratings.rater - INFO - Initializing ChatOpenAI for stock rating
+2025-08-12 15:45:47,789 - ratings.rater - INFO - StockRater initialized successfully
+2025-08-12 15:45:47,789 - pipelines.pipelines - INFO - Stock Analysis Pipeline initialized successfully
+2025-08-12 15:45:47,789 - __main__ - INFO - Starting batch analysis pipeline for 1 stocks
+2025-08-12 15:45:47,789 - pipelines.pipelines - INFO - Starting batch analysis of 1 stocks: ['QCOM']
+2025-08-12 15:45:47,789 - pipelines.pipelines - INFO - Analyzing stock 1/1: QCOM
+2025-08-12 15:45:47,789 - pipelines.pipelines - INFO - Starting analysis for stock: QCOM
+2025-08-12 15:45:47,789 - pipelines.pipelines - INFO - Step 1/3: Gathering financial data for QCOM
+2025-08-12 15:45:47,789 - pipelines.pipelines - INFO - Retrieving financial data for QCOM
+2025-08-12 15:45:47,789 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Processing complete financial analysis for QCOM
+2025-08-12 15:45:47,789 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Starting financial data gathering for QCOM
+2025-08-12 15:45:47,789 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for QCOM with function EARNINGS
+2025-08-12 15:45:49,917 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for QCOM
+2025-08-12 15:45:49,925 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for QCOM with function INCOME_STATEMENT
+2025-08-12 15:45:51,646 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for QCOM
+2025-08-12 15:45:51,650 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for QCOM with function BALANCE_SHEET
+2025-08-12 15:45:53,279 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for QCOM
+2025-08-12 15:45:53,283 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for QCOM with function CASH_FLOW
+2025-08-12 15:45:54,884 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for QCOM
+2025-08-12 15:45:54,896 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully compiled financial data for QCOM
+2025-08-12 15:45:54,897 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Calculating percentage changes and free cash flow
+2025-08-12 15:45:54,900 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully calculated changes and free cash flow
+2025-08-12 15:45:54,900 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Calculating financial ratios
+2025-08-12 15:45:54,902 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully calculated financial ratios
+2025-08-12 15:45:54,912 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Converting DataFrame to HTML format
+2025-08-12 15:45:54,916 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully converted DataFrame to HTML. Length: 4004 characters
+2025-08-12 15:45:54,916 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully completed financial analysis for QCOM
+2025-08-12 15:45:54,916 - pipelines.pipelines - INFO - Financial data retrieved successfully for QCOM
+2025-08-12 15:45:54,916 - pipelines.pipelines - INFO - Financial data retrieved for QCOM. Length: 4004 characters
+2025-08-12 15:45:54,917 - pipelines.pipelines - INFO - Step 2/3: Analyzing news sentiment for QCOM
+2025-08-12 15:45:54,917 - pipelines.pipelines - INFO - Retrieving sentiment analysis for QCOM
+2025-08-12 15:45:54,917 - news_sentiment.news_collator - INFO - Searching for news with query: QCOM
+2025-08-12 15:46:01,194 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:46:01,221 - news_sentiment.news_collator - INFO - Generated queries: ['Qualcomm stock news August 2025 AI data centers partnership with HUMAIN', 'Qualcomm Technologies semiconductor business performance August 2025', 'Qualcomm stock performance compared to semiconductor industry August 2025'], type: <class 'list'>
+2025-08-12 15:46:05,851 - news_sentiment.news_collator - INFO - Found 10 results for query: Qualcomm stock news August 2025 AI data centers partnership with HUMAIN
+2025-08-12 15:46:09,095 - news_sentiment.news_collator - INFO - Found 10 results for query: Qualcomm Technologies semiconductor business performance August 2025
+2025-08-12 15:46:12,365 - news_sentiment.news_collator - INFO - Found 10 results for query: Qualcomm stock performance compared to semiconductor industry August 2025
+2025-08-12 15:46:12,365 - news_sentiment.news_collator - INFO - Total search results found: 30
+2025-08-12 15:46:12,365 - news_sentiment.news_collator - INFO - result length 6853 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,365 - news_sentiment.news_collator - INFO - result length 13102 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,365 - news_sentiment.news_collator - INFO - result length 2762 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,365 - news_sentiment.news_collator - INFO - result length 23027 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,365 - news_sentiment.news_collator - INFO - result length 4728 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,366 - news_sentiment.news_collator - INFO - result length 2504 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,366 - news_sentiment.news_collator - INFO - result length 4818 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,366 - news_sentiment.news_collator - INFO - result length 13727 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,366 - news_sentiment.news_collator - INFO - result length 2641 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,366 - news_sentiment.news_collator - INFO - result length 12674 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,366 - news_sentiment.news_collator - INFO - result length 9210 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,366 - news_sentiment.news_collator - INFO - result length 23027 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,366 - news_sentiment.news_collator - INFO - result length 2762 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,366 - news_sentiment.news_collator - INFO - result length 2223 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,366 - news_sentiment.news_collator - INFO - result length 5094 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,367 - news_sentiment.news_collator - INFO - result length 24252 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,367 - news_sentiment.news_collator - INFO - result length 13102 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,367 - news_sentiment.news_collator - INFO - result length 24679 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,367 - news_sentiment.news_collator - INFO - result length 2504 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,367 - news_sentiment.news_collator - INFO - result length 7968 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,367 - news_sentiment.news_collator - INFO - result length 11384 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,367 - news_sentiment.news_collator - INFO - result length 2504 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,367 - news_sentiment.news_collator - INFO - result length 16175 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,367 - news_sentiment.news_collator - INFO - result length 4059 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,367 - news_sentiment.news_collator - INFO - result length 5007 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,367 - news_sentiment.news_collator - INFO - result length 2489 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,367 - news_sentiment.news_collator - INFO - result length 26016 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,367 - news_sentiment.news_collator - INFO - result length 2762 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,367 - news_sentiment.news_collator - INFO - result length 24252 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,367 - news_sentiment.news_collator - INFO - result length 7198 type <class 'exa_py.api.Result'>
+2025-08-12 15:46:12,367 - news_sentiment.news_collator - INFO - Found 30 articles for query: Qualcomm stock performance compared to semiconductor industry August 2025
+2025-08-12 15:46:20,087 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:46:20,092 - news_sentiment.news_collator - INFO - Generated summary for article: Is Qualcomm Stock a Smart Buy Before Q3 Earnings R...
+2025-08-12 15:46:25,813 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:46:25,816 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm Q3 revenue up 10% as it expands into smar...
+2025-08-12 15:46:30,535 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:46:30,539 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (QCOM) Reports Q3 Revenue Of US$10 Billio...
+2025-08-12 15:46:36,353 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:46:36,363 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm Q3 FY 2025 Earnings Driven by Auto and Io...
+2025-08-12 15:46:40,926 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:46:40,930 - news_sentiment.news_collator - INFO - Generated summary for article: Broadcom Jericho 4 Networking Chip For AI Data Cen...
+2025-08-12 15:46:46,431 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:46:46,434 - news_sentiment.news_collator - INFO - Generated summary for article: Benchmark Stays Bullish on Qualcomm (QCOM) —Here’s...
+2025-08-12 15:46:50,568 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:46:50,582 - news_sentiment.news_collator - INFO - Generated summary for article: Intel Eyes Ericsson Partnership for $Billion NEX I...
+2025-08-12 15:46:56,749 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:46:56,760 - news_sentiment.news_collator - INFO - Generated summary for article: AMD's Ryzen AI Max+ 395 Chip is Game Changer in De...
+2025-08-12 15:47:03,070 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:47:03,073 - news_sentiment.news_collator - INFO - Generated summary for article: AMD's AI Chips Gain Ground in Data Centers: A Sign...
+2025-08-12 15:47:07,734 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:47:07,735 - news_sentiment.news_collator - INFO - Generated summary for article: Arteris, Inc. Licenses FlexGen NoC IP to AMD for N...
+2025-08-12 15:47:12,947 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:47:12,952 - news_sentiment.news_collator - INFO - Generated summary for article: The Bull Case For QUALCOMM (QCOM) Could Change Fol...
+2025-08-12 15:47:19,262 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:47:19,264 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm Q3 FY 2025 Earnings Driven by Auto and Io...
+2025-08-12 15:47:23,910 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:47:23,915 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (QCOM) Reports Q3 Revenue Of US$10 Billio...
+2025-08-12 15:47:27,611 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:47:27,613 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm - Investor Relations...
+2025-08-12 15:47:33,320 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:47:33,334 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm's premium smartphone chip reliance, Apple...
+2025-08-12 15:47:40,916 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:47:40,919 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm FY 2025 3rd Quarter Earnings Release...
+2025-08-12 15:47:44,802 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:47:44,805 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm Q3 revenue up 10% as it expands into smar...
+2025-08-12 15:47:47,872 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:47:47,877 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm shares drops, but exceeds Q2 2025 estimat...
+2025-08-12 15:47:56,535 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:47:56,542 - news_sentiment.news_collator - INFO - Generated summary for article: Benchmark Stays Bullish on Qualcomm (QCOM) —Here's...
+2025-08-12 15:47:59,074 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:47:59,085 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm sees handset rebound by year-end, signals...
+2025-08-12 15:48:04,484 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:48:04,488 - news_sentiment.news_collator - INFO - Generated summary for article: The Best Semiconductor Stocks to Buy Now - Daily F...
+2025-08-12 15:48:09,839 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:48:09,841 - news_sentiment.news_collator - INFO - Generated summary for article: Benchmark Stays Bullish on Qualcomm (QCOM) —Here’s...
+2025-08-12 15:48:16,767 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:48:16,772 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (NASDAQ:QCOM) Trading Down 1%  - What's N...
+2025-08-12 15:48:20,613 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:48:20,615 - news_sentiment.news_collator - INFO - Generated summary for article: I'm Long Qualcomm: A Cheap Stock With An Expensive...
+2025-08-12 15:48:25,889 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:48:25,893 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (QCOM) Stock Forecast & Price Targets...
+2025-08-12 15:48:29,154 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:48:29,157 - news_sentiment.news_collator - INFO - Generated summary for article: 1 Incredible Reason to Buy This Value Stock Before...
+2025-08-12 15:48:42,838 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:48:42,839 - news_sentiment.news_collator - INFO - Generated summary for article: 7 Best Semiconductor Stocks to Buy for 2025 | Inve...
+2025-08-12 15:48:47,187 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:48:47,197 - news_sentiment.news_collator - INFO - Generated summary for article: QUALCOMM (QCOM) Reports Q3 Revenue Of US$10 Billio...
+2025-08-12 15:48:54,602 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:48:54,605 - news_sentiment.news_collator - INFO - Generated summary for article: Qualcomm FY 2025 3rd Quarter Earnings Release...
+2025-08-12 15:49:00,385 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:49:00,386 - news_sentiment.news_collator - INFO - Generated summary for article: ARM Down Over 11%, Worst Performer in the Nasdaq 1...
+2025-08-12 15:49:11,532 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:49:11,535 - news_sentiment.news_collator - INFO - Raw sentiment response: The sentiment for Qualcomm (QCOM) based on the provided news summaries is generally positive, with some cautionary notes. Here's a breakdown:
+
+1. **Positive Developments**: Qualcomm reported strong Q3 FY 2025 earnings, with a 10% increase in revenue to $10.4 billion and a 25% rise in net income to $2.67 billion. The company's diversification strategy is paying off, with significant growth in the automotive (21%) and IoT (24%) segments. Qualcomm's strategic acquisitions, such as Alphawave Semi, and its expansion into AI and data centers, are seen as positive moves for long-term growth. The company also declared a quarterly dividend, appealing to long-term investors. These factors suggest a positive sentiment score of +3.
+
+2. **Challenges and Risks**: Despite the positive earnings, Qualcomm faces challenges, such as the anticipated loss of Apple as a modem customer, which could impact future revenues. The company's reliance on high-end smartphone chips and competition from MediaTek in the mid-range segment are also concerns. These challenges introduce some caution, suggesting a mildly negative sentiment score of -1.
+
+3. **Market Reaction and Analyst Views**: Qualcomm's stock performance has been mixed, with some analysts maintaining a "Buy" rating and others expressing concerns about the impact of losing Apple as a client. The stock's current valuation is seen as attractive, with potential upside based on analyst price targets. This mixed market reaction suggests a neutral sentiment score of 0.
+
+Overall, the sentiment for Qualcomm is positive, with a sentiment score of +2, reflecting strong financial performance and strategic growth initiatives, tempered by challenges related to competition and customer dependency.
+2025-08-12 15:49:45,240 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:49:45,246 - news_sentiment.news_collator - INFO - Raw sentiment response: The sentiment for the Qualcomm sector, based on the provided news summaries, is mildly positive. Here are the key points influencing this sentiment:
+
+1. **Financial Performance**: Qualcomm reported strong third-quarter financial results, with revenue reaching $10.365 billion and net income rising to $2.666 billion year-over-year. The company also declared a quarterly dividend, appealing to long-term investors. This indicates a solid financial standing and shareholder-friendly policies.
+
+2. **Diversification Strategy**: Qualcomm's diversification into automotive and IoT sectors is showing success, with these segments growing by 23% combined. This strategy is helping to offset the slower growth in the handset segment and reducing dependency on smartphone cycles.
+
+3. **Challenges and Risks**: Despite the positive financial results, Qualcomm faces challenges such as the anticipated loss of Apple as a modem customer and competitive pressures from companies like MediaTek and Broadcom. These factors could impact future revenue streams.
+
+4. **Market Position and Valuation**: Qualcomm's stock has underperformed relative to the broader semiconductor industry, but it is considered undervalued with a P/E ratio of 14.24. Analysts have a "Buy" rating with a price target suggesting potential upside.
+
+5. **Strategic Initiatives**: The company's focus on AI, automotive, and IoT, along with strategic acquisitions like Alphawave Semi, positions it well for future growth. Qualcomm's efforts to expand into data centers and smart devices further support its long-term growth prospects.
+
+Overall, while Qualcomm faces some headwinds, its strong financial performance, successful diversification strategy, and strategic initiatives in emerging markets contribute to a mildly positive sentiment for the sector.
+
+**Sentiment Score: +2**
+2025-08-12 15:49:45,246 - pipelines.pipelines - INFO - Sentiment analysis retrieved successfully for QCOM
+2025-08-12 15:49:45,246 - pipelines.pipelines - INFO - Sentiment analysis completed for QCOM. Company sentiment length: 1742, Sector sentiment length: 1836
+2025-08-12 15:49:45,246 - pipelines.pipelines - INFO - Step 3/3: Generating rating for QCOM
+2025-08-12 15:49:45,246 - pipelines.pipelines - INFO - Generating rating for QCOM
+2025-08-12 15:49:45,246 - ratings.rater - INFO - Starting stock rating analysis for QCOM
+2025-08-12 15:49:45,247 - ratings.rater - INFO - Creating rating prompt for QCOM
+2025-08-12 15:49:45,247 - ratings.rater - INFO - Creating rating prompt for QCOM
+2025-08-12 15:49:45,247 - ratings.rater - INFO - Loading stock rating prompt template
+2025-08-12 15:49:45,248 - ratings.rater - INFO - Formatting prompt with data for QCOM
+2025-08-12 15:49:45,248 - ratings.rater - INFO - Rating prompt created for QCOM. Length: 10027 characters
+2025-08-12 15:49:45,248 - ratings.rater - INFO - Sending rating request to ChatOpenAI for QCOM
+2025-08-12 15:49:51,075 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 15:49:51,079 - ratings.rater - INFO - Received rating response for QCOM. Length: 1536 characters
+2025-08-12 15:49:51,079 - ratings.rater - INFO - Parsing JSON response for QCOM
+2025-08-12 15:49:51,080 - ratings.rater - INFO - Extracted JSON from markdown code block for QCOM
+2025-08-12 15:49:51,080 - ratings.rater - INFO - Successfully parsed JSON response for QCOM
+2025-08-12 15:49:51,080 - ratings.rater - INFO - Creating RatingResult object for QCOM
+2025-08-12 15:49:51,080 - ratings.rater - INFO - Successfully rated QCOM as Buy with confidence 85.0%
+2025-08-12 15:49:51,080 - pipelines.pipelines - INFO - Rating generated successfully for QCOM
+2025-08-12 15:49:51,080 - pipelines.pipelines - INFO - Rating generated for QCOM: Buy (Confidence: 85.0%)
+2025-08-12 15:49:51,080 - pipelines.pipelines - INFO - Analysis completed for QCOM. Processing time: 243.29 seconds
+2025-08-12 15:49:51,080 - pipelines.pipelines - INFO - Successfully completed analysis for QCOM
+2025-08-12 15:49:51,080 - pipelines.pipelines - INFO - Progress: 1/1 completed, 1 successful
+2025-08-12 15:49:51,081 - pipelines.pipelines - INFO - Batch analysis completed. 1/1 successful
+2025-08-12 15:49:51,081 - __main__ - INFO - Batch analysis completed. Successful: 1, Failed: 0
+2025-08-12 15:49:51,081 - __main__ - INFO - Stock QCOM: Buy (Confidence: 85.0%)
+2025-08-12 15:49:51,081 - __main__ - INFO - Exporting analysis files to directory: analysis_results in txt format
+2025-08-12 15:49:51,082 - pipelines.pipelines - INFO - Created/verified output directory: analysis_results
+2025-08-12 15:49:51,082 - pipelines.pipelines - INFO - Exporting analysis for QCOM to analysis_results/QCOM_20250812_154951.txt in txt format
+2025-08-12 15:49:51,082 - pipelines.pipelines - INFO - Exporting QCOM analysis to text file: analysis_results/QCOM_20250812_154951.txt
+2025-08-12 15:49:51,082 - pipelines.pipelines - INFO - Creating analysis summary for QCOM
+2025-08-12 15:49:51,082 - pipelines.pipelines - INFO - Getting rating summary for QCOM
+2025-08-12 15:49:51,082 - ratings.rater - INFO - Creating rating summary
+2025-08-12 15:49:51,082 - ratings.rater - INFO - Rating summary created. Length: 1428 characters
+2025-08-12 15:49:51,082 - pipelines.pipelines - INFO - Creating complete analysis summary for QCOM
+2025-08-12 15:49:51,082 - pipelines.pipelines - INFO - Analysis summary created for QCOM. Length: 9265 characters
+2025-08-12 15:49:51,085 - pipelines.pipelines - INFO - Analysis exported to analysis_results/QCOM_20250812_154951.txt
+2025-08-12 15:49:51,085 - pipelines.pipelines - INFO - Exported QCOM (1/1)
+2025-08-12 15:49:51,085 - pipelines.pipelines - INFO - Batch export completed. Successful: 1, Failed: 0
+2025-08-12 15:49:51,085 - pipelines.pipelines - INFO - Creating analysis summary for QCOM
+2025-08-12 15:49:51,085 - pipelines.pipelines - INFO - Getting rating summary for QCOM
+2025-08-12 15:49:51,086 - ratings.rater - INFO - Creating rating summary
+2025-08-12 15:49:51,086 - ratings.rater - INFO - Rating summary created. Length: 1428 characters
+2025-08-12 15:49:51,086 - pipelines.pipelines - INFO - Creating complete analysis summary for QCOM
+2025-08-12 15:49:51,086 - pipelines.pipelines - INFO - Analysis summary created for QCOM. Length: 9265 characters
+2025-08-12 16:51:43,904 - utils.config - INFO - Logging configured with level: INFO
+2025-08-12 16:51:44,362 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-08-12 16:51:44,362 - __main__ - INFO - Stock Analysis Pipeline CLI started
+2025-08-12 16:51:44,362 - __main__ - INFO - Starting batch analysis for 1 stocks: ['UPWK']
+2025-08-12 16:51:44,362 - __main__ - INFO - Initializing Stock Analysis Pipeline for batch processing
+2025-08-12 16:51:44,362 - pipelines.pipelines - INFO - Initializing Stock Analysis Pipeline...
+2025-08-12 16:51:44,362 - pipelines.pipelines - INFO - Initializing FinancialDataGatherer
+2025-08-12 16:51:44,363 - pipelines.pipelines - INFO - Initializing SentimentCollator
+2025-08-12 16:51:44,447 - news_sentiment.news_collator - INFO - NewsCollator initialized successfully
+2025-08-12 16:51:44,447 - pipelines.pipelines - INFO - Initializing StockRater
+2025-08-12 16:51:44,447 - ratings.rater - INFO - Initializing StockRater
+2025-08-12 16:51:44,447 - ratings.rater - INFO - Initializing ChatOpenAI for stock rating
+2025-08-12 16:51:44,584 - ratings.rater - INFO - StockRater initialized successfully
+2025-08-12 16:51:44,584 - pipelines.pipelines - INFO - Stock Analysis Pipeline initialized successfully
+2025-08-12 16:51:44,584 - __main__ - INFO - Starting batch analysis pipeline for 1 stocks
+2025-08-12 16:51:44,584 - pipelines.pipelines - INFO - Starting batch analysis of 1 stocks: ['UPWK']
+2025-08-12 16:51:44,584 - pipelines.pipelines - INFO - Analyzing stock 1/1: UPWK
+2025-08-12 16:51:44,584 - pipelines.pipelines - INFO - Starting analysis for stock: UPWK
+2025-08-12 16:51:44,584 - pipelines.pipelines - INFO - Step 1/3: Gathering financial data for UPWK
+2025-08-12 16:51:44,584 - pipelines.pipelines - INFO - Retrieving financial data for UPWK
+2025-08-12 16:51:44,584 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Processing complete financial analysis for UPWK
+2025-08-12 16:51:44,585 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Starting financial data gathering for UPWK
+2025-08-12 16:51:44,585 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for UPWK with function EARNINGS
+2025-08-12 16:51:46,213 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for UPWK
+2025-08-12 16:51:46,224 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for UPWK with function INCOME_STATEMENT
+2025-08-12 16:51:47,736 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for UPWK
+2025-08-12 16:51:47,739 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for UPWK with function BALANCE_SHEET
+2025-08-12 16:51:49,310 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for UPWK
+2025-08-12 16:51:49,316 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Making API call for UPWK with function CASH_FLOW
+2025-08-12 16:51:50,171 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully retrieved data for UPWK
+2025-08-12 16:51:50,182 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully compiled financial data for UPWK
+2025-08-12 16:51:50,182 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Calculating percentage changes and free cash flow
+2025-08-12 16:51:50,184 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully calculated changes and free cash flow
+2025-08-12 16:51:50,184 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Calculating financial ratios
+2025-08-12 16:51:50,185 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully calculated financial ratios
+2025-08-12 16:51:50,192 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Converting DataFrame to HTML format
+2025-08-12 16:51:50,195 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully converted DataFrame to HTML. Length: 3933 characters
+2025-08-12 16:51:50,195 - fundamentals.alphavantage.AlphavantageFinancialDataGatherer - INFO - Successfully completed financial analysis for UPWK
+2025-08-12 16:51:50,195 - pipelines.pipelines - INFO - Financial data retrieved successfully for UPWK
+2025-08-12 16:51:50,195 - pipelines.pipelines - INFO - Financial data retrieved for UPWK. Length: 3933 characters
+2025-08-12 16:51:50,195 - pipelines.pipelines - INFO - Step 2/3: Analyzing news sentiment for UPWK
+2025-08-12 16:51:50,195 - pipelines.pipelines - INFO - Retrieving sentiment analysis for UPWK
+2025-08-12 16:51:50,195 - news_sentiment.news_collator - INFO - Searching for news with query: UPWK
+2025-08-12 16:51:55,030 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:51:55,051 - news_sentiment.news_collator - INFO - Generated queries: ['Upwork Inc stock news August 2025', 'Upwork Inc Q2 2025 earnings report analysis', 'Upwork Inc stock performance compared to online marketplace sector 2025'], type: <class 'list'>
+2025-08-12 16:51:59,674 - news_sentiment.news_collator - INFO - Found 10 results for query: Upwork Inc stock news August 2025
+2025-08-12 16:52:03,050 - news_sentiment.news_collator - INFO - Found 10 results for query: Upwork Inc Q2 2025 earnings report analysis
+2025-08-12 16:52:07,008 - news_sentiment.news_collator - INFO - Found 10 results for query: Upwork Inc stock performance compared to online marketplace sector 2025
+2025-08-12 16:52:07,009 - news_sentiment.news_collator - INFO - Total search results found: 30
+2025-08-12 16:52:07,009 - news_sentiment.news_collator - INFO - result length 7336 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,009 - news_sentiment.news_collator - INFO - result length 6906 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,009 - news_sentiment.news_collator - INFO - result length 15992 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,009 - news_sentiment.news_collator - INFO - result length 344 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,009 - news_sentiment.news_collator - INFO - result length 6568 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,009 - news_sentiment.news_collator - INFO - result length 10552 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,009 - news_sentiment.news_collator - INFO - result length 4851 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,009 - news_sentiment.news_collator - INFO - result length 30915 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,009 - news_sentiment.news_collator - INFO - result length 3504 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,009 - news_sentiment.news_collator - INFO - result length 4142 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,010 - news_sentiment.news_collator - INFO - result length 344 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,010 - news_sentiment.news_collator - INFO - result length 5611 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,010 - news_sentiment.news_collator - INFO - result length 50066 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,010 - news_sentiment.news_collator - INFO - result length 30915 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,010 - news_sentiment.news_collator - INFO - result length 10552 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,010 - news_sentiment.news_collator - INFO - result length 35570 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,010 - news_sentiment.news_collator - INFO - result length 4851 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,010 - news_sentiment.news_collator - INFO - result length 12281 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,010 - news_sentiment.news_collator - INFO - result length 26187 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,010 - news_sentiment.news_collator - INFO - result length 37519 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,010 - news_sentiment.news_collator - INFO - result length 1653 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,010 - news_sentiment.news_collator - INFO - result length 344 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,010 - news_sentiment.news_collator - INFO - result length 4851 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,010 - news_sentiment.news_collator - INFO - result length 10552 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,010 - news_sentiment.news_collator - INFO - result length 30915 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,010 - news_sentiment.news_collator - INFO - result length 8289 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,010 - news_sentiment.news_collator - INFO - result length 12281 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,010 - news_sentiment.news_collator - INFO - result length 4992 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,010 - news_sentiment.news_collator - INFO - result length 4142 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,010 - news_sentiment.news_collator - INFO - result length 9746 type <class 'exa_py.api.Result'>
+2025-08-12 16:52:07,010 - news_sentiment.news_collator - INFO - Found 30 articles for query: Upwork Inc stock performance compared to online marketplace sector 2025
+2025-08-12 16:52:11,121 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:52:11,123 - news_sentiment.news_collator - INFO - Generated summary for article: Earnings growth outpaced the decent 46% return del...
+2025-08-12 16:52:15,837 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:52:15,841 - news_sentiment.news_collator - INFO - Generated summary for article: Upwork Inc's Earnings Call Highlights AI-Driven Gr...
+2025-08-12 16:52:20,434 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:52:20,449 - news_sentiment.news_collator - INFO - Generated summary for article: Upwork (NASDAQ:UPWK) Issues FY 2025 Earnings Guida...
+2025-08-12 16:52:25,013 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:52:25,019 - news_sentiment.news_collator - INFO - Generated summary for article: (UPWK) Upwork Revenue: 2016-2025 Annual Revenue...
+2025-08-12 16:52:34,635 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:52:34,641 - news_sentiment.news_collator - INFO - Generated summary for article: News Releases | Upwork Inc....
+2025-08-12 16:52:39,414 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:52:39,418 - news_sentiment.news_collator - INFO - Generated summary for article: Upwork launches AI-conducted interviews to help em...
+2025-08-12 16:52:47,069 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:52:47,074 - news_sentiment.news_collator - INFO - Generated summary for article: Upwork (UPWK) Company Profile & Description...
+2025-08-12 16:52:58,931 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:52:58,946 - news_sentiment.news_collator - INFO - Generated summary for article: Upstart Announces Results for Second Quarter 2025 ...
+2025-08-12 16:53:05,039 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:53:05,067 - news_sentiment.news_collator - INFO - Generated summary for article: NYC Office Shooting, Trump In Scotland, Gaza Aid L...
+2025-08-12 16:53:12,244 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:53:12,246 - news_sentiment.news_collator - INFO - Generated summary for article: Stock market today: Trump tariffs and Amazon miss ...
+2025-08-12 16:53:15,727 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:53:15,744 - news_sentiment.news_collator - INFO - Generated summary for article: (UPWK) Upwork Revenue: 2016-2025 Annual Revenue...
+2025-08-12 16:53:20,672 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:53:20,676 - news_sentiment.news_collator - INFO - Generated summary for article: Upwork Inc. (UPWK) Company Profile & Facts - Yahoo...
+2025-08-12 16:53:31,223 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:53:31,227 - news_sentiment.news_collator - INFO - Generated summary for article: Earnings call transcript: ASGN Q2 2025 beats forec...
+2025-08-12 16:53:39,757 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:53:39,760 - news_sentiment.news_collator - INFO - Generated summary for article: Upstart Announces Results for Second Quarter 2025 ...
+2025-08-12 16:53:43,734 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:53:43,737 - news_sentiment.news_collator - INFO - Generated summary for article: Upwork launches AI-conducted interviews to help em...
+2025-08-12 16:53:51,273 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:53:51,276 - news_sentiment.news_collator - INFO - Generated summary for article: Fiverr Announces Second Quarter 2025 Results | Fiv...
+2025-08-12 16:53:55,977 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:53:55,983 - news_sentiment.news_collator - INFO - Generated summary for article: Upwork (UPWK) Company Profile & Description...
+2025-08-12 16:54:03,028 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:54:03,032 - news_sentiment.news_collator - INFO - Generated summary for article: Upland (UPLD) Q2 Revenue Falls 23%...
+2025-08-12 16:54:08,925 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:54:08,930 - news_sentiment.news_collator - INFO - Generated summary for article: Workiva Inc. Announces Second Quarter 2025 Financi...
+2025-08-12 16:54:14,719 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:54:14,721 - news_sentiment.news_collator - INFO - Generated summary for article: UPS Releases 2Q 2025 Earnings...
+2025-08-12 16:54:17,302 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:54:17,305 - news_sentiment.news_collator - INFO - Generated summary for article: Upwork (UPWK) Stock Trades Up, Here Is Why - Yahoo...
+2025-08-12 16:54:20,677 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:54:20,678 - news_sentiment.news_collator - INFO - Generated summary for article: (UPWK) Upwork Revenue: 2016-2025 Annual Revenue...
+2025-08-12 16:54:25,457 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:54:25,460 - news_sentiment.news_collator - INFO - Generated summary for article: Upwork (UPWK) Company Profile & Description...
+2025-08-12 16:54:30,328 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:54:30,331 - news_sentiment.news_collator - INFO - Generated summary for article: Upwork launches AI-conducted interviews to help em...
+2025-08-12 16:54:37,949 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:54:37,951 - news_sentiment.news_collator - INFO - Generated summary for article: Upstart Announces Results for Second Quarter 2025 ...
+2025-08-12 16:54:46,103 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:54:46,107 - news_sentiment.news_collator - INFO - Generated summary for article: Explosive Rise: Figma (FIG) Stock Soars in 2025 IP...
+2025-08-12 16:54:52,832 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:54:52,836 - news_sentiment.news_collator - INFO - Generated summary for article: Upland (UPLD) Q2 Revenue Falls 23%...
+2025-08-12 16:54:57,537 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:54:57,541 - news_sentiment.news_collator - INFO - Generated summary for article: UnitedHealth Group and Deckers Outdoor are two of ...
+2025-08-12 16:55:02,936 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:55:02,945 - news_sentiment.news_collator - INFO - Generated summary for article: Stock market today: Trump tariffs and Amazon miss ...
+2025-08-12 16:55:06,634 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:55:06,640 - news_sentiment.news_collator - INFO - Generated summary for article: Why the stock market rally may mislead investors i...
+2025-08-12 16:55:27,999 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-12 16:55:28,028 - news_sentiment.news_collator - INFO - Raw sentiment response: The news articles about Upwork Inc. (UPWK) present a generally positive outlook for the company, with several key developments and financial metrics indicating growth and strategic advancements. Here's a sentiment analysis based on the provided summaries:
+
+1. **Earnings Growth and Shareholder Returns**: Upwork experienced a 46% increase in shareholder returns over the past year, outperforming the market despite a recent 25% drop in share price over the last quarter. The company reported a significant 233% growth in earnings per share (EPS), indicating strong company fundamentals. The market's cautious sentiment is reflected in Upwork's relatively low price-to-earnings (P/E) ratio of 7.12, suggesting potential undervaluation. This performance may signal a positive inflection point, contrasting with a five-year annualized total shareholder return (TSR) loss of 2% per year. Investors are advised to consider Upwork's long-term potential and risks. **Sentiment Score: +3** (Positive developments with potential undervaluation)
+
+2. **AI-Driven Growth and Record Revenue**: Upwork's Q2 earnings call highlighted significant growth driven by advancements in AI and strategic acquisitions. The company reported record Q2 revenue of $194.9 million, largely due to increased client hiring for AI-related work and effective monetization strategies. Upwork's net income was $32.7 million, with an adjusted EBITDA of $57.1 million, reflecting strong financial health. AI-related work saw a 30% year-over-year growth, with a 38% increase in clients posting AI jobs. Despite challenges in the enterprise segment, Upwork raised its full-year guidance for revenue and adjusted EBITDA, projecting continued growth and operational excellence. **Sentiment Score: +4** (Strong performance and strategic growth)
+
+3. **FY 2025 Earnings Guidance**: Upwork issued its FY 2025 earnings guidance, projecting an EPS of $1.140-$1.180 and revenue between $765.0 million and $775.0 million, surpassing analysts' expectations. This positive outlook led to a 10.2% increase in Upwork's stock price. Analysts have responded favorably, with JMP Securities raising their price target from $18.00 to $20.00, reflecting strong market confidence in Upwork's performance. **Sentiment Score: +4** (Positive market response and strong guidance)
+
+4. **AI-Conducted Interviews**: Upwork launched AI-conducted interviews to help employers sift through job applicants faster, enhancing the platform's value proposition. This move reflects a growing trend of integrating AI into recruitment processes, potentially setting a precedent for competitors in the freelancer marketplace industry. **Sentiment Score: +2** (Innovative product update with potential market impact)
+
+Overall, Upwork Inc. is experiencing positive developments with strong financial performance, strategic growth in AI, and innovative product offerings, contributing to a positive sentiment for the company's stock and financial outlook.

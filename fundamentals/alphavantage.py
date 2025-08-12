@@ -110,7 +110,7 @@ class AlphavantageFinancialDataGatherer:
             df = pd.merge(df, balance_sheet_df, on='fiscalDateEnding', how='left')
             df = pd.merge(df, cash_flow_df, on='fiscalDateEnding', how='left')
             # Convert all columns except 'fiscalDateEnding' to numeric
-            df[df.columns.difference(['fiscalDateEnding'])] = df[df.columns.difference(['fiscalDateEnding'])].apply(pd.to_numeric)
+            df[df.columns.difference(['fiscalDateEnding'])] = df[df.columns.difference(['fiscalDateEnding'])].apply(pd.to_numeric, errors='coerce')
 
             self.logger.info(f"Successfully compiled financial data for {stock_symbol}")
             return df

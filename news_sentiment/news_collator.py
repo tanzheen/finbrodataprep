@@ -90,9 +90,9 @@ class SentimentCollator:
 You are a financial news analyst. Today's date is {date}
 
 Your task:
-- Given a company and its context, generate **exactly** 5 search queries.
-- The first 3 queries must focus on **news about the company and its stock**.
-- The last 2 queries must focus on the **company's stock performance relative to its industry/sector**.
+- Given a company and its context, generate **exactly** 3 search queries.
+- The first 2 queries must focus on **news about the company and its stock**.
+- The last 1 queries must focus on the **company's stock performance relative to its industry/sector**.
 
 Requirements:
 - Queries must aim to find **informative and resourceful articles** that help assess whether the company's stock is a good investment.
